@@ -1,0 +1,4 @@
+[console_scripts]
+parlant = parlant.bin.client:main
+parlant-prepare-migration = parlant.bin.prepare_migration:main
+parlant-server = parlant.bin.server:main

@@ -1,0 +1,4 @@
+parlant
+sqlalchemy
+lark
+python-dotenv

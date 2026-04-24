@@ -1,0 +1,29 @@
+[2m2026-04-21T14:37:28.861297Z[0m [[32m[1minfo     [0m] [1m[<main>] Parlant server version 3.3.1[0m
+[2m2026-04-21T14:37:28.861297Z[0m [[32m[1minfo     [0m] [1m[<main>] Using home directory 'C:\Users\lucag\s\parlant-data'[0m
+[2m2026-04-21T14:37:28.864898Z[0m [[32m[1minfo     [0m] [1m[<main>] No external modules selected[0m
+[2m2026-04-24T10:23:12.493723Z[0m [[32m[1minfo     [0m] [1m[<main>] Parlant server version 3.3.1[0m
+[2m2026-04-24T10:23:12.495782Z[0m [[32m[1minfo     [0m] [1m[<main>] Using home directory 'C:\Users\lucag\s\parlant-data'[0m
+[2m2026-04-24T10:23:12.500957Z[0m [[32m[1minfo     [0m] [1m[<main>] No external modules selected[0m
+[2m2026-04-24T10:28:15.912776Z[0m [[32m[1minfo     [0m] [1m[<main>] Parlant server version 3.3.1[0m
+[2m2026-04-24T10:28:15.912776Z[0m [[32m[1minfo     [0m] [1m[<main>] Using home directory 'C:\Users\lucag\s\parlant-data'[0m
+[2m2026-04-24T10:28:15.932712Z[0m [[32m[1minfo     [0m] [1m[<main>] No external modules selected[0m
+[2m2026-04-24T10:28:17.241298Z[0m [[32m[1minfo     [0m] [1m[<main>] Initialized OpenAIService[0m
+[2m2026-04-24T10:32:25.400647Z[0m [[32m[1minfo     [0m] [1m[<main>] Parlant server version 3.3.1[0m
+[2m2026-04-24T10:32:25.400647Z[0m [[32m[1minfo     [0m] [1m[<main>] Using home directory 'C:\Users\lucag\s\parlant-data'[0m
+[2m2026-04-24T10:32:25.405979Z[0m [[32m[1minfo     [0m] [1m[<main>] No external modules selected[0m
+[2m2026-04-24T10:32:26.382586Z[0m [[32m[1minfo     [0m] [1m[<main>] Initialized OpenAIService[0m
+[2m2026-04-24T10:32:27.549009Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Cancelling all remaining tasks (1)[0m
+[2m2026-04-24T10:32:27.549009Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Shutting down[0m
+[2m2026-04-24T10:34:20.914806Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Cancelling all remaining tasks (1)[0m
+[2m2026-04-24T10:34:20.927495Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Shutting down[0m
+[2m2026-04-24T10:34:20.929095Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Waiting for task 'websocket-logger' to finish[0m
+[2m2026-04-24T10:34:32.845845Z[0m [[32m[1minfo     [0m] [1m[<main>] Parlant server version 3.3.1[0m
+[2m2026-04-24T10:34:32.845845Z[0m [[32m[1minfo     [0m] [1m[<main>] Using home directory 'C:\Users\lucag\s\parlant-data'[0m
+[2m2026-04-24T10:34:32.856906Z[0m [[32m[1minfo     [0m] [1m[<main>] No external modules selected[0m
+[2m2026-04-24T10:34:34.799089Z[0m [[32m[1minfo     [0m] [1m[<main>] Initialized OpenAIService[0m
+[2m2026-04-24T10:34:45.352683Z[0m [[32m[1minfo     [0m] [1m[<main>] .-----------------------------------------.[0m
+[2m2026-04-24T10:34:45.352683Z[0m [[32m[1minfo     [0m] [1m[<main>] | Server is ready for some serious action |[0m
+[2m2026-04-24T10:34:45.352683Z[0m [[32m[1minfo     [0m] [1m[<main>] '-----------------------------------------'[0m
+[2m2026-04-24T10:34:45.352683Z[0m [[32m[1minfo     [0m] [1m[<main>] Server authorization policy: development[0m
+[2m2026-04-24T10:34:45.352683Z[0m [[32m[1minfo     [0m] [1m[<main>] Try the Sandbox UI at http://localhost:8800[0m
+[2m2026-04-24T10:34:45.645450Z[0m [[32m[1minfo     [0m] [1m[<main>] Server is ready to accept requests.[0m

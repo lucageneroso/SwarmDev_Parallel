@@ -1,0 +1,28 @@
+// core/grammar/a2a_ocl.lark
+
+constraint    : "context" TYPE "inv:" expression
+
+expression    : logical_expr
+logical_expr  : rel_expr (("and" | "or" | "implies") rel_expr)*
+rel_expr      : add_expr (("=" | "!=" | "<" | ">" | "<=" | ">=") add_expr)?
+add_expr      : factor (("+" | "-") factor)*
+
+factor        : LITERAL | navigation | "(" expression ")" | "not" factor
+
+navigation    : ("self" | IDENTIFIER) ("." IDENTIFIER)* ("->" collection_op)?
+collection_op : method_call | iterator_call
+
+method_call   : IDENTIFIER "(" arguments? ")"
+iterator_call : ("forAll" | "exists") "(" IDENTIFIER "|" expression ")"
+arguments     : expression ("," expression)*
+
+// Token Terminali
+TYPE          : IDENTIFIER
+LITERAL       : NUMBER | STRING | BOOLEAN
+BOOLEAN       : "true" | "false"
+IDENTIFIER    : /[a-zA-Z_][a-zA-Z0-9_]*/
+
+%import common.NUMBER
+%import common.ESCAPED_STRING -> STRING
+%import common.WS
+%ignore WS

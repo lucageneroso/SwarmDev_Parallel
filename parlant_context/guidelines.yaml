@@ -1,0 +1,10 @@
+# parlant_context/guidelines.yaml
+guidelines:
+  - condition: "L'utente richiede di inserire un Quality Gate basato su metriche di McCall (es. complessità, coverage)."
+    action: "Devi generare un vincolo in formato A2A-OCL. Inizia sempre con 'context Code inv: self.[metrica]'. Non usare mai testo discorsivo."
+
+  - condition: "Stai traducendo una regola di ragionamento (ARQ) che richiede la validazione di una lista o collezione di elementi (es. endpoint, chiamate)."
+    action: "Devi utilizzare la variabile 'self', seguita dal nome della collezione, l'operatore freccia '->' e il metodo iterativo. Esempio rigoroso: 'self.chiamate->forAll(c | ...)'."
+
+  - condition: "Stai per finalizzare un'espressione A2A-OCL contenente cicli o iterazioni."
+    action: "Non utilizzare mai i token 'foreach', 'for', o 'while'. Gli unici iteratori consentiti dal linguaggio sono 'forAll' e 'exists'."

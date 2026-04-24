@@ -1,0 +1,20 @@
+{
+  "guideline_evaluations_3.3.1": [
+    {
+      "id": "15471f75572b3ba453d1414510c57b80",
+      "creation_utc": "2026-04-24T10:34:45.127991+00:00",
+      "version": "3.3.1",
+      "properties": {
+        "continuous": false,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": false,
+          "customer_action": "",
+          "agent_action": ""
+        },
+        "agent_intention_condition": "You are likely to insert or confirm an A2A-OCL expression within a JSON Contract",
+        "internal_action": null
+      }
+    }
+  ],
+  "journey_evaluations_3.3.1": []
+}

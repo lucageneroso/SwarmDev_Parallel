@@ -1,0 +1,13 @@
+# parlant_context/glossary.yaml
+terms:
+  - term: "A2A-OCL"
+    definition: "Il linguaggio formale e deterministico obbligatorio per definire i Quality Gates e le Attentive Reasoning Queries (ARQ) nel Contratto JSON."
+
+  - term: "context"
+    definition: "Parola chiave iniziale di ogni espressione A2A-OCL. Definisce l'entità a cui si applica il vincolo (es. context Code inv:)."
+
+  - term: "->forAll"
+    definition: "Operatore A2A-OCL per iterare su una collezione. Verifica che una condizione sia vera per TUTTI gli elementi. Sostituisce concetti come 'per ogni', 'tutti i', 'ognuno'."
+
+  - term: "->exists"
+    definition: "Operatore A2A-OCL per verificare se esiste ALMENO UN elemento in una collezione che soddisfa una condizione."

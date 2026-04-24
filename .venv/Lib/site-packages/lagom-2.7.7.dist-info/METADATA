@@ -1,0 +1,160 @@
+Metadata-Version: 2.4
+Name: lagom
+Version: 2.7.7
+Summary: Lagom is a dependency injection container designed to give you 'just enough' help with building your dependencies.
+Author-email: Meadsteve <steve@meadsteve.dev>
+License: The MIT License (MIT)
+        
+        Copyright (c) 2019 Steve Brazier
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in
+        all copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+        THE SOFTWARE.
+        
+Project-URL: Documentation, https://lagom-di.readthedocs.io/
+Project-URL: Changelog, https://lagom-di.readthedocs.io/en/stable/CHANGELOG/
+Project-URL: Homepage, https://lagom-di.readthedocs.io/
+Project-URL: Github, https://github.com/meadsteve/lagom
+Project-URL: Source, https://github.com/meadsteve/lagom
+Project-URL: Issues, https://github.com/meadsteve/lagom/issues
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Typing :: Typed
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Provides-Extra: env
+Requires-Dist: pydantic<3.0.0,>=1.0.0; extra == "env"
+Dynamic: license-file
+
+# [![Lagom](./docs/images/logo_and_text.png)](https://lagom-di.readthedocs.io/en/stable/)
+
+[![](https://img.shields.io/pypi/pyversions/lagom.svg)](https://pypi.org/pypi/lagom/)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/meadsteve/lagom/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/meadsteve/lagom/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/meadsteve/lagom/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/meadsteve/lagom/?branch=master)
+![PyPI](https://img.shields.io/pypi/v/lagom.svg?style=plastic)
+
+## What
+Lagom is a dependency injection container designed to give you "just enough"
+help with building your dependencies. The intention is that almost
+all of your code doesn't know about or rely on lagom. Lagom will
+only be involved at the top level to pull everything together.
+
+### Features
+
+ * Type based auto wiring with zero configuration.
+ * Fully based on types. Strong integration with mypy.
+ * Minimal changes to existing code.
+ * Integration with a few common web frameworks.
+ * Support for async python.
+ * Thread-safe at runtime
+ 
+You can see a [comparison to other frameworks here](https://lagom-di.readthedocs.io/en/stable/comparison/)
+
+## 🎉 Version 2.0.0 is now released! 🎉
+For users of python 3.7 and above this should require no changes. Full details can be found in the release notes [upgrade instructions](https://lagom-di.readthedocs.io/en/stable/CHANGELOG/#upgrade-instructions).
+
+## Installation
+```bash
+pip install lagom
+# or: 
+# pipenv install lagom
+# poetry add lagom
+```
+Note: if you decide to clone from source then make sure you use the latest version tag. The `master` branch may contain features that will be removed.
+
+For the versioning policy read here: [SemVer in Lagom](https://lagom-di.readthedocs.io/en/latest/CONTRIBUTING/#versioning-semver)
+
+## Usage
+Everything in Lagom is based on types. To create an object
+you pass the type to the container:
+```python
+container = Container()
+some_thing = container[SomeClass]
+```
+
+### Auto-wiring (with zero configuration)
+Most of the time Lagom doesn't need to be told how to build your classes. If
+the `__init__` method has type hints then lagom will use these to inject
+the correct dependencies. The following will work without any special configuration:
+
+```python
+class MyDataSource:
+    pass
+    
+class SomeClass:
+   #                        👇 type hint is used by lagom
+   def __init__(datasource: MyDataSource):
+      pass
+
+container = Container()
+some_thing = container[SomeClass] # An instance of SomeClass will be built with an instance of MyDataSource provided
+```
+
+and later if you extend your class no changes are needed to lagom:
+
+```python
+class SomeClass:
+    #                                                👇 This is the change.
+    def __init__(datasource: MyDataSource, service: SomeFeatureProvider):
+        pass
+
+# Note the following code is unchanged
+container = Container()
+some_thing = container[SomeClass] # An instance of SomeClass will be built with an instance of MyDataSource provided
+```
+
+### Singletons
+You can tell the container that something should be a singleton:
+```python
+container[SomeExpensiveToCreateClass] = SomeExpensiveToCreateClass("up", "left")
+```
+
+### Explicit build instructions when required
+You can explicitly tell the container how to construct something by giving it a function:
+
+```python
+container[SomeClass] = lambda: SomeClass("down", "spiral")
+```
+
+All of this is done without modifying any of your classes. This is one of the design goals of
+lagom. 
+
+### Hooks in to existing systems
+A decorator is provided to hook top level functions into the container.
+
+```python
+@bind_to_container(container)
+def handle_move_post_request(request: typing.Dict, game: Game = lagom.injectable):
+    # do something to the game
+    return Response()
+```
+
+(There's also a few common framework integrations [provided here](https://lagom-di.readthedocs.io/en/stable/framework_integrations/))
+
+[Full docs here here](https://lagom-di.readthedocs.io/en/stable/)
+
+## Contributing
+
+Contributions are very welcome. [Please see instructions here](https://lagom-di.readthedocs.io/en/latest/CONTRIBUTING/)
