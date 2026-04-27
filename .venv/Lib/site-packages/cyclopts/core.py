@@ -82,7 +82,9 @@ V = TypeVar("V")
 DEFAULT_FORMAT = "markdown"
 
 
-def _result_action_converter(value: None | Any | Iterable[Any]) -> tuple[Any, ...] | None:
+def _result_action_converter(
+    value: "ResultAction | ResultActionSingle | None",
+) -> tuple["ResultActionSingle", ...] | None:
     """Convert result_action value, ensuring non-empty sequences.
 
     Intended to be used in an ``attrs.Field`` for result_action.
@@ -117,7 +119,7 @@ def _get_root_module_name():
     raise _CannotDeriveCallingModuleNameError  # pragma: no cover
 
 
-def _validate_default_command(x):
+def _validate_default_command(x: Callable[..., Any] | None) -> Callable[..., Any] | None:
     if isinstance(x, App):
         raise TypeError("Cannot register a sub-App to default.")
     return x
@@ -256,11 +258,38 @@ def _group_converter(input_value: None | str | Group) -> Group | None:
         raise TypeError
 
 
+_ConfigCallable = Callable[["App", "tuple[str, ...]", "ArgumentCollection"], Any]
+
+
+def _app_optional_name_converter(value: str | Iterable[str] | None) -> tuple[str, ...] | None:
+    return optional_to_tuple_converter(value)  # type: ignore[return-value]
+
+
+def _app_str_tuple_converter(value: str | Iterable[str] | None) -> tuple[str, ...]:
+    return to_tuple_converter(value)  # type: ignore[return-value]
+
+
+def _app_config_converter(
+    value: "_ConfigCallable | Iterable[_ConfigCallable] | None",
+) -> "tuple[_ConfigCallable, ...] | None":
+    return optional_to_tuple_converter(value)  # type: ignore[return-value]
+
+
+def _app_group_tuple_converter(value: Group | str | Iterable[Group | str] | None) -> tuple[Group | str, ...]:
+    return cast(tuple[Group | str, ...], to_tuple_converter(value))
+
+
+def _app_validator_converter(
+    value: Callable[..., Any] | Iterable[Callable[..., Any]] | None,
+) -> list[Callable[..., Any]]:
+    return to_list_converter(value)  # type: ignore[return-value]
+
+
 @define
 class App:
     # This can ONLY ever be Tuple[str, ...] due to converter.
     # The other types is to make mypy happy for Cyclopts users.
-    _name: None | str | tuple[str, ...] = field(default=None, alias="name", converter=optional_to_tuple_converter)
+    _name: None | str | tuple[str, ...] = field(default=None, alias="name", converter=_app_optional_name_converter)
 
     _help: str | None = field(default=None, alias="help")
 
@@ -270,7 +299,7 @@ class App:
 
     alias: None | str | tuple[str, ...] = field(
         default=None,
-        converter=to_tuple_converter,
+        converter=_app_str_tuple_converter,
         kw_only=True,
     )
 
@@ -280,12 +309,12 @@ class App:
     # This can ONLY ever be None or Tuple[Callable, ...]
     _config: (
         None
-        | Callable[[list["App"], tuple[str, ...], ArgumentCollection], Any]
-        | Iterable[Callable[[list["App"], tuple[str, ...], ArgumentCollection], Any]]
+        | Callable[["App", tuple[str, ...], ArgumentCollection], Any]
+        | Iterable[Callable[["App", tuple[str, ...], ArgumentCollection], Any]]
     ) = field(
         default=None,
         alias="config",
-        converter=optional_to_tuple_converter,
+        converter=_app_config_converter,
         kw_only=True,
     )
 
@@ -295,7 +324,7 @@ class App:
     # This can ONLY ever be a Tuple[str, ...]
     _version_flags: str | Iterable[str] = field(
         default=["--version"],
-        converter=to_tuple_converter,
+        converter=_app_str_tuple_converter,
         alias="version_flags",
         kw_only=True,
     )
@@ -309,7 +338,7 @@ class App:
     # This can ONLY ever be a Tuple[str, ...]
     _help_flags: str | Iterable[str] = field(
         default=["--help", "-h"],
-        converter=to_tuple_converter,
+        converter=_app_str_tuple_converter,
         alias="help_flags",
         kw_only=True,
     )
@@ -326,7 +355,9 @@ class App:
 
     # This can ONLY ever be Tuple[Union[Group, str], ...] due to converter.
     # The other types is to make mypy happy for Cyclopts users.
-    group: Group | str | tuple[Group | str, ...] = field(default=None, converter=to_tuple_converter, kw_only=True)
+    group: Group | str | tuple[Group | str, ...] = field(
+        default=None, converter=_app_group_tuple_converter, kw_only=True
+    )
 
     # This can ONLY ever be a Group or None
     _group_arguments: Group | str | None = field(
@@ -350,7 +381,7 @@ class App:
         kw_only=True,
     )
 
-    validator: list[Callable[..., Any]] = field(default=None, converter=to_list_converter, kw_only=True)
+    validator: list[Callable[..., Any]] = field(default=None, converter=_app_validator_converter, kw_only=True)
 
     _name_transform: Callable[[str], str] | None = field(
         default=None,
@@ -1686,7 +1717,7 @@ class App:
         verbose: bool | None = None,
         end_of_options_delimiter: str | None = None,
         error_formatter: Callable[["CycloptsError"], Any] | None = None,
-    ) -> tuple[Callable, inspect.BoundArguments, dict[str, Any]]:
+    ) -> tuple[Callable[..., Any], inspect.BoundArguments, dict[str, Any]]:
         """Interpret arguments into a function and :class:`~inspect.BoundArguments`.
 
         Raises
@@ -2220,6 +2251,7 @@ class App:
         heading_level: int = 1,
         max_heading_level: int = 6,
         flatten_commands: bool = False,
+        usage_name: str | None = None,
     ) -> str:
         """Generate documentation for this CLI application.
 
@@ -2244,6 +2276,14 @@ class App:
         flatten_commands : bool
             If True, generate all commands at the same heading level instead of nested.
             Default is False.
+        usage_name : str | None
+            Optional replacement for the root app name shown in ``Usage:`` lines
+            of the generated documentation. Useful when the runtime invocation
+            differs from the app's configured name — for example, an app named
+            ``"cli"`` that is typically invoked as ``uv run cli``. Only the
+            ``Usage:`` lines change; document titles, section headings, and
+            table-of-contents anchors continue to use ``app.name[0]``.
+            Default is None (use ``app.name[0]``).
 
         Returns
         -------
@@ -2263,6 +2303,8 @@ class App:
         >>> rst_docs = app.generate_docs(output_format="rst")  # Generate RST
         >>> # To write to file, caller can do:
         >>> # Path("docs/cli.md").write_text(docs)
+        >>> # Override the invocation shown in Usage: lines (e.g., uv run cli)
+        >>> docs = app.generate_docs(usage_name="uv run cli")
         """
         from cyclopts.docs import (
             generate_markdown_docs,
@@ -2281,6 +2323,7 @@ class App:
                 heading_level=heading_level,
                 max_heading_level=max_heading_level,
                 flatten_commands=flatten_commands,
+                usage_name=usage_name,
             )
         elif output_format == "html":
             doc = generate_html_docs(
@@ -2290,6 +2333,7 @@ class App:
                 heading_level=heading_level,
                 max_heading_level=max_heading_level,
                 flatten_commands=flatten_commands,
+                usage_name=usage_name,
             )
         elif output_format == "rst":
             doc = generate_rst_docs(
@@ -2300,6 +2344,7 @@ class App:
                 max_heading_level=max_heading_level,
                 flatten_commands=flatten_commands,
                 no_root_title=False,  # Default to False for direct API usage
+                usage_name=usage_name,
             )
 
         return doc

@@ -2,3 +2,5 @@ parlant
 sqlalchemy
 lark
 python-dotenv
+pika
+pydantic

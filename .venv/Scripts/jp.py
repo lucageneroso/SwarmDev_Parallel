@@ -1,4 +1,4 @@
-#!C:\Users\lucag\s\.venv\Scripts\python.exe
+#!C:\Users\lucag\SwarmDev_Parallel\.venv\Scripts\python.exe
 
 import sys
 import json

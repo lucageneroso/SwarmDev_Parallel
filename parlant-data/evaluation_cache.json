@@ -14,6 +14,36 @@
         "agent_intention_condition": "You are likely to insert or confirm an A2A-OCL expression within a JSON Contract",
         "internal_action": null
       }
+    },
+    {
+      "id": "d69fe3245662d480514149d25bb48ad9",
+      "creation_utc": "2026-04-25T10:23:38.882685+00:00",
+      "version": "3.3.1",
+      "properties": {
+        "continuous": false,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": false,
+          "customer_action": "",
+          "agent_action": ""
+        },
+        "agent_intention_condition": null,
+        "internal_action": null
+      }
+    },
+    {
+      "id": "09372d7640879ea4ac2795a154160996",
+      "creation_utc": "2026-04-25T13:12:31.771547+00:00",
+      "version": "3.3.1",
+      "properties": {
+        "continuous": true,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": false,
+          "customer_action": "",
+          "agent_action": ""
+        },
+        "agent_intention_condition": "You are likely to be assigned a development or architectural task by the user",
+        "internal_action": null
+      }
     }
   ],
   "journey_evaluations_3.3.1": []

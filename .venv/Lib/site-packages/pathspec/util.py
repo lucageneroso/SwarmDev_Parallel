@@ -30,6 +30,12 @@ from ._typing import (
 
 StrPath = Union[str, os.PathLike[str]]
 
+TPattern = TypeVar('TPattern', bound=Pattern)
+"""
+Type variable for :class:`.Pattern`. This is used by :class:`pathspec.pathspec.PathSpec`
+to specialize the type of patterns.
+"""
+
 TStrPath = TypeVar("TStrPath", bound=StrPath)
 """
 Type variable for :class:`str` or :class:`os.PathLike`.
@@ -146,10 +152,11 @@ def detailed_match_files(
 				# Add files and record pattern.
 				for result_file in result_files:
 					if result_file in return_files:
+						# We know here that .patterns is a list, becasue we made it here
 						if all_matches:
-							return_files[result_file].patterns.append(pattern)
+							return_files[result_file].patterns.append(pattern) # type: ignore[attr-defined]
 						else:
-							return_files[result_file].patterns[0] = pattern
+							return_files[result_file].patterns[0] = pattern  # type: ignore[index]
 					else:
 						return_files[result_file] = MatchDetail([pattern])
 
