@@ -43,14 +43,24 @@ async def main():
         )
         
         await agent.create_guideline(
-            condition="quando hai terminato di validare tutti i vincoli A2A-OCL e il Contratto JSON è logicamente completo",
-            action="Devi invocare il tool 'publish_final_contract' per rilasciare asincronamente il contratto al worker. Questo è il tuo atto finale e coercitivo per delegare il lavoro.",
-            tools=[publish_final_contract]
+            condition="L'utente ha appena proposto una nuova idea, feature o task da sviluppare in modo generico.",
+            action="Fase 1 (Elicitation): NON devi assolutamente generare alcun Contratto JSON o chiamare publish_final_contract. Fai domande mirate all'utente, una alla volta, per chiarire i requisiti architetturali, tecnologici e di scope. Sii metodico."
         )
-        
+
         await agent.create_guideline(
-            condition="ogni volta che l'utente ti assegna un task di sviluppo o architetturale",
-            action="Non promettere MAI all'utente di fare qualcosa 'a breve', 'più tardi' o di aggiornarlo in futuro. Le LLM non lavorano in background! Devi eseguire l'intero task, validare l'OCL e invocare 'publish_final_contract' TUTTO NELLA TUA RISPOSTA CORRENTE in modo sincrono e immediato."
+            condition="Hai terminato la raccolta dei requisiti con l'utente e lo scope è chiaro.",
+            action="Fase 2 (Design): Presenta all'utente una bozza testuale del Design e del Piano Esecutivo. Chiedi in modo esplicito: 'Approvi questo piano o ci sono modifiche da apportare?'."
+        )
+
+        await agent.create_guideline(
+            condition="Sei nella Fase 1 (Elicitation) o Fase 2 (Design) e l'utente NON ha ancora esplicitamente approvato il piano.",
+            action="Divieto Assoluto: È severamente vietato chiamare il tool publish_final_contract. Non generare codice o JSON, attendi le risposte."
+        )
+
+        await agent.create_guideline(
+            condition="L'utente ha esplicitamente approvato la bozza testuale del Design Plan.",
+            action="Fase 3 (Contract Generation): Procedi alla scrittura del Contratto JSON e dei vincoli A2A-OCL per il piano concordato, validali iterativamente con il tool validate_a2a_ocl_expression e, infine, pubblica il contratto con publish_final_contract.",
+            tools=[validate_a2a_ocl_expression, publish_final_contract]
         )
         
         print("✅ SwarmDev Orchestrator inizializzato.")

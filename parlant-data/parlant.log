@@ -207,3 +207,25 @@
 [2m2026-05-04T10:24:19.733605Z[0m [[32m[1minfo     [0m] [1m[<main>] Server is ready to accept requests.[0m
 [2m2026-05-04T10:36:40.271727Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Cancelling all remaining tasks (2)[0m
 [2m2026-05-04T10:36:40.305213Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Shutting down[0m
+[2m2026-05-04T11:04:22.165049Z[0m [[32m[1minfo     [0m] [1m[<main>] Parlant server version 3.3.1[0m
+[2m2026-05-04T11:04:22.165655Z[0m [[32m[1minfo     [0m] [1m[<main>] Using home directory 'C:\Users\lucag\SwarmDev_Parallel\parlant-data'[0m
+[2m2026-05-04T11:04:22.169021Z[0m [[32m[1minfo     [0m] [1m[<main>] No external modules selected[0m
+[2m2026-05-04T11:04:23.099475Z[0m [[32m[1minfo     [0m] [1m[<main>] Initialized OpenAIService[0m
+[2m2026-05-04T11:04:34.309447Z[0m [[32m[1minfo     [0m] [1m[<main>] .-----------------------------------------.[0m
+[2m2026-05-04T11:04:34.310825Z[0m [[32m[1minfo     [0m] [1m[<main>] | Server is ready for some serious action |[0m
+[2m2026-05-04T11:04:34.311754Z[0m [[32m[1minfo     [0m] [1m[<main>] '-----------------------------------------'[0m
+[2m2026-05-04T11:04:34.312443Z[0m [[32m[1minfo     [0m] [1m[<main>] Server authorization policy: development[0m
+[2m2026-05-04T11:04:34.312969Z[0m [[32m[1minfo     [0m] [1m[<main>] Try the Sandbox UI at http://localhost:8800[0m
+[2m2026-05-04T11:04:34.845630Z[0m [[32m[1minfo     [0m] [1m[<main>] Server is ready to accept requests.[0m
+[2m2026-05-04T11:08:49.332582Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Cancelling all remaining tasks (2)[0m
+[2m2026-05-04T11:08:49.347770Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Shutting down[0m
+[2m2026-05-04T11:09:07.272153Z[0m [[32m[1minfo     [0m] [1m[<main>] Parlant server version 3.3.1[0m
+[2m2026-05-04T11:09:07.272655Z[0m [[32m[1minfo     [0m] [1m[<main>] Using home directory 'C:\Users\lucag\SwarmDev_Parallel\parlant-data'[0m
+[2m2026-05-04T11:09:07.275136Z[0m [[32m[1minfo     [0m] [1m[<main>] No external modules selected[0m
+[2m2026-05-04T11:09:07.906289Z[0m [[32m[1minfo     [0m] [1m[<main>] Initialized OpenAIService[0m
+[2m2026-05-04T11:09:24.118600Z[0m [[32m[1minfo     [0m] [1m[<main>] .-----------------------------------------.[0m
+[2m2026-05-04T11:09:24.119617Z[0m [[32m[1minfo     [0m] [1m[<main>] | Server is ready for some serious action |[0m
+[2m2026-05-04T11:09:24.119935Z[0m [[32m[1minfo     [0m] [1m[<main>] '-----------------------------------------'[0m
+[2m2026-05-04T11:09:24.120434Z[0m [[32m[1minfo     [0m] [1m[<main>] Server authorization policy: development[0m
+[2m2026-05-04T11:09:24.120938Z[0m [[32m[1minfo     [0m] [1m[<main>] Try the Sandbox UI at http://localhost:8800[0m
+[2m2026-05-04T11:09:24.630165Z[0m [[32m[1minfo     [0m] [1m[<main>] Server is ready to accept requests.[0m

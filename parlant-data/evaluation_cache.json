@@ -44,6 +44,66 @@
         "agent_intention_condition": "You are likely to be assigned a development or architectural task by the user",
         "internal_action": null
       }
+    },
+    {
+      "id": "dd7c79af9f2f5b636bc347be6c82547d",
+      "creation_utc": "2026-05-04T11:09:22.902459+00:00",
+      "version": "3.3.1",
+      "properties": {
+        "continuous": false,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": false,
+          "customer_action": "",
+          "agent_action": ""
+        },
+        "agent_intention_condition": null,
+        "internal_action": null
+      }
+    },
+    {
+      "id": "b050d8f21d02e4bfa0b35d6629bb4b0a",
+      "creation_utc": "2026-05-04T11:09:23.417813+00:00",
+      "version": "3.3.1",
+      "properties": {
+        "continuous": true,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": false,
+          "customer_action": "",
+          "agent_action": ""
+        },
+        "agent_intention_condition": null,
+        "internal_action": null
+      }
+    },
+    {
+      "id": "4b79e0b2875c17d222fc905ab0112cb8",
+      "creation_utc": "2026-05-04T11:09:23.941729+00:00",
+      "version": "3.3.1",
+      "properties": {
+        "continuous": true,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": true,
+          "customer_action": "The customer provides answers to the targeted questions to clarify architectural, technological, and scope requirements.",
+          "agent_action": "The agent asks targeted questions, one at a time, to clarify architectural, technological, and scope requirements, and does not generate any JSON Contract or call publish_final_contract."
+        },
+        "agent_intention_condition": null,
+        "internal_action": null
+      }
+    },
+    {
+      "id": "adf113484805868079d09b39065fbfed",
+      "creation_utc": "2026-05-04T11:09:23.942119+00:00",
+      "version": "3.3.1",
+      "properties": {
+        "continuous": false,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": true,
+          "customer_action": "The customer approves the plan or provides modifications.",
+          "agent_action": "The agent presents a textual draft of the Design and Execution Plan to the customer and explicitly asks if they approve the plan or if there are modifications to be made."
+        },
+        "agent_intention_condition": null,
+        "internal_action": null
+      }
     }
   ],
   "journey_evaluations_3.3.1": []

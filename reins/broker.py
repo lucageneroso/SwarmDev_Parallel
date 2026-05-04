@@ -23,7 +23,7 @@ class RabbitMQBroker:
     def connect(self):
         try:
             self.connection = pika.BlockingConnection(
-                pika.ConnectionParameters(host=self.host, port=self.port)
+                pika.ConnectionParameters(host=self.host, port=self.port, heartbeat=0)
             )
             self.channel = self.connection.channel()
             
