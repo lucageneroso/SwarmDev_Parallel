@@ -27,17 +27,17 @@ class ArmWorker:
             print(f"📥 [Arm] Ricevuto contratto: {contract.id} ({contract.context})")
             
             # 1. Esecuzione (Headless, Isolata, Nessuna Chat)
-            generated_code = self.opencode.generate_code(
+            generated_files, job_dir = self.opencode.generate_code(
                 context=contract.context,
-                description=contract.description,
-                constraints=contract.a2a_ocl_constraints
+                contract_id=contract.id,
+                contract_json=contract.model_dump_json()
             )
-            
-            # 2. Creazione Risultato
+
             result = CodeGenerationResult(
                 contract_id=contract.id,
-                generated_code=generated_code,
-                file_path=None
+                files=generated_files,
+                generated_code=None,
+                file_path=job_dir
             )
             
             # 3. Invio al Quality Gate
