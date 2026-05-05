@@ -104,6 +104,81 @@
         "agent_intention_condition": null,
         "internal_action": null
       }
+    },
+    {
+      "id": "a0e91c07e911e5487b9c44a357ec05ef",
+      "creation_utc": "2026-05-04T16:06:53.547608+00:00",
+      "version": "3.3.1",
+      "properties": {
+        "continuous": false,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": true,
+          "customer_action": "The customer approves or disapproves the design.",
+          "agent_action": "The agent generates the design document using the tool save_design_document and asks the customer if they approve the design."
+        },
+        "agent_intention_condition": null,
+        "internal_action": null
+      }
+    },
+    {
+      "id": "4b6fdc4e0a0dd167f280527a89075b18",
+      "creation_utc": "2026-05-04T16:06:54.058158+00:00",
+      "version": "3.3.1",
+      "properties": {
+        "continuous": true,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": true,
+          "customer_action": "The customer provides their consent.",
+          "agent_action": "The agent waits for the customer's consent and does not call the tool publish_final_contract."
+        },
+        "agent_intention_condition": null,
+        "internal_action": null
+      }
+    },
+    {
+      "id": "57cb62c9f87eaabf333a5afb91003e1e",
+      "creation_utc": "2026-05-04T16:06:54.572815+00:00",
+      "version": "3.3.1",
+      "properties": {
+        "continuous": false,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": true,
+          "customer_action": "The customer provides clarification on Data Model, API, and Edge Cases.",
+          "agent_action": "The agent initiates a maieutic loop by asking targeted questions to clarify Data Model, API, and Edge Cases."
+        },
+        "agent_intention_condition": null,
+        "internal_action": null
+      }
+    },
+    {
+      "id": "5f8ce9df4d3aaf9edda7aaad6888d054",
+      "creation_utc": "2026-05-04T16:06:54.573064+00:00",
+      "version": "3.3.1",
+      "properties": {
+        "continuous": false,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": true,
+          "customer_action": "The customer provides their approval to proceed to the first Wave.",
+          "agent_action": "The agent unpacks the design into logical Waves (Wave 1, Wave 2, etc.), calls save_roadmap_document to save the waves and save_state_document to initialize the state, and asks the customer for approval to proceed to the first Wave."
+        },
+        "agent_intention_condition": null,
+        "internal_action": null
+      }
+    },
+    {
+      "id": "aac3ff5ea5784090d3eab22b7d37beb4",
+      "creation_utc": "2026-05-04T16:06:54.573208+00:00",
+      "version": "3.3.1",
+      "properties": {
+        "continuous": false,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": false,
+          "customer_action": "",
+          "agent_action": ""
+        },
+        "agent_intention_condition": null,
+        "internal_action": null
+      }
     }
   ],
   "journey_evaluations_3.3.1": []

@@ -58,3 +58,42 @@ async def publish_final_contract(context: p.ToolContext, target_context: str, de
         return p.ToolResult(data={"status": "success", "message": f"Contratto {contract_id} rilasciato in produzione e inviato al worker."})
     except Exception as e:
          return p.ToolResult(data={"status": "error", "message": f"Errore broker: {str(e)}"})
+
+MIND_WORKSPACE = os.path.join(PROJECT_ROOT, "mind_workspace")
+os.makedirs(MIND_WORKSPACE, exist_ok=True)
+
+@p.tool
+async def save_design_document(context: p.ToolContext, content: str) -> p.ToolResult:
+    """
+    Fase 1 (Discovery): Salva il documento di architettura (DESIGN.md) concordato con l'utente.
+    Args:
+        content: Il contenuto completo in Markdown del file DESIGN.md.
+    """
+    file_path = os.path.join(MIND_WORKSPACE, "DESIGN.md")
+    with open(file_path, "w", encoding="utf-8") as f:
+        f.write(content)
+    return p.ToolResult(data={"status": "success", "message": f"DESIGN.md salvato in {file_path}"})
+
+@p.tool
+async def save_roadmap_document(context: p.ToolContext, content: str) -> p.ToolResult:
+    """
+    Fase 2 (Planning): Salva la roadmap di sviluppo divisa in Onde (ROADMAP.md).
+    Args:
+        content: Il contenuto completo in Markdown del file ROADMAP.md, strutturato per Onde (Onda 1, Onda 2, ...).
+    """
+    file_path = os.path.join(MIND_WORKSPACE, "ROADMAP.md")
+    with open(file_path, "w", encoding="utf-8") as f:
+        f.write(content)
+    return p.ToolResult(data={"status": "success", "message": f"ROADMAP.md salvato in {file_path}"})
+
+@p.tool
+async def save_state_document(context: p.ToolContext, content: str) -> p.ToolResult:
+    """
+    Fase 2/3 (Execution): Traccia lo stato di avanzamento delle Onde in STATE.md.
+    Args:
+        content: Il contenuto in Markdown del file STATE.md che elenca lo stato di validazione di ogni Onda.
+    """
+    file_path = os.path.join(MIND_WORKSPACE, "STATE.md")
+    with open(file_path, "w", encoding="utf-8") as f:
+        f.write(content)
+    return p.ToolResult(data={"status": "success", "message": f"STATE.md salvato in {file_path}"})

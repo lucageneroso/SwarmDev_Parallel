@@ -229,3 +229,326 @@
 [2m2026-05-04T11:09:24.120434Z[0m [[32m[1minfo     [0m] [1m[<main>] Server authorization policy: development[0m
 [2m2026-05-04T11:09:24.120938Z[0m [[32m[1minfo     [0m] [1m[<main>] Try the Sandbox UI at http://localhost:8800[0m
 [2m2026-05-04T11:09:24.630165Z[0m [[32m[1minfo     [0m] [1m[<main>] Server is ready to accept requests.[0m
+[2m2026-05-04T11:13:26.108424Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'target_context' is missing[0m
+[2m2026-05-04T11:13:26.109880Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'description' is missing[0m
+[2m2026-05-04T11:13:26.111357Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'a2a_ocl_constraints' is missing[0m
+[2m2026-05-04T11:13:26.403486Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'expression' is missing[0m
+[2m2026-05-04T11:13:52.872472Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][OpenAI LLM Request (GenericActionableGuidelineMatchesSchema)] OpenAI API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenAI account balance and billing status.
+- Review your API usage limits in OpenAI's dashboard.
+- For more details on rate limits and usage tiers, visit:
+  https://platform.openai.com/docs/guides/rate-limits/usage-tiers
+[0m
+[2m2026-05-04T11:13:54.317110Z[0m [[31m[1merror    [0m] [1m[<main>][MessageEventComposer][CannedResponseGenerator][OpenAI LLM Request (CannedResponsePreambleSchema)] OpenAI API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenAI account balance and billing status.
+- Review your API usage limits in OpenAI's dashboard.
+- For more details on rate limits and usage tiers, visit:
+  https://platform.openai.com/docs/guides/rate-limits/usage-tiers
+[0m
+[2m2026-05-04T11:13:56.043094Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericPreviouslyAppliedActionableCustomerDependentGuidelineMatchingBatch][OpenAI LLM Request (GenericPreviouslyAppliedActionableCustomerDependentGuidelineMatchesSchema)] OpenAI API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenAI account balance and billing status.
+- Review your API usage limits in OpenAI's dashboard.
+- For more details on rate limits and usage tiers, visit:
+  https://platform.openai.com/docs/guides/rate-limits/usage-tiers
+[0m
+[2m2026-05-04T11:14:04.854691Z[0m [[31m[1merror    [0m] [1m[<main>][MessageEventComposer][CannedResponseGenerator][OpenAI LLM Request (CannedResponsePreambleSchema)][OpenAI LLM Request (CannedResponsePreambleSchema)] OpenAI API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenAI account balance and billing status.
+- Review your API usage limits in OpenAI's dashboard.
+- For more details on rate limits and usage tiers, visit:
+  https://platform.openai.com/docs/guides/rate-limits/usage-tiers
+[0m
+[2m2026-05-04T11:14:10.748499Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][OpenAI LLM Request (GenericActionableGuidelineMatchesSchema)][OpenAI LLM Request (GenericActionableGuidelineMatchesSchema)] OpenAI API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenAI account balance and billing status.
+- Review your API usage limits in OpenAI's dashboard.
+- For more details on rate limits and usage tiers, visit:
+  https://platform.openai.com/docs/guides/rate-limits/usage-tiers
+[0m
+[2m2026-05-04T11:14:12.172642Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericPreviouslyAppliedActionableCustomerDependentGuidelineMatchingBatch][OpenAI LLM Request (GenericPreviouslyAppliedActionableCustomerDependentGuidelineMatchesSchema)][OpenAI LLM Request (GenericPreviouslyAppliedActionableCustomerDependentGuidelineMatchesSchema)] OpenAI API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenAI account balance and billing status.
+- Review your API usage limits in OpenAI's dashboard.
+- For more details on rate limits and usage tiers, visit:
+  https://platform.openai.com/docs/guides/rate-limits/usage-tiers
+[0m
+[2m2026-05-04T11:14:30.105936Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'expression' is missing[0m
+[2m2026-05-04T11:14:31.582252Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'target_context' is missing[0m
+[2m2026-05-04T11:14:31.583399Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'description' is missing[0m
+[2m2026-05-04T11:14:31.584421Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'a2a_ocl_constraints' is missing[0m
+[2m2026-05-04T11:14:31.597962Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'expression' is missing[0m
+[2m2026-05-04T11:15:10.001943Z[0m [[31m[1merror    [0m] [1m[<main>][MessageEventComposer][CannedResponseGenerator][OpenAI LLM Request (CannedResponsePreambleSchema)] OpenAI API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenAI account balance and billing status.
+- Review your API usage limits in OpenAI's dashboard.
+- For more details on rate limits and usage tiers, visit:
+  https://platform.openai.com/docs/guides/rate-limits/usage-tiers
+[0m
+[2m2026-05-04T11:15:11.923496Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericPreviouslyAppliedActionableCustomerDependentGuidelineMatchingBatch][OpenAI LLM Request (GenericPreviouslyAppliedActionableCustomerDependentGuidelineMatchesSchema)] OpenAI API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenAI account balance and billing status.
+- Review your API usage limits in OpenAI's dashboard.
+- For more details on rate limits and usage tiers, visit:
+  https://platform.openai.com/docs/guides/rate-limits/usage-tiers
+[0m
+[2m2026-05-04T11:15:21.249978Z[0m [[31m[1merror    [0m] [1m[<main>][MessageEventComposer][CannedResponseGenerator][OpenAI LLM Request (CannedResponsePreambleSchema)][OpenAI LLM Request (CannedResponsePreambleSchema)] OpenAI API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenAI account balance and billing status.
+- Review your API usage limits in OpenAI's dashboard.
+- For more details on rate limits and usage tiers, visit:
+  https://platform.openai.com/docs/guides/rate-limits/usage-tiers
+[0m
+[2m2026-05-04T11:15:28.710505Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericPreviouslyAppliedActionableCustomerDependentGuidelineMatchingBatch][OpenAI LLM Request (GenericPreviouslyAppliedActionableCustomerDependentGuidelineMatchesSchema)][OpenAI LLM Request (GenericPreviouslyAppliedActionableCustomerDependentGuidelineMatchesSchema)] OpenAI API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenAI account balance and billing status.
+- Review your API usage limits in OpenAI's dashboard.
+- For more details on rate limits and usage tiers, visit:
+  https://platform.openai.com/docs/guides/rate-limits/usage-tiers
+[0m
+[2m2026-05-04T11:15:37.805274Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'expression' is missing[0m
+[2m2026-05-04T11:15:39.545953Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'expression' is missing[0m
+[2m2026-05-04T11:15:39.831712Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'target_context' is missing[0m
+[2m2026-05-04T11:15:39.832510Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'description' is missing[0m
+[2m2026-05-04T11:15:39.833300Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'a2a_ocl_constraints' is missing[0m
+[2m2026-05-04T11:16:22.435408Z[0m [[31m[1merror    [0m] [1m[<main>][MessageEventComposer][CannedResponseGenerator][OpenAI LLM Request (CannedResponsePreambleSchema)] OpenAI API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenAI account balance and billing status.
+- Review your API usage limits in OpenAI's dashboard.
+- For more details on rate limits and usage tiers, visit:
+  https://platform.openai.com/docs/guides/rate-limits/usage-tiers
+[0m
+[2m2026-05-04T11:16:35.807371Z[0m [[31m[1merror    [0m] [1m[<main>][MessageEventComposer][CannedResponseGenerator][OpenAI LLM Request (CannedResponsePreambleSchema)][OpenAI LLM Request (CannedResponsePreambleSchema)] OpenAI API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenAI account balance and billing status.
+- Review your API usage limits in OpenAI's dashboard.
+- For more details on rate limits and usage tiers, visit:
+  https://platform.openai.com/docs/guides/rate-limits/usage-tiers
+[0m
+[2m2026-05-04T11:16:54.302649Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'expression' is missing[0m
+[2m2026-05-04T11:16:55.984540Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'expression' is missing[0m
+[2m2026-05-04T16:06:35.939695Z[0m [[32m[1minfo     [0m] [1m[<main>] Parlant server version 3.3.1[0m
+[2m2026-05-04T16:06:35.941362Z[0m [[32m[1minfo     [0m] [1m[<main>] Using home directory 'C:\Users\lucag\SwarmDev_Parallel\parlant-data'[0m
+[2m2026-05-04T16:06:35.945755Z[0m [[32m[1minfo     [0m] [1m[<main>] No external modules selected[0m
+[2m2026-05-04T16:06:37.181877Z[0m [[32m[1minfo     [0m] [1m[<main>] Initialized OpenAIService[0m
+[2m2026-05-04T16:06:54.712987Z[0m [[32m[1minfo     [0m] [1m[<main>] .-----------------------------------------.[0m
+[2m2026-05-04T16:06:54.714059Z[0m [[32m[1minfo     [0m] [1m[<main>] | Server is ready for some serious action |[0m
+[2m2026-05-04T16:06:54.714494Z[0m [[32m[1minfo     [0m] [1m[<main>] '-----------------------------------------'[0m
+[2m2026-05-04T16:06:54.715140Z[0m [[32m[1minfo     [0m] [1m[<main>] Server authorization policy: development[0m
+[2m2026-05-04T16:06:54.715695Z[0m [[32m[1minfo     [0m] [1m[<main>] Try the Sandbox UI at http://localhost:8800[0m
+[2m2026-05-04T16:06:55.251129Z[0m [[32m[1minfo     [0m] [1m[<main>] Server is ready to accept requests.[0m
+[2m2026-05-04T16:11:45.906021Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'content' is missing[0m
+[2m2026-05-04T16:13:44.549050Z[0m [[31m[1merror    [0m] [1m[<main>][MessageEventComposer][CannedResponseGenerator][OpenAI LLM Request (CannedResponsePreambleSchema)] OpenAI API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenAI account balance and billing status.
+- Review your API usage limits in OpenAI's dashboard.
+- For more details on rate limits and usage tiers, visit:
+  https://platform.openai.com/docs/guides/rate-limits/usage-tiers
+[0m
+[2m2026-05-04T16:13:56.801143Z[0m [[31m[1merror    [0m] [1m[<main>][MessageEventComposer][CannedResponseGenerator][OpenAI LLM Request (CannedResponsePreambleSchema)][OpenAI LLM Request (CannedResponsePreambleSchema)] OpenAI API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenAI account balance and billing status.
+- Review your API usage limits in OpenAI's dashboard.
+- For more details on rate limits and usage tiers, visit:
+  https://platform.openai.com/docs/guides/rate-limits/usage-tiers
+[0m
+[2m2026-05-04T16:14:11.938268Z[0m [[31m[1merror    [0m] [1m[<main>][MessageEventComposer][CannedResponseGenerator][OpenAI LLM Request (CannedResponsePreambleSchema)][OpenAI LLM Request (CannedResponsePreambleSchema)][OpenAI LLM Request (CannedResponsePreambleSchema)] OpenAI API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenAI account balance and billing status.
+- Review your API usage limits in OpenAI's dashboard.
+- For more details on rate limits and usage tiers, visit:
+  https://platform.openai.com/docs/guides/rate-limits/usage-tiers
+[0m
+[2m2026-05-04T16:14:11.977765Z[0m [[31m[1merror    [0m] [1m[<main>] Processing error: ['Traceback (most recent call last):\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\engines\\alpha\\engine.py", '
+ 'line 197, in process\n'
+ '    await self._do_process(loaded_context)\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\engines\\alpha\\engine.py", '
+ 'line 301, in _do_process\n'
+ '    iteration_result = await self._run_preparation_iteration(\n'
+ '                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n'
+ '        context, preamble_task, plan\n'
+ '        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n'
+ '    )\n'
+ '    ^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\engines\\alpha\\engine.py", '
+ 'line 498, in _run_preparation_iteration\n'
+ '    result = await self._run_initial_preparation_iteration(context, '
+ 'preamble_task, plan)\n'
+ '             '
+ '^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\engines\\alpha\\engine.py", '
+ 'line 601, in _run_initial_preparation_iteration\n'
+ '    if not await preamble_task:\n'
+ '           ^^^^^^^^^^^^^^^^^^^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\engines\\alpha\\engine.py", '
+ 'line 837, in preamble_task\n'
+ '    if await self._generate_preamble(context):\n'
+ '       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\engines\\alpha\\engine.py", '
+ 'line 868, in _generate_preamble\n'
+ '    for event_generation_result in await self._get_message_composer(\n'
+ '                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n'
+ '        context.agent\n'
+ '        ^^^^^^^^^^^^^\n'
+ '    ).generate_preamble(context=context):\n'
+ '    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\engines\\alpha\\canned_response_generator.py", '
+ 'line 657, in generate_preamble\n'
+ '    return await self._do_generate_preamble(context)\n'
+ '           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\engines\\alpha\\canned_response_generator.py", '
+ 'line 886, in _do_generate_preamble\n'
+ '    canrep = await self._canrep_preamble_generator.generate(\n'
+ '             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n'
+ '        prompt=prompt_builder, hints={"temperature": 0.1}\n'
+ '        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n'
+ '    )\n'
+ '    ^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\generation.py", '
+ 'line 296, in generate\n'
+ '    result = await self.do_generate(prompt, hints)\n'
+ '             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", '
+ 'line 137, in wrapped_func\n'
+ '    return await func(state, *args, **kwargs)\n'
+ '           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", '
+ 'line 146, in wrapped_func\n'
+ '    return await policy.apply(state, func, *args, **kwargs)\n'
+ '           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", '
+ 'line 67, in apply\n'
+ '    raise e\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", '
+ 'line 62, in apply\n'
+ '    return await func(state, *args, **kwargs)\n'
+ '           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", '
+ 'line 146, in wrapped_func\n'
+ '    return await policy.apply(state, func, *args, **kwargs)\n'
+ '           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", '
+ 'line 62, in apply\n'
+ '    return await func(state, *args, **kwargs)\n'
+ '           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", '
+ 'line 127, in wrapped_func\n'
+ '    return await func(*args, **kwargs)\n'
+ '           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\adapters\\nlp\\openai_service.py", '
+ 'line 171, in do_generate\n'
+ '    return await self._do_generate(prompt, hints)\n'
+ '           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\adapters\\nlp\\openai_service.py", '
+ 'line 250, in _do_generate\n'
+ '    response = await self._client.chat.completions.create(\n'
+ '               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n'
+ '    ...<4 lines>...\n'
+ '    )\n'
+ '    ^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\resources\\chat\\completions\\completions.py", '
+ 'line 2714, in create\n'
+ '    return await self._post(\n'
+ '           ^^^^^^^^^^^^^^^^^\n'
+ '    ...<49 lines>...\n'
+ '    )\n'
+ '    ^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\_base_client.py", '
+ 'line 1913, in post\n'
+ '    return await self.request(cast_to, opts, stream=stream, '
+ 'stream_cls=stream_cls)\n'
+ '           '
+ '^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\_base_client.py", '
+ 'line 1698, in request\n'
+ '    raise self._make_status_error_from_response(err.response) from None\n',
+ "openai.RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit "
+ 'reached for gpt-4o-2024-08-06 (for limit gpt-4o) in organization '
+ 'org-t9ymmQkO97WOWVbe2RVezvIV on tokens per min (TPM): Limit 30000, Used '
+ '29451, Requested 2606. Please try again in 4.114s. Visit '
+ "https://platform.openai.com/account/rate-limits to learn more.', 'type': "
+ "'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}\n"][0m

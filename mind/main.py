@@ -2,7 +2,13 @@ import asyncio
 import os
 from dotenv import load_dotenv
 import parlant.sdk as p
-from parlant_context.parlant_tools import validate_a2a_ocl_expression, publish_final_contract
+from parlant_context.parlant_tools import (
+    validate_a2a_ocl_expression, 
+    publish_final_contract,
+    save_design_document,
+    save_roadmap_document,
+    save_state_document
+)
 
 # Carichiamo automaticamente le variabili d'ambiente dal file .env
 load_dotenv()
@@ -44,23 +50,30 @@ async def main():
         
         await agent.create_guideline(
             condition="L'utente ha appena proposto una nuova idea, feature o task da sviluppare in modo generico.",
-            action="Fase 1 (Elicitation): NON devi assolutamente generare alcun Contratto JSON o chiamare publish_final_contract. Fai domande mirate all'utente, una alla volta, per chiarire i requisiti architetturali, tecnologici e di scope. Sii metodico."
+            action="Fase 1 (Discovery): NON generare codice o contratti. Avvia un loop maieutico facendo domande mirate all'utente per chiarire Data Model, API, Edge Cases."
         )
 
         await agent.create_guideline(
-            condition="Hai terminato la raccolta dei requisiti con l'utente e lo scope è chiaro.",
-            action="Fase 2 (Design): Presenta all'utente una bozza testuale del Design e del Piano Esecutivo. Chiedi in modo esplicito: 'Approvi questo piano o ci sono modifiche da apportare?'."
+            condition="Hai raccolto tutti i requisiti (Data Model, API, Edge Cases) e lo scope è chiaro.",
+            action="Fase 1 (Discovery): Genera fisicamente il documento di design chiamando il tool save_design_document, poi chiedi esplicitamente all'utente: 'Approvi questo design?'.",
+            tools=[save_design_document]
         )
 
         await agent.create_guideline(
-            condition="Sei nella Fase 1 (Elicitation) o Fase 2 (Design) e l'utente NON ha ancora esplicitamente approvato il piano.",
-            action="Divieto Assoluto: È severamente vietato chiamare il tool publish_final_contract. Non generare codice o JSON, attendi le risposte."
+            condition="L'utente ha appena approvato il DESIGN.md.",
+            action="Fase 2 (Planning): Spacchetta il design in Onde logiche (Wave 1, Wave 2, ecc.). Chiama save_roadmap_document per salvare le onde e save_state_document per inizializzare lo stato, dopodiché chiedi all'utente l'ok per procedere alla prima Onda.",
+            tools=[save_roadmap_document, save_state_document]
         )
 
         await agent.create_guideline(
-            condition="L'utente ha esplicitamente approvato la bozza testuale del Design Plan.",
-            action="Fase 3 (Contract Generation): Procedi alla scrittura del Contratto JSON e dei vincoli A2A-OCL per il piano concordato, validali iterativamente con il tool validate_a2a_ocl_expression e, infine, pubblica il contratto con publish_final_contract.",
-            tools=[validate_a2a_ocl_expression, publish_final_contract]
+            condition="Sei in Fase 1 o Fase 2 e l'utente NON ha ancora esplicitamente approvato il design o la roadmap.",
+            action="Divieto Assoluto: È severamente vietato chiamare il tool publish_final_contract. Aspetta il consenso dell'utente."
+        )
+
+        await agent.create_guideline(
+            condition="L'utente ha approvato la roadmap o ha richiesto di procedere con la prossima Onda.",
+            action="Fase 3 (Execution): Per l'Onda corrente della Roadmap, genera il relativo JSON Contract e i vincoli A2A-OCL, validali con validate_a2a_ocl_expression e infine pubblica il contratto per quell'Onda con publish_final_contract. Ricordati di aggiornare lo stato con save_state_document.",
+            tools=[validate_a2a_ocl_expression, publish_final_contract, save_state_document]
         )
         
         print("✅ SwarmDev Orchestrator inizializzato.")
