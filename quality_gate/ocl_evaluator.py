@@ -14,7 +14,7 @@ class A2AOCLValidator:
 
         # Inizializziamo il parser Lark con l'algoritmo LALR (deterministico e velocissimo)
         self.parser = Lark(grammar, start='constraint', parser='lalr')
-        print("✅ Parser A2A-OCL inizializzato con successo.")
+        print("[OK] Parser A2A-OCL inizializzato con successo.")
 
     def validate_expression(self, expression: str) -> dict:
         """

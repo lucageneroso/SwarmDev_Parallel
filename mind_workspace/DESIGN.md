@@ -1,69 +1,51 @@
-# DESIGN.md - Gestionale Biblioteca
+# DESIGN.md - Gestionale Prenotazioni BIRROTECA
 
-## Scope e Funzionalità Principali
-- Gestione prestiti
-- Catalogazione libri
-- Gestione utenti
-- Prenotazioni
-- Reportistica
+## Scopo
+Sistema per la gestione delle prenotazioni tavoli alla BIRROTECA, con cancellazione autonoma e visualizzazione disponibilità in tempo reale.
 
-## Data Model
-### Libro
-- titolo
-- autore
-- ISBN
-- anno
-- genere
-- stato (disponibile, in prestito, prenotato)
+## Modello Dati
+- **Tavolo**
+  - `id`: string/int (identificativo univoco)
+  - `numero_posti`: int (numero massimo persone per tavolo)
 
-### Utente
-- nome
-- email
-- tessera
-- storico prestiti
+- **Prenotazione**
+  - `id`: string/int (identificativo univoco)
+  - `nome_cliente`: string
+  - `numero_persone`: int
+  - `data_ora`: datetime (data e ora prenotazione)
+  - `tavolo_id`: riferimento a Tavolo
+  - `stato`: enum ["attiva", "cancellata"]
 
-### Prestito
-- utente
-- libro
-- data inizio
-- data scadenza (1 mese)
-- stato (attivo, restituito, in ritardo)
+## Flusso Prenotazione
+1. L'utente accede all'app e seleziona una fascia oraria.
+2. Il sistema mostra i tavoli disponibili per quella fascia (nessuna doppia prenotazione sullo stesso tavolo e orario).
+3. L'utente seleziona tavolo, inserisce nome e numero persone, conferma la prenotazione.
+4. L'utente può cancellare autonomamente la prenotazione in qualsiasi momento.
+5. Alla cancellazione, il tavolo torna immediatamente disponibile per la stessa fascia oraria.
+6. Non è prevista la modifica delle prenotazioni: per cambiare dati occorre cancellare e rifare la prenotazione.
+7. Nessuna notifica automatica (email, push, ecc.).
 
-### Prenotazione
-- utente
-- libro
-- data richiesta
-- stato (attiva, scaduta, completata)
-
-## Flusso Prestito
-1. L’utente richiede un prestito tramite app.
-2. Il sistema verifica che l’utente abbia meno di 3 prestiti attivi.
-3. Se ok, la richiesta viene inviata in dashboard al bibliotecario per approvazione.
-4. Se l’utente supera il limite, la richiesta non viene approvata.
-5. Se un libro non viene restituito entro 1 mese, viene inviata una notifica automatica all’utente.
-
-## Prenotazioni
-- L’utente può prenotare un libro disponibile o attualmente in prestito.
-- Nessuna scadenza automatica per la prenotazione se il libro non viene ritirato.
-
-## Notifiche
-- Notifica automatica all’utente in caso di ritardo restituzione.
-- Notifica automatica al bibliotecario per nuove richieste di prestito.
-
-## Disponibilità Libri
-- Gli utenti possono vedere in tempo reale la disponibilità dei libri.
-
-## Reportistica (Esempi)
-- Libri più richiesti
-- Utenti più attivi
-- Prestiti in scadenza
-- Libri attualmente in prestito
+## API Principali
+- **GET /tavoli/disponibili?data_ora=...**
+  - Restituisce lista tavoli disponibili per data/ora specificata.
+- **POST /prenotazioni**
+  - Crea una nuova prenotazione (richiede nome_cliente, numero_persone, data_ora, tavolo_id).
+- **DELETE /prenotazioni/{id}**
+  - Cancella una prenotazione (solo se effettuata dall'utente stesso).
+- **GET /prenotazioni/mie**
+  - Restituisce le prenotazioni dell'utente.
 
 ## Edge Cases
-- Richiesta di prestito oltre il limite: rifiutata automaticamente.
-- Prestito non restituito entro la scadenza: notifica automatica.
-- Nessun dato aggiuntivo tracciato per gli utenti oltre quelli specificati.
-- Prenotazioni senza scadenza automatica.
+- Prenotazione su tavolo già occupato nella stessa fascia oraria: rifiutata.
+- Cancellazione: nessun limite temporale, il tavolo torna subito disponibile.
+- Nessuna modifica prenotazione: solo cancellazione e nuova creazione.
 
-## Processo di Approvazione
-- Tutte le richieste di prestito devono essere approvate dal bibliotecario tramite dashboard.
+## Vincoli
+- Un tavolo non può avere più di una prenotazione attiva per la stessa data/ora.
+- Numero persone per prenotazione ≤ numero_posti del tavolo.
+- Solo l'utente che ha creato la prenotazione può cancellarla.
+
+## Non Previsto
+- Notifiche automatiche (email, push, ecc.).
+- Politiche di cancellazione restrittive.
+- Gestione di modifiche alle prenotazioni.

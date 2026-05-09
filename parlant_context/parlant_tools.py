@@ -28,7 +28,7 @@ async def validate_a2a_ocl_expression(context: p.ToolContext, expression: str) -
     DEVI USARE SEMPRE QUESTO TOOL prima di finalizzare il Contratto JSON.
 
     Args:
-        expression: L'espressione A2A-OCL completa da validare (es. 'context Code inv: self.complexity <= 10')
+        expression (str): L'espressione A2A-OCL completa da validare (es. 'context Code inv: self.complexity <= 10'). Obbligatorio.
     """
     result_dict = ocl_validator.validate_expression(expression)
     return p.ToolResult(data=result_dict)
@@ -40,9 +40,9 @@ async def publish_final_contract(context: p.ToolContext, target_context: str, de
     DEVI invocare questo tool per rilasciare il contratto al broker.
 
     Args:
-        target_context: Il contesto (es. Frontend, Backend).
-        description: La descrizione in linguaggio naturale di ciò che l'Arm deve implementare.
-        a2a_ocl_constraints: La lista delle stringhe A2A-OCL che hai preventivamente validato.
+        target_context (str): Il contesto (es. Frontend, Backend). Obbligatorio.
+        description (str): La descrizione in linguaggio naturale di ciò che l'Arm deve implementare. Obbligatorio.
+        a2a_ocl_constraints (list[str]): La lista delle stringhe A2A-OCL che hai preventivamente validato. Obbligatorio.
     """
     contract_id = str(uuid.uuid4())
     contract = Contract(
@@ -66,8 +66,9 @@ os.makedirs(MIND_WORKSPACE, exist_ok=True)
 async def save_design_document(context: p.ToolContext, content: str) -> p.ToolResult:
     """
     Fase 1 (Discovery): Salva il documento di architettura (DESIGN.md) concordato con l'utente.
+    
     Args:
-        content: Il contenuto completo in Markdown del file DESIGN.md.
+        content (str): Il contenuto testuale completo in Markdown del file DESIGN.md che hai appena generato. DEVI fornire questo parametro.
     """
     file_path = os.path.join(MIND_WORKSPACE, "DESIGN.md")
     with open(file_path, "w", encoding="utf-8") as f:
@@ -78,8 +79,9 @@ async def save_design_document(context: p.ToolContext, content: str) -> p.ToolRe
 async def save_roadmap_document(context: p.ToolContext, content: str) -> p.ToolResult:
     """
     Fase 2 (Planning): Salva la roadmap di sviluppo divisa in Onde (ROADMAP.md).
+    
     Args:
-        content: Il contenuto completo in Markdown del file ROADMAP.md, strutturato per Onde (Onda 1, Onda 2, ...).
+        content (str): Il contenuto completo in Markdown del file ROADMAP.md, strutturato per Onde (Onda 1, Onda 2, ...). DEVI fornire questo parametro.
     """
     file_path = os.path.join(MIND_WORKSPACE, "ROADMAP.md")
     with open(file_path, "w", encoding="utf-8") as f:
@@ -90,8 +92,9 @@ async def save_roadmap_document(context: p.ToolContext, content: str) -> p.ToolR
 async def save_state_document(context: p.ToolContext, content: str) -> p.ToolResult:
     """
     Fase 2/3 (Execution): Traccia lo stato di avanzamento delle Onde in STATE.md.
+    
     Args:
-        content: Il contenuto in Markdown del file STATE.md che elenca lo stato di validazione di ogni Onda.
+        content (str): Il contenuto in Markdown del file STATE.md che elenca lo stato di validazione di ogni Onda. DEVI fornire questo parametro.
     """
     file_path = os.path.join(MIND_WORKSPACE, "STATE.md")
     with open(file_path, "w", encoding="utf-8") as f:

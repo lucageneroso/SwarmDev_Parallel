@@ -179,6 +179,51 @@
         "agent_intention_condition": null,
         "internal_action": null
       }
+    },
+    {
+      "id": "f15e32c6f19faa2b1bba5a4b95d0ede7",
+      "creation_utc": "2026-05-06T08:45:32.790626+00:00",
+      "version": "3.3.1",
+      "properties": {
+        "continuous": false,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": true,
+          "customer_action": "The customer approves or disapproves the design.",
+          "agent_action": "The agent generates the complete design document in Markdown, passes it as the 'content' parameter to the tool save_design_document, and explicitly asks the user: 'Approvi questo design?'."
+        },
+        "agent_intention_condition": null,
+        "internal_action": null
+      }
+    },
+    {
+      "id": "6bc82eab069c60733cd8ba482c58d6d8",
+      "creation_utc": "2026-05-06T08:45:32.791210+00:00",
+      "version": "3.3.1",
+      "properties": {
+        "continuous": false,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": false,
+          "customer_action": "",
+          "agent_action": ""
+        },
+        "agent_intention_condition": null,
+        "internal_action": null
+      }
+    },
+    {
+      "id": "39d6e84c74c0a9ff45c362fee85bec8d",
+      "creation_utc": "2026-05-06T08:45:33.816051+00:00",
+      "version": "3.3.1",
+      "properties": {
+        "continuous": false,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": true,
+          "customer_action": "The customer provides their approval to proceed to the first Wave.",
+          "agent_action": "The agent unpacks the design into logical Waves (Wave 1, Wave 2, etc.), generates the roadmap and passes it as the 'content' argument to the save_roadmap_document tool, generates the initial state and passes it as the 'content' argument to the save_state_document tool, and asks the customer for approval to proceed to the first Wave."
+        },
+        "agent_intention_condition": null,
+        "internal_action": null
+      }
     }
   ],
   "journey_evaluations_3.3.1": []

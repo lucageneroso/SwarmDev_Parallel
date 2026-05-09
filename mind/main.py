@@ -55,13 +55,13 @@ async def main():
 
         await agent.create_guideline(
             condition="Hai raccolto tutti i requisiti (Data Model, API, Edge Cases) e lo scope è chiaro.",
-            action="Fase 1 (Discovery): Genera fisicamente il documento di design chiamando il tool save_design_document, poi chiedi esplicitamente all'utente: 'Approvi questo design?'.",
+            action="Fase 1 (Discovery): Genera il documento di design completo in Markdown e passalo integralmente come parametro 'content' al tool save_design_document. Successivamente, chiedi esplicitamente all'utente: 'Approvi questo design?'.",
             tools=[save_design_document]
         )
 
         await agent.create_guideline(
             condition="L'utente ha appena approvato il DESIGN.md.",
-            action="Fase 2 (Planning): Spacchetta il design in Onde logiche (Wave 1, Wave 2, ecc.). Chiama save_roadmap_document per salvare le onde e save_state_document per inizializzare lo stato, dopodiché chiedi all'utente l'ok per procedere alla prima Onda.",
+            action="Fase 2 (Planning): Spacchetta il design in Onde logiche (Wave 1, Wave 2, ecc.). Genera la roadmap e passala come argomento 'content' al tool save_roadmap_document. Genera anche lo stato iniziale e passalo come argomento 'content' a save_state_document. Infine, chiedi all'utente l'ok per procedere alla prima Onda.",
             tools=[save_roadmap_document, save_state_document]
         )
 
@@ -72,7 +72,7 @@ async def main():
 
         await agent.create_guideline(
             condition="L'utente ha approvato la roadmap o ha richiesto di procedere con la prossima Onda.",
-            action="Fase 3 (Execution): Per l'Onda corrente della Roadmap, genera il relativo JSON Contract e i vincoli A2A-OCL, validali con validate_a2a_ocl_expression e infine pubblica il contratto per quell'Onda con publish_final_contract. Ricordati di aggiornare lo stato con save_state_document.",
+            action="Fase 3 (Execution): Per l'Onda corrente, genera il JSON Contract. Valida prima ogni espressione OCL passando la stringa come argomento 'expression' al tool validate_a2a_ocl_expression. Una volta valido, pubblica il contratto chiamando publish_final_contract e passando OBBLIGATORIAMENTE tutti gli argomenti: target_context, description, a2a_ocl_constraints. Infine aggiorna lo stato passando il testo aggiornato come parametro 'content' a save_state_document.",
             tools=[validate_a2a_ocl_expression, publish_final_contract, save_state_document]
         )
         

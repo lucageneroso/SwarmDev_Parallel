@@ -2,6 +2,7 @@ import subprocess
 import os
 import time
 import re
+import yaml
 from typing import List, Dict
 
 
@@ -9,8 +10,7 @@ class OpenCodeWrapper:
     def __init__(self, output_dir: str = "./workspace"):
         self.output_dir = output_dir
         os.makedirs(self.output_dir, exist_ok=True)
-
-
+        self.directives_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "directives"))
 
     def _sanitize_name(self, text: str) -> str:
         text = text.lower()
@@ -19,6 +19,32 @@ class OpenCodeWrapper:
         text = re.sub(r"\s+", "_", text)
         text = re.sub(r"[^a-z0-9_]", "", text)
         return text[:80]
+
+    def _load_directives(self) -> str:
+        """Carica E (Execution Rules) e R (Reasoning Constraints) dalla repository centrale."""
+        e_path = os.path.join(self.directives_dir, "execution_rules.yaml")
+        r_path = os.path.join(self.directives_dir, "reasoning_constraints.yaml")
+        
+        directives_text = ""
+        
+        try:
+            if os.path.exists(e_path):
+                with open(e_path, "r", encoding="utf-8") as f:
+                    e_data = yaml.safe_load(f)
+                    directives_text += "\nEXECUTION RULES (E):\n"
+                    for rule in e_data.get("rules", []):
+                        directives_text += f"- {rule['id']}: {rule['content']}\n"
+            
+            if os.path.exists(r_path):
+                with open(r_path, "r", encoding="utf-8") as f:
+                    r_data = yaml.safe_load(f)
+                    directives_text += "\nREASONING CONSTRAINTS (R):\n"
+                    for constr in r_data.get("constraints", []):
+                        directives_text += f"- {constr['id']}: {constr['content']}\n"
+        except Exception as e:
+            print(f"[WARN] Errore caricamento direttive: {e}")
+            
+        return directives_text
 
     # -----------------------------
     # PUBLIC API
@@ -38,7 +64,7 @@ class OpenCodeWrapper:
 
         if not changed_files:
             # retry una volta con feedback
-            print("⚠️ Nessun file generato. Retry con feedback...")
+            print("[WARN] Nessun file generato. Retry con feedback...")
             retry_prompt = prompt + "\n\nPrevious attempt failed: NO FILES CREATED. You MUST create files."
             self._run_opencode(job_dir, retry_prompt)
 
@@ -61,18 +87,23 @@ class OpenCodeWrapper:
         return job_dir
 
     def _build_prompt(self, contract_id: str, json_payload: str) -> str:
-        return f"""Sei un sub-agente di esecuzione isolato (fresh context). 
-Il tuo UNICO scopo è scrivere codice su disco. NON DEVI salutare, NON DEVI spiegare cosa stai facendo, NON DEVI produrre output discorsivo.
-Esegui questo task:
-<task type="auto">
-  <name>Implementazione Contratto {contract_id}</name>
-  <action>
-    Genera e modifica i file sorgente rispettando in modo assoluto questo Contratto Architetturale JSON:
-    {json_payload}
-  </action>
-  <verify>Il codice scritto deve rispettare i vincoli A2A-OCL forniti nel contratto.</verify>
-  <done>Termina il processo in silenzio una volta scritti i file.</done>
-</task>
+        directives = self._load_directives()
+        
+        return f"""<SYSTEM_PROMPT>
+Sei un sub-agente di esecuzione isolato (fresh context). 
+Il tuo UNICO scopo è tradurre deterministicamente il Contratto JSON in codice sorgente.
+
+{directives}
+
+NON DEVI salutare, NON DEVI spiegare, NON DEVI validare la qualità del codice prodotto.
+Termina in silenzio dopo la scrittura dei file.
+</SYSTEM_PROMPT>
+
+<USER_PROMPT>
+ID CONTRATTO: {contract_id}
+JSON SPECIFICATION (A, D):
+{json_payload}
+</USER_PROMPT>
 """
 
     def _run_opencode(self, cwd: str, prompt: str):
@@ -85,7 +116,7 @@ Esegui questo task:
             f"--model={model}"
         ]
 
-        print(f"🤖 [OpenCode] Running in {cwd}")
+        print(f"[OpenCode] Running in {cwd}")
 
         process = subprocess.Popen(
             cmd,
@@ -104,7 +135,8 @@ Esegui questo task:
         process.stdin.close()
 
         for line in process.stdout:
-            print(line, end="")
+            safe_line = line.encode('cp1252', errors='replace').decode('cp1252')
+            print(safe_line, end="")
 
         process.wait()
 
@@ -147,6 +179,6 @@ Esegui questo task:
                         "content": content
                     })
             except Exception as e:
-                print(f"⚠️ Errore lettura file {f}: {e}")
+                print(f"[WARN] Errore lettura file {f}: {e}")
 
         return result
