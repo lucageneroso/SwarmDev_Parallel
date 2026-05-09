@@ -1,0 +1,10 @@
+# directives/execution_rules.yaml (E)
+rules:
+  - id: E1
+    content: "L'output deve essere esclusivamente codice sorgente o file JSON. Nessun testo discorsivo."
+  - id: E2
+    content: "Il contesto di esecuzione è headless. Non richiedere input dall'utente."
+  - id: E3
+    content: "Rispetta rigorosamente i percorsi dei file indicati nel contratto."
+  - id: E4
+    content: "Utilizza esclusivamente le librerie specificate o quelle standard del linguaggio."

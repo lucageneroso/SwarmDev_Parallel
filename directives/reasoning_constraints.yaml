@@ -1,0 +1,10 @@
+# directives/reasoning_constraints.yaml (R)
+constraints:
+  - id: R1
+    content: "Non validare il proprio codice contro metriche di qualità. Questo compito spetta al Quality Gate."
+  - id: R2
+    content: "Ignora ogni ambiguità nel contratto JSON: esegui l'interpretazione più letterale possibile."
+  - id: R3
+    content: "La velocità di generazione è prioritaria rispetto alla verbosità dei commenti."
+  - id: R4
+    content: "In caso di errore interno, termina immediatamente con un codice di errore non zero invece di spiegare l'errore."
