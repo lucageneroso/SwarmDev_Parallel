@@ -89,7 +89,12 @@ def frontend_actor(state: OrchestratorState):
     
     user_content = f"JSON CONTRACT:\n{state['json_contract']}"
     if state.get("frontend_errors"):
-        user_content += f"\n\nERROR DELTA (Fix immediately):\n{state['frontend_errors']}"
+        user_content += (
+            f"\n\nCRITICAL FAILURE. Your previous code was rejected. Here is the exact compiler/linter error:\n"
+            f"{state['frontend_errors']}\n\n"
+            f"You MUST fix this exact issue. Remember your directives: strictly adhere to the constraints. "
+            f"Output ONLY the corrected code."
+        )
         
     hum_msg = HumanMessage(content=user_content)
     
@@ -110,7 +115,12 @@ def backend_actor(state: OrchestratorState):
     
     user_content = f"JSON CONTRACT:\n{state['json_contract']}"
     if state.get("backend_errors"):
-        user_content += f"\n\nERROR DELTA (Fix immediately):\n{state['backend_errors']}"
+        user_content += (
+            f"\n\nCRITICAL FAILURE. Your previous code was rejected. Here is the exact compiler/linter error:\n"
+            f"{state['backend_errors']}\n\n"
+            f"You MUST fix this exact issue. Remember your directives: strictly adhere to the constraints "
+            f"(e.g., use FastAPI if specified, not Flask). Output ONLY the corrected code."
+        )
         
     hum_msg = HumanMessage(content=user_content)
     
@@ -142,6 +152,14 @@ def run_real_quality_gate(code: str, file_ext: str) -> str:
         tmp_path = tmp.name
 
     try:
+        # 0. Auto-Formatting (Black)
+        cmd_black = [sys.executable, "-m", "black", "-q", tmp_path]
+        subprocess.run(cmd_black, check=False)
+
+        # Read back the formatted code (optional, but good practice if you want to save it)
+        with open(tmp_path, "r", encoding="utf-8") as f:
+            formatted_code = f.read()
+
         # 1. Cyclomatic Complexity (Radon) - Fails if > 10 (Grade C)
         cmd_radon = [sys.executable, "-m", "radon", "cc", "-n", "C", "-s", tmp_path]
         res_radon = subprocess.run(cmd_radon, capture_output=True, text=True)
@@ -263,24 +281,71 @@ def build_orchestrator() -> StateGraph:
 # ============================================================================
 # EXECUTION ENTRYPOINT
 # ============================================================================
-if __name__ == "__main__":
-    print("Costruendo il DAG LangGraph...")
-    orchestrator = build_orchestrator()
+import json
+import pika
+
+def start_consumer():
+    """Starts the RabbitMQ consumer to trigger the LangGraph orchestration."""
+    host = os.environ.get('RABBITMQ_HOST', 'localhost')
+    port = int(os.environ.get('RABBITMQ_PORT', 5672))
+    queue_name = 'contract_queue'
     
-    # Esempio di esecuzione con un contratto fittizio per test
-    initial_state = {
-        "json_contract": '{"api": "GET /health", "response": {"status": "ok"}}',
-        "retry_count": 0,
-        "frontend_code": None,
-        "backend_code": None,
-        "frontend_errors": None,
-        "backend_errors": None
-    }
-    
-    print("\nAvviando l'esecuzione del grafo...")
     try:
-        final_state = orchestrator.invoke(initial_state)
-        print("\n--- RISULTATO FINALE ---")
-        print("Backend Code:\n", final_state.get("backend_code", "N/A"))
+        connection = pika.BlockingConnection(pika.ConnectionParameters(host=host, port=port, heartbeat=0))
+        channel = connection.channel()
+        channel.queue_declare(queue=queue_name, durable=True)
+        
+        print(f"✅ [Orchestrator] Connesso a RabbitMQ su {host}:{port}. In ascolto su '{queue_name}'...")
+        
+        orchestrator = build_orchestrator()
+
+        def callback(ch, method, properties, body):
+            print(f"\n📥 [Orchestrator] Ricevuto nuovo contratto JSON da RabbitMQ.")
+            try:
+                # 1. Parse JSON body
+                contract_data = json.loads(body)
+                
+                # We assume the body is the JSON contract representation or contains it.
+                # If it's a dict containing the contract details, we serialize it to pass to the graph.
+                # Adjust depending on the exact schema published by The Mind.
+                json_contract_str = json.dumps(contract_data) if isinstance(contract_data, dict) else str(contract_data)
+                
+                # 2. Initialize State
+                initial_state = {
+                    "json_contract": json_contract_str,
+                    "retry_count": 0,
+                    "frontend_code": None,
+                    "backend_code": None,
+                    "frontend_errors": None,
+                    "backend_errors": None
+                }
+                
+                # 3. Invoke Graph
+                print(f"🚀 Avviando l'esecuzione del DAG per il contratto...")
+                final_state = orchestrator.invoke(initial_state)
+                
+                # 4. Print Results
+                if final_state.get("frontend_errors") or final_state.get("backend_errors"):
+                    print("❌ Esecuzione fallita dopo i retry massimi.")
+                else:
+                    print("✅ Esecuzione completata con successo.")
+                    
+                # 5. Acknowledge Message ONLY when graph reaches __end__
+                ch.basic_ack(delivery_tag=method.delivery_tag)
+                print("✅ Contratto processato e ACK inviato al broker.")
+                
+            except Exception as e:
+                print(f"❌ [Orchestrator] Errore critico nel processing del grafo: {e}")
+                # Optional: NACK the message or send to Dead Letter Queue
+                ch.basic_nack(delivery_tag=method.delivery_tag, requeue=False)
+
+        channel.basic_qos(prefetch_count=1)
+        channel.basic_consume(queue=queue_name, on_message_callback=callback)
+        channel.start_consuming()
+        
     except Exception as e:
-        print(f"Errore di esecuzione: {e}")
+        print(f"❌ Impossibile connettersi a RabbitMQ: {e}")
+
+if __name__ == "__main__":
+    print("Costruendo il DAG LangGraph e avviando il consumer...")
+    start_consumer()
