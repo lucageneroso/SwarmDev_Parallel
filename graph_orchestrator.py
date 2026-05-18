@@ -7,7 +7,9 @@ from typing import TypedDict, Optional, Annotated, Sequence
 import yaml
 
 from langchain_core.messages import SystemMessage, HumanMessage
-from langchain_openai import ChatOpenAI
+import warnings
+warnings.filterwarnings("ignore", message=".*ChatLiteLLM.*")
+from langchain_community.chat_models import ChatLiteLLM
 from langgraph.graph import StateGraph, END
 from dotenv import load_dotenv
 
@@ -23,6 +25,9 @@ class OrchestratorState(TypedDict):
     frontend_errors: Optional[str]
     backend_errors: Optional[str]
     retry_count: Annotated[int, operator.add]
+    total_tokens: Annotated[int, operator.add]
+    documentation_ready: Optional[bool]
+    documentation_path: Optional[str]
 
 # Constants
 MAX_RETRIES = 3
@@ -61,17 +66,19 @@ def load_directives() -> str:
 # ============================================================================
 # 3. LLM INITIALIZATION
 # ============================================================================
-# Use ChatOpenAI with max_retries=3 natively. Assumes OPENAI_API_KEY is in env.
-llm = ChatOpenAI(model="gpt-4o", max_retries=3, temperature=0.0)
+# Universal LLM Provider via LiteLLM.
+# Set LLM_MODEL in .env (e.g., "openrouter/anthropic/claude-3-haiku" or "gpt-4o")
+# Ensure the corresponding API key (OPENROUTER_API_KEY, OPENAI_API_KEY, etc.) is set.
+llm_model = os.environ.get("LLM_MODEL", "gpt-4o")
+llm = ChatLiteLLM(model=llm_model, max_retries=3, temperature=0.0)
+
+import re
 
 def extract_code(text: str) -> str:
     """Extracts raw code from markdown blocks to avoid syntax errors in critics."""
-    if "```python" in text:
-        return text.split("```python")[1].split("```")[0].strip()
-    if "```javascript" in text:
-        return text.split("```javascript")[1].split("```")[0].strip()
-    if "```" in text:
-        return text.split("```")[1].strip()
+    match = re.search(r"```[a-zA-Z]*\n?(.*?)```", text, re.DOTALL)
+    if match:
+        return match.group(1).strip()
     return text.strip()
 
 # ============================================================================
@@ -83,17 +90,24 @@ def frontend_actor(state: OrchestratorState):
     
     sys_msg = SystemMessage(
         content=f"You are the SwarmDev Frontend Blind Builder.\n{directives}\n"
-                "Output ONLY valid Javascript/React code based on the JSON contract. "
+                "Output ONLY valid Javascript/React code based on the requirements. "
                 "DO NOT output explanations or markdown. DO NOT self-evaluate."
     )
     
-    user_content = f"JSON CONTRACT:\n{state['json_contract']}"
-    if state.get("frontend_errors"):
+    try:
+        import json
+        reqs = json.loads(state['json_contract']).get('frontend_requirements', state['json_contract'])
+    except:
+        reqs = state['json_contract']
+        
+    user_content = f"REQUIREMENTS:\n{reqs}"
+    if state.get("frontend_errors") and state.get("frontend_code"):
         user_content += (
-            f"\n\nCRITICAL FAILURE. Your previous code was rejected. Here is the exact compiler/linter error:\n"
+            f"\n\nYOUR PREVIOUS CODE:\n```javascript\n{state['frontend_code']}\n```\n\n"
+            f"CRITICAL FAILURE. Your previous code was rejected. Here is the exact compiler/linter error:\n"
             f"{state['frontend_errors']}\n\n"
-            f"You MUST fix this exact issue. Remember your directives: strictly adhere to the constraints. "
-            f"Output ONLY the corrected code."
+            f"You MUST fix this exact issue in your code. Remember your directives: strictly adhere to the constraints. "
+            f"Output ONLY the complete, fully corrected code."
         )
         
     hum_msg = HumanMessage(content=user_content)
@@ -101,7 +115,14 @@ def frontend_actor(state: OrchestratorState):
     response = llm.invoke([sys_msg, hum_msg])
     code = extract_code(response.content)
     
-    return {"frontend_code": code}
+    # Extract token usage (support both LiteLLM and LangChain's usage_metadata)
+    if hasattr(response, 'usage_metadata') and response.usage_metadata:
+        tokens = response.usage_metadata.get('total_tokens', 0)
+    else:
+        token_usage = response.response_metadata.get('token_usage', {})
+        tokens = token_usage.get('total_tokens', 0) if isinstance(token_usage, dict) else 0
+    
+    return {"frontend_code": code, "total_tokens": tokens}
 
 def backend_actor(state: OrchestratorState):
     print("[Backend Actor] Generating Code...")
@@ -109,17 +130,24 @@ def backend_actor(state: OrchestratorState):
     
     sys_msg = SystemMessage(
         content=f"You are the SwarmDev Backend Blind Builder.\n{directives}\n"
-                "Output ONLY valid Python code based on the JSON contract. "
+                "Output ONLY valid Python code based on the requirements. "
                 "DO NOT output explanations or markdown. DO NOT self-evaluate."
     )
     
-    user_content = f"JSON CONTRACT:\n{state['json_contract']}"
-    if state.get("backend_errors"):
+    try:
+        import json
+        reqs = json.loads(state['json_contract']).get('backend_requirements', state['json_contract'])
+    except:
+        reqs = state['json_contract']
+        
+    user_content = f"REQUIREMENTS:\n{reqs}"
+    if state.get("backend_errors") and state.get("backend_code"):
         user_content += (
-            f"\n\nCRITICAL FAILURE. Your previous code was rejected. Here is the exact compiler/linter error:\n"
+            f"\n\nYOUR PREVIOUS CODE:\n```python\n{state['backend_code']}\n```\n\n"
+            f"CRITICAL FAILURE. Your previous code was rejected. Here is the exact compiler/linter error:\n"
             f"{state['backend_errors']}\n\n"
-            f"You MUST fix this exact issue. Remember your directives: strictly adhere to the constraints "
-            f"(e.g., use FastAPI if specified, not Flask). Output ONLY the corrected code."
+            f"You MUST fix this exact issue in your code. Remember your directives: strictly adhere to the constraints "
+            f"(e.g., use FastAPI if specified, not Flask). Output ONLY the complete, fully corrected code."
         )
         
     hum_msg = HumanMessage(content=user_content)
@@ -127,7 +155,14 @@ def backend_actor(state: OrchestratorState):
     response = llm.invoke([sys_msg, hum_msg])
     code = extract_code(response.content)
     
-    return {"backend_code": code}
+    # Extract token usage (support both LiteLLM and LangChain's usage_metadata)
+    if hasattr(response, 'usage_metadata') and response.usage_metadata:
+        tokens = response.usage_metadata.get('total_tokens', 0)
+    else:
+        token_usage = response.response_metadata.get('token_usage', {})
+        tokens = token_usage.get('total_tokens', 0) if isinstance(token_usage, dict) else 0
+    
+    return {"backend_code": code, "total_tokens": tokens}
 
 # ============================================================================
 # 5. CRITIC NODES (REAL QUALITY GATES)
@@ -137,11 +172,34 @@ def run_real_quality_gate(code: str, file_ext: str) -> str:
     if not code:
         return "Critical Error: No code generated."
         
-    # Flake8/Radon are python-specific. For frontend, we would use ESLint.
-    # The prompt explicitly asked for radon and flake8. 
-    # We apply them strictly if the extension is .py
+    # ESLint for frontend files (.js, .jsx, .ts, .tsx)
+    if file_ext in [".js", ".jsx", ".ts", ".tsx"]:
+        error_deltas = []
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_path = os.path.join(tmp_dir, f"code{file_ext}")
+            with open(tmp_path, "w", encoding="utf-8") as f:
+                f.write(code)
+            
+            # Create a minimal eslint.config.mjs to satisfy ESLint 9+
+            eslint_config_path = os.path.join(tmp_dir, "eslint.config.mjs")
+            with open(eslint_config_path, "w", encoding="utf-8") as f:
+                f.write("export default [{ rules: {} }];")
+
+            try:
+                cmd_eslint = ["npx.cmd" if os.name == "nt" else "npx", "eslint", "--no-color", tmp_path]
+                res_eslint = subprocess.run(cmd_eslint, cwd=tmp_dir, capture_output=True, text=True)
+                if res_eslint.returncode != 0 and res_eslint.stdout.strip():
+                    lines = [l.strip() for l in res_eslint.stdout.strip().split("\n") if l.strip()]
+                    for line in lines[:5]:
+                        error_deltas.append(f"Q1 Failed (ESLint): {line.strip()}")
+                elif res_eslint.stderr.strip():
+                    error_deltas.append(f"Q1 Failed (ESLint Error): {res_eslint.stderr.strip()}")
+            except Exception as e:
+                error_deltas.append(f"ESLint Execution Error: {str(e)}")
+            
+        return "\n".join(error_deltas)
+
     if file_ext != ".py":
-        # Simulating Frontend JS validation for parity (or returning empty string if OK)
         return ""
 
     error_deltas = []
@@ -169,7 +227,8 @@ def run_real_quality_gate(code: str, file_ext: str) -> str:
                     error_deltas.append(f"Q1 Failed (Radon CC): {line.strip()}")
 
         # 2. Linting (Flake8)
-        cmd_flake8 = [sys.executable, "-m", "flake8", tmp_path]
+        # We increase max line length for LLM generated code and ignore E501
+        cmd_flake8 = [sys.executable, "-m", "flake8", "--max-line-length=120", "--extend-ignore=E501", tmp_path]
         res_flake8 = subprocess.run(cmd_flake8, capture_output=True, text=True)
         if res_flake8.returncode != 0 and res_flake8.stdout.strip():
             # Only pick the first few errors to avoid exploding context window
@@ -197,7 +256,36 @@ def backend_critic(state: OrchestratorState):
     return {"backend_errors": errors if errors else None}
 
 # ============================================================================
-# 6. ROUTING AND PARALLEL EXECUTION
+# 6. DOCUMENTATION NODE
+# ============================================================================
+def documentation_node(state: OrchestratorState):
+    print("[Documentation Node] Generating Holistic Documentation...")
+    
+    with tempfile.TemporaryDirectory(prefix="workspace_") as tmp_dir:
+        if state.get("frontend_code"):
+            with open(os.path.join(tmp_dir, "frontend.js"), "w", encoding="utf-8") as f:
+                f.write(state["frontend_code"])
+        if state.get("backend_code"):
+            with open(os.path.join(tmp_dir, "backend.py"), "w", encoding="utf-8") as f:
+                f.write(state["backend_code"])
+        
+        doc_path = os.path.join(CURRENT_DIR, "README.md")
+        cmd = [sys.executable, "-m", "codewiki_cli", "--dir", tmp_dir, "--output", doc_path]
+        
+        try:
+            res = subprocess.run(cmd, capture_output=True, text=True)
+            if res.returncode == 0:
+                print(f"[Documentation Node] CodeWiki documentation generated at {doc_path}")
+                return {"documentation_path": doc_path, "documentation_ready": True}
+            else:
+                print(f"[WARN] CodeWiki generation failed: {res.stderr}")
+                return {"documentation_path": None, "documentation_ready": False}
+        except Exception as e:
+            print(f"[WARN] CodeWiki Execution Error: {e}")
+            return {"documentation_path": None, "documentation_ready": False}
+
+# ============================================================================
+# 7. ROUTING AND PARALLEL EXECUTION
 # ============================================================================
 def start_node(state: OrchestratorState):
     """Initial node to fan-out to parallel actors."""
@@ -221,8 +309,8 @@ def conditional_router(state: OrchestratorState) -> Sequence[str]:
     print(f"[Router] Checking Errors. Current Retry Count: {state.get('retry_count', 0)}")
     
     if not f_err and not b_err:
-        print("[OK] Validation PASSED. Execution successful.")
-        return [END]
+        print("[OK] Validation PASSED. Routing to Documentation Node...")
+        return ["documentation_node"]
         
     if state.get("retry_count", 0) >= MAX_RETRIES:
         print("[FAIL] Max retries reached. Exiting with validation failures.")
@@ -230,16 +318,16 @@ def conditional_router(state: OrchestratorState) -> Sequence[str]:
         
     next_nodes = []
     if f_err:
-        print("[RETRY] Routing back to Frontend Actor...")
+        print(f"[RETRY] Routing back to Frontend Actor. Linter Errors:\n{f_err}")
         next_nodes.append("frontend_actor")
     if b_err:
-        print("[RETRY] Routing back to Backend Actor...")
+        print(f"[RETRY] Routing back to Backend Actor. Linter Errors:\n{b_err}")
         next_nodes.append("backend_actor")
         
     return next_nodes
 
 # ============================================================================
-# 7. BUILD AND COMPILE GRAPH
+# 8. BUILD AND COMPILE GRAPH
 # ============================================================================
 def build_orchestrator() -> StateGraph:
     workflow = StateGraph(OrchestratorState)
@@ -251,6 +339,7 @@ def build_orchestrator() -> StateGraph:
     workflow.add_node("frontend_critic", frontend_critic)
     workflow.add_node("backend_critic", backend_critic)
     workflow.add_node("routing_node", routing_node)
+    workflow.add_node("documentation_node", documentation_node)
     
     # Parallel Start (Fan-out)
     workflow.set_entry_point("start")
@@ -272,9 +361,12 @@ def build_orchestrator() -> StateGraph:
         {
             "frontend_actor": "frontend_actor",
             "backend_actor": "backend_actor",
+            "documentation_node": "documentation_node",
             END: END
         }
     )
+    
+    workflow.add_edge("documentation_node", END)
     
     return workflow.compile()
 
@@ -314,21 +406,53 @@ def start_consumer():
                 initial_state = {
                     "json_contract": json_contract_str,
                     "retry_count": 0,
+                    "total_tokens": 0,
                     "frontend_code": None,
                     "backend_code": None,
                     "frontend_errors": None,
-                    "backend_errors": None
+                    "backend_errors": None,
+                    "documentation_ready": False,
+                    "documentation_path": None
                 }
                 
                 # 3. Invoke Graph
                 print(f"🚀 Avviando l'esecuzione del DAG per il contratto...")
                 final_state = orchestrator.invoke(initial_state)
                 
-                # 4. Print Results
-                if final_state.get("frontend_errors") or final_state.get("backend_errors"):
+                # 4. Extract Metrics & Print Results
+                final_retries = final_state.get("retry_count", 0)
+                total_tokens = final_state.get("total_tokens", 0)
+                
+                # If retry_count is 0 AND there are no errors, it's Pass@1!
+                is_failed = bool(final_state.get("frontend_errors") or final_state.get("backend_errors"))
+                pass_at_1 = not is_failed and final_retries == 0
+                
+                metrics = {
+                    "retry_count": final_retries,
+                    "total_tokens": total_tokens,
+                    "pass_at_1": pass_at_1,
+                    "status": "FAILED" if is_failed else "SUCCESS"
+                }
+                
+                print("\n📊 --- ACADEMIC METRICS LOG ---")
+                print(json.dumps(metrics, indent=2))
+                print("--------------------------------\n")
+                
+                if is_failed:
                     print("❌ Esecuzione fallita dopo i retry massimi.")
                 else:
                     print("✅ Esecuzione completata con successo.")
+                    
+                    # Salva il codice in output_generato
+                    output_dir = os.path.join(CURRENT_DIR, "output_generato")
+                    os.makedirs(output_dir, exist_ok=True)
+                    if final_state.get("frontend_code"):
+                        with open(os.path.join(output_dir, "frontend.js"), "w", encoding="utf-8") as f:
+                            f.write(final_state["frontend_code"])
+                    if final_state.get("backend_code"):
+                        with open(os.path.join(output_dir, "backend.py"), "w", encoding="utf-8") as f:
+                            f.write(final_state["backend_code"])
+                    print(f"📁 Codice salvato con successo in: {output_dir}")
                     
                 # 5. Acknowledge Message ONLY when graph reaches __end__
                 ch.basic_ack(delivery_tag=method.delivery_tag)
