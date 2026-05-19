@@ -1,0 +1,18 @@
+{
+  "id": "5088b725-e8bb-4d4c-9b39-735bf2e5c26b",
+  "context": "Backend",
+  "description": "Tool per scaricare paper da ArXiv che ricerca per autore, titolo e categoria, filtra per data recente, e stampa su console o salva in CSV.",
+  "a2a_ocl_constraints": [
+    "category è obbligatorio",
+    "title è obbligatorio",
+    "author è obbligatorio",
+    "published è obbligatorio",
+    "abstract è obbligatorio",
+    "link è obbligatorio",
+    "recent_days è obbligatorio",
+    "max_results è facoltativo con valore predefinito 10",
+    "gestione degli errori di rete e timeout",
+    "messaggio rassicurante se non ci sono risultati"
+  ],
+  "metadata": {}
+}

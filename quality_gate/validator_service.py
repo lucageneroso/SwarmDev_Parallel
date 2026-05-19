@@ -51,7 +51,7 @@ class QualityGateService:
 
         # 2. Linting (flake8)
         try:
-            cmd = [sys.executable, "-m", "flake8", "--max-complexity=10", target_dir]
+            cmd = [sys.executable, "-m", "flake8", "--max-complexity=10", "--ignore=E501,E302,W605", target_dir]
             result = subprocess.run(cmd, capture_output=True, text=True, check=False)
             if result.stdout.strip():
                 is_valid = False

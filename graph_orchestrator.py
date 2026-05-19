@@ -261,28 +261,64 @@ def backend_critic(state: OrchestratorState):
 def documentation_node(state: OrchestratorState):
     print("[Documentation Node] Generating Holistic Documentation...")
     
+    doc_dir = os.path.join(CURRENT_DIR, "CodeWiki_Docs")
+    success = False
+    
     with tempfile.TemporaryDirectory(prefix="workspace_") as tmp_dir:
-        if state.get("frontend_code"):
-            with open(os.path.join(tmp_dir, "frontend.js"), "w", encoding="utf-8") as f:
-                f.write(state["frontend_code"])
-        if state.get("backend_code"):
-            with open(os.path.join(tmp_dir, "backend.py"), "w", encoding="utf-8") as f:
-                f.write(state["backend_code"])
+        f_code = state.get("frontend_code")
+        b_code = state.get("backend_code")
         
-        doc_path = os.path.join(CURRENT_DIR, "README.md")
-        cmd = [sys.executable, "-m", "codewiki_cli", "--dir", tmp_dir, "--output", doc_path]
+        if f_code:
+            with open(os.path.join(tmp_dir, "frontend.js"), "w", encoding="utf-8") as f:
+                f.write(f_code)
+        if b_code:
+            with open(os.path.join(tmp_dir, "backend.py"), "w", encoding="utf-8") as f:
+                f.write(b_code)
+        
+        # 1. Prepare OpenRouter environment for CodeWiki
+        cw_env = os.environ.copy()
+        cw_env["OPENAI_API_BASE"] = "https://openrouter.ai/api/v1"
+        cw_env["OPENAI_API_KEY"] = os.environ.get("OPENROUTER_API_KEY", os.environ.get("OPENAI_API_KEY", ""))
+        
+        # Set target model
+        cw_model = os.environ.get("LLM_MODEL", "meta-llama/llama-3.3-70b-instruct")
+        cw_env["OPENAI_MODEL"] = cw_model
+        cw_env["MODEL"] = cw_model
+        
+        # 2. Try running CodeWiki
+        bin_name = "codewiki.exe" if os.name == "nt" else "codewiki"
+        cmd = [bin_name, "generate", "--output", doc_dir]
         
         try:
-            res = subprocess.run(cmd, capture_output=True, text=True)
+            # We must set cwd=tmp_dir because CodeWiki analyzes the current directory
+            res = subprocess.run(cmd, capture_output=True, text=True, env=cw_env, cwd=tmp_dir)
             if res.returncode == 0:
-                print(f"[Documentation Node] CodeWiki documentation generated at {doc_path}")
-                return {"documentation_path": doc_path, "documentation_ready": True}
+                print(f"[Documentation Node] CodeWiki documentation generated at {doc_dir}")
+                success = True
             else:
                 print(f"[WARN] CodeWiki generation failed: {res.stderr}")
-                return {"documentation_path": None, "documentation_ready": False}
         except Exception as e:
             print(f"[WARN] CodeWiki Execution Error: {e}")
-            return {"documentation_path": None, "documentation_ready": False}
+            
+    # 3. Fallback to native python markdown writer if CodeWiki fails
+    if not success:
+        print("[Documentation Node] Falling back to native markdown writer...")
+        try:
+            os.makedirs(doc_dir, exist_ok=True)
+            fallback_path = os.path.join(doc_dir, "README.md")
+            with open(fallback_path, "w", encoding="utf-8") as f:
+                f.write("# SwarmDev Generated Documentation\n\n")
+                f.write("> This documentation was generated as a fallback because the CodeWiki node encountered an error.\n\n")
+                if b_code:
+                    f.write("## Backend Code\n```python\n" + b_code + "\n```\n\n")
+                if f_code:
+                    f.write("## Frontend Code\n```javascript\n" + f_code + "\n```\n")
+            print(f"[Documentation Node] Fallback documentation generated at {fallback_path}")
+            success = True
+        except Exception as e:
+            print(f"[WARN] Fallback writer failed: {e}")
+            
+    return {"documentation_path": doc_dir if success else None, "documentation_ready": success}
 
 # ============================================================================
 # 7. ROUTING AND PARALLEL EXECUTION

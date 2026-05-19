@@ -14,8 +14,8 @@ from parlant_context.parlant_tools import (
 load_dotenv()
 
 async def main():
-    # Siccome usi OpenAI, specifichiamo esplicitamente ad p.Server() di usare OpenAI
-    async with p.Server(nlp_service=p.NLPServices.openai) as server:
+    # Usiamo OpenRouter come provider NLP
+    async with p.Server(nlp_service=p.NLPServices.openrouter) as server:
         # 1. Creazione dell'Agente SwarmDev Orchestrator
         agent = await server.create_agent(
             name="SwarmDev Orchestrator",
@@ -44,7 +44,7 @@ async def main():
         # 3. Configurazione delle Guidelines e del Tool
         await agent.create_guideline(
             condition="prima di inserire o confermare un'espressione A2A-OCL all'interno di un Contratto JSON",
-            action="Valida sempre e rigorosamente la sintassi dell'espressione utilizzando il tool 'validate_a2a_ocl_expression' disponibile. Correggi l'espressione iterativamente e ripeti il tool (Micro-Loop) in caso di errori fino ad ottenere 'success'!",
+            action="Valida sempre e rigorosamente la sintassi dell'espressione utilizzando il tool 'validate_a2a_ocl_expression' disponibile. DEVI ASSOLUTAMENTE passare l'argomento 'expression' valorizzato con la stringa OCL da testare. Correggi l'espressione iterativamente e ripeti il tool (Micro-Loop) in caso di errori fino ad ottenere 'success'!",
             tools=[validate_a2a_ocl_expression]
         )
         
@@ -72,7 +72,7 @@ async def main():
 
         await agent.create_guideline(
             condition="L'utente ha approvato la roadmap o ha richiesto di procedere con la prossima Onda.",
-            action="Fase 3 (Execution): Per l'Onda corrente, genera il JSON Contract. Valida prima ogni espressione OCL passando la stringa come argomento 'expression' al tool validate_a2a_ocl_expression. Una volta valido, pubblica il contratto chiamando publish_final_contract e passando OBBLIGATORIAMENTE tutti gli argomenti: target_context, description, a2a_ocl_constraints. Infine aggiorna lo stato passando il testo aggiornato come parametro 'content' a save_state_document.",
+            action="Fase 3 (Execution): Per l'Onda corrente, formula tu stesso l'architettura. DEVI generare e scrivere tu le espressioni OCL, il target context e la descrizione basandoti sul documento di design. NON chiedere MAI all'utente di fornirti questi dati. Valida prima ogni espressione OCL passandola al tool validate_a2a_ocl_expression. Una volta valido, pubblica il contratto con publish_final_contract (inventando tu target_context e description). Infine salva lo stato.",
             tools=[validate_a2a_ocl_expression, publish_final_contract, save_state_document]
         )
         

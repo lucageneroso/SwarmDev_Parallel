@@ -224,6 +224,36 @@
         "agent_intention_condition": null,
         "internal_action": null
       }
+    },
+    {
+      "id": "a11dfe061926b39814d2d376c0f3823f",
+      "creation_utc": "2026-05-19T14:40:49.098941+00:00",
+      "version": "3.3.1",
+      "properties": {
+        "continuous": false,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": false,
+          "customer_action": "",
+          "agent_action": ""
+        },
+        "agent_intention_condition": "You are likely to validate the syntax of the A2A-OCL expression before inserting or confirming it within a JSON Contract",
+        "internal_action": null
+      }
+    },
+    {
+      "id": "f2800dad9d7324c9af49e82b8411eb83",
+      "creation_utc": "2026-05-19T14:49:46.818707+00:00",
+      "version": "3.3.1",
+      "properties": {
+        "continuous": true,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": false,
+          "customer_action": "",
+          "agent_action": ""
+        },
+        "agent_intention_condition": "You are likely to proceed with the current Wave by formulating the architecture and generating the necessary OCL expressions.",
+        "internal_action": null
+      }
     }
   ],
   "journey_evaluations_3.3.1": []

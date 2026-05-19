@@ -9,7 +9,7 @@ class CalculationRequest(BaseModel):
     operation: str
 
 @app.post("/calculate")
-async def calculate(request: CalculationRequest) -> dict:
+async def calculate(request: CalculationRequest):
     if request.operation == "add":
         result = request.num1 + request.num2
     elif request.operation == "subtract":

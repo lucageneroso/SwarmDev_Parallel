@@ -1587,3 +1587,1401 @@ Recommended actions:
 [2m2026-05-08T15:30:13.216739Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Cancelling all remaining tasks (2)[0m
 [2m2026-05-08T15:30:13.233432Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Shutting down[0m
 [2m2026-05-08T15:30:13.234007Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Waiting for task 'process-session(dnXEytHMFq)' to finish[0m
+[2m2026-05-19T08:39:15.051684Z[0m [[32m[1minfo     [0m] [1m[<main>] Parlant server version 3.3.1[0m
+[2m2026-05-19T08:39:15.052527Z[0m [[32m[1minfo     [0m] [1m[<main>] Using home directory 'C:\Users\lucag\SwarmDev_Parallel\parlant-data'[0m
+[2m2026-05-19T08:39:15.057235Z[0m [[32m[1minfo     [0m] [1m[<main>] No external modules selected[0m
+[2m2026-05-19T08:39:16.493751Z[0m [[32m[1minfo     [0m] [1m[<main>] Initialized OpenAIService[0m
+[2m2026-05-19T08:39:31.160627Z[0m [[32m[1minfo     [0m] [1m[<main>] .-----------------------------------------.[0m
+[2m2026-05-19T08:39:31.161919Z[0m [[32m[1minfo     [0m] [1m[<main>] | Server is ready for some serious action |[0m
+[2m2026-05-19T08:39:31.162637Z[0m [[32m[1minfo     [0m] [1m[<main>] '-----------------------------------------'[0m
+[2m2026-05-19T08:39:31.163334Z[0m [[32m[1minfo     [0m] [1m[<main>] Server authorization policy: development[0m
+[2m2026-05-19T08:39:31.165183Z[0m [[32m[1minfo     [0m] [1m[<main>] Try the Sandbox UI at http://localhost:8800[0m
+[2m2026-05-19T08:39:31.758791Z[0m [[32m[1minfo     [0m] [1m[<main>] Server is ready to accept requests.[0m
+[2m2026-05-19T08:42:02.747555Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'content' is missing[0m
+[2m2026-05-19T08:43:30.420845Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'content' is missing[0m
+[2m2026-05-19T08:43:32.901759Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'content' is missing[0m
+[2m2026-05-19T08:43:33.091465Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'expression' is missing[0m
+[2m2026-05-19T08:43:33.151628Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'content' is missing[0m
+[2m2026-05-19T08:43:33.374560Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'target_context' is missing[0m
+[2m2026-05-19T08:43:33.375663Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'description' is missing[0m
+[2m2026-05-19T08:43:33.376567Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'a2a_ocl_constraints' is missing[0m
+[2m2026-05-19T08:44:11.247572Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'expression' is missing[0m
+[2m2026-05-19T08:44:14.283073Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'content' is missing[0m
+[2m2026-05-19T08:44:14.292895Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'expression' is missing[0m
+[2m2026-05-19T08:44:17.044421Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'content' is missing[0m
+[2m2026-05-19T08:44:17.053498Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'expression' is missing[0m
+[2m2026-05-19T08:44:17.131368Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'description' is missing[0m
+[2m2026-05-19T08:44:17.132467Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'a2a_ocl_constraints' is missing[0m
+[2m2026-05-19T08:44:17.866694Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'content' is missing[0m
+[2m2026-05-19T08:45:05.581790Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'expression' is missing[0m
+[2m2026-05-19T08:45:08.244173Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'expression' is missing[0m
+[2m2026-05-19T08:45:09.267286Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'content' is missing[0m
+[2m2026-05-19T08:45:11.670755Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'expression' is missing[0m
+[2m2026-05-19T08:45:11.976217Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'description' is missing[0m
+[2m2026-05-19T08:45:11.977318Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'a2a_ocl_constraints' is missing[0m
+[2m2026-05-19T08:45:12.001479Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'content' is missing[0m
+[2m2026-05-19T08:45:12.358896Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'content' is missing[0m
+[2m2026-05-19T08:49:29.386669Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'content' is missing[0m
+[2m2026-05-19T08:49:31.871208Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'content' is missing[0m
+[2m2026-05-19T08:49:32.059856Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'expression' is missing[0m
+[2m2026-05-19T08:49:32.417545Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'content' is missing[0m
+[2m2026-05-19T08:49:32.495190Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'description' is missing[0m
+[2m2026-05-19T08:49:32.496027Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'a2a_ocl_constraints' is missing[0m
+[2m2026-05-19T08:50:56.334944Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Cancelling all remaining tasks (2)[0m
+[2m2026-05-19T08:50:56.355578Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Shutting down[0m
+[2m2026-05-19T08:51:17.096080Z[0m [[32m[1minfo     [0m] [1m[<main>] Parlant server version 3.3.1[0m
+[2m2026-05-19T08:51:17.097370Z[0m [[32m[1minfo     [0m] [1m[<main>] Using home directory 'C:\Users\lucag\SwarmDev_Parallel\parlant-data'[0m
+[2m2026-05-19T08:51:17.118726Z[0m [[32m[1minfo     [0m] [1m[<main>] No external modules selected[0m
+[2m2026-05-19T08:51:19.840016Z[0m [[32m[1minfo     [0m] [1m[<main>] Initialized OpenAIService[0m
+[2m2026-05-19T08:52:01.763721Z[0m [[32m[1minfo     [0m] [1m[<main>] .-----------------------------------------.[0m
+[2m2026-05-19T08:52:01.765242Z[0m [[32m[1minfo     [0m] [1m[<main>] | Server is ready for some serious action |[0m
+[2m2026-05-19T08:52:01.765923Z[0m [[32m[1minfo     [0m] [1m[<main>] '-----------------------------------------'[0m
+[2m2026-05-19T08:52:01.766901Z[0m [[32m[1minfo     [0m] [1m[<main>] Server authorization policy: development[0m
+[2m2026-05-19T08:52:01.767750Z[0m [[32m[1minfo     [0m] [1m[<main>] Try the Sandbox UI at http://localhost:8800[0m
+[2m2026-05-19T08:52:02.353273Z[0m [[32m[1minfo     [0m] [1m[<main>] Server is ready to accept requests.[0m
+[2m2026-05-19T08:53:03.657869Z[0m [[31m[1merror    [0m] [1m[<main>][MessageEventComposer][CannedResponseGenerator][OpenAI LLM Request (CannedResponsePreambleSchema)] OpenAI API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenAI account balance and billing status.
+- Review your API usage limits in OpenAI's dashboard.
+- For more details on rate limits and usage tiers, visit:
+  https://platform.openai.com/docs/guides/rate-limits/usage-tiers
+[0m
+[2m2026-05-19T08:53:11.378200Z[0m [[31m[1merror    [0m] [1m[<main>][MessageEventComposer][CannedResponseGenerator][OpenAI LLM Request (CannedResponsePreambleSchema)][OpenAI LLM Request (CannedResponsePreambleSchema)] OpenAI API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenAI account balance and billing status.
+- Review your API usage limits in OpenAI's dashboard.
+- For more details on rate limits and usage tiers, visit:
+  https://platform.openai.com/docs/guides/rate-limits/usage-tiers
+[0m
+[2m2026-05-19T08:53:24.533896Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'content' is missing[0m
+[2m2026-05-19T08:54:30.787430Z[0m [[31m[1merror    [0m] [1m[<main>][MessageEventComposer][CannedResponseGenerator][OpenAI LLM Request (CannedResponsePreambleSchema)] OpenAI API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenAI account balance and billing status.
+- Review your API usage limits in OpenAI's dashboard.
+- For more details on rate limits and usage tiers, visit:
+  https://platform.openai.com/docs/guides/rate-limits/usage-tiers
+[0m
+[2m2026-05-19T08:54:48.355444Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'content' is missing[0m
+[2m2026-05-19T08:54:54.208290Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'content' is missing[0m
+[2m2026-05-19T08:54:54.348130Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'target_context' is missing[0m
+[2m2026-05-19T08:54:54.348927Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'description' is missing[0m
+[2m2026-05-19T08:54:54.349638Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'a2a_ocl_constraints' is missing[0m
+[2m2026-05-19T08:54:54.514440Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'content' is missing[0m
+[2m2026-05-19T09:01:41.762458Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Cancelling all remaining tasks (2)[0m
+[2m2026-05-19T09:01:41.781232Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Shutting down[0m
+[2m2026-05-19T09:01:54.068743Z[0m [[32m[1minfo     [0m] [1m[<main>] Parlant server version 3.3.1[0m
+[2m2026-05-19T09:01:54.069389Z[0m [[32m[1minfo     [0m] [1m[<main>] Using home directory 'C:\Users\lucag\SwarmDev_Parallel\parlant-data'[0m
+[2m2026-05-19T09:01:54.072970Z[0m [[32m[1minfo     [0m] [1m[<main>] No external modules selected[0m
+[2m2026-05-19T09:01:55.216161Z[0m [[32m[1minfo     [0m] [1m[<main>] Initialized OpenRouterService[0m
+[2m2026-05-19T09:01:55.216880Z[0m [[32m[1minfo     [0m] [1m[<main>] OpenRouter model name: openai/gpt-4o-mini[0m
+[2m2026-05-19T09:01:55.217282Z[0m [[32m[1minfo     [0m] [1m[<main>] OpenRouter embedder model name: openai/text-embedding-3-large[0m
+[2m2026-05-19T09:02:12.454153Z[0m [[32m[1minfo     [0m] [1m[<main>] .-----------------------------------------.[0m
+[2m2026-05-19T09:02:12.455802Z[0m [[32m[1minfo     [0m] [1m[<main>] | Server is ready for some serious action |[0m
+[2m2026-05-19T09:02:12.456665Z[0m [[32m[1minfo     [0m] [1m[<main>] '-----------------------------------------'[0m
+[2m2026-05-19T09:02:12.457553Z[0m [[32m[1minfo     [0m] [1m[<main>] Server authorization policy: development[0m
+[2m2026-05-19T09:02:12.458070Z[0m [[32m[1minfo     [0m] [1m[<main>] Try the Sandbox UI at http://localhost:8800[0m
+[2m2026-05-19T09:02:13.019372Z[0m [[32m[1minfo     [0m] [1m[<main>] Server is ready to accept requests.[0m
+[2m2026-05-19T09:02:34.558242Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'expression' is missing[0m
+[2m2026-05-19T09:04:24.380309Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Cancelling all remaining tasks (2)[0m
+[2m2026-05-19T09:04:24.412112Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Shutting down[0m
+[2m2026-05-19T09:06:07.079868Z[0m [[32m[1minfo     [0m] [1m[<main>] Parlant server version 3.3.1[0m
+[2m2026-05-19T09:06:07.080573Z[0m [[32m[1minfo     [0m] [1m[<main>] Using home directory 'C:\Users\lucag\SwarmDev_Parallel\parlant-data'[0m
+[2m2026-05-19T09:06:07.084565Z[0m [[32m[1minfo     [0m] [1m[<main>] No external modules selected[0m
+[2m2026-05-19T09:06:08.027852Z[0m [[32m[1minfo     [0m] [1m[<main>] Initialized OpenRouterService[0m
+[2m2026-05-19T09:06:08.028366Z[0m [[32m[1minfo     [0m] [1m[<main>] OpenRouter model name: openai/gpt-4o-mini[0m
+[2m2026-05-19T09:06:08.028994Z[0m [[32m[1minfo     [0m] [1m[<main>] OpenRouter embedder model name: openai/text-embedding-3-large[0m
+[2m2026-05-19T09:06:21.686740Z[0m [[32m[1minfo     [0m] [1m[<main>] .-----------------------------------------.[0m
+[2m2026-05-19T09:06:21.687709Z[0m [[32m[1minfo     [0m] [1m[<main>] | Server is ready for some serious action |[0m
+[2m2026-05-19T09:06:21.688042Z[0m [[32m[1minfo     [0m] [1m[<main>] '-----------------------------------------'[0m
+[2m2026-05-19T09:06:21.688538Z[0m [[32m[1minfo     [0m] [1m[<main>] Server authorization policy: development[0m
+[2m2026-05-19T09:06:21.689012Z[0m [[32m[1minfo     [0m] [1m[<main>] Try the Sandbox UI at http://localhost:8800[0m
+[2m2026-05-19T09:06:22.268035Z[0m [[32m[1minfo     [0m] [1m[<main>] Server is ready to accept requests.[0m
+[2m2026-05-19T09:15:56.100571Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'expression' is missing[0m
+[2m2026-05-19T09:16:05.599474Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'expression' is missing[0m
+[2m2026-05-19T09:26:08.370244Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Cancelling all remaining tasks (2)[0m
+[2m2026-05-19T09:26:08.403853Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Shutting down[0m
+[2m2026-05-19T09:26:24.560705Z[0m [[32m[1minfo     [0m] [1m[<main>] Parlant server version 3.3.1[0m
+[2m2026-05-19T09:26:24.561284Z[0m [[32m[1minfo     [0m] [1m[<main>] Using home directory 'C:\Users\lucag\SwarmDev_Parallel\parlant-data'[0m
+[2m2026-05-19T09:26:24.565190Z[0m [[32m[1minfo     [0m] [1m[<main>] No external modules selected[0m
+[2m2026-05-19T09:26:25.472081Z[0m [[32m[1minfo     [0m] [1m[<main>] Initialized OpenRouterService[0m
+[2m2026-05-19T09:26:25.472560Z[0m [[32m[1minfo     [0m] [1m[<main>] OpenRouter model name: openai/gpt-4o-mini[0m
+[2m2026-05-19T09:26:25.472921Z[0m [[32m[1minfo     [0m] [1m[<main>] OpenRouter embedder model name: openai/text-embedding-3-large[0m
+[2m2026-05-19T09:26:39.885160Z[0m [[32m[1minfo     [0m] [1m[<main>] .-----------------------------------------.[0m
+[2m2026-05-19T09:26:39.887058Z[0m [[32m[1minfo     [0m] [1m[<main>] | Server is ready for some serious action |[0m
+[2m2026-05-19T09:26:39.887555Z[0m [[32m[1minfo     [0m] [1m[<main>] '-----------------------------------------'[0m
+[2m2026-05-19T09:26:39.888268Z[0m [[32m[1minfo     [0m] [1m[<main>] Server authorization policy: development[0m
+[2m2026-05-19T09:26:39.889017Z[0m [[32m[1minfo     [0m] [1m[<main>] Try the Sandbox UI at http://localhost:8800[0m
+[2m2026-05-19T09:26:40.457277Z[0m [[32m[1minfo     [0m] [1m[<main>] Server is ready to accept requests.[0m
+[2m2026-05-19T09:28:34.794637Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'expression' is missing[0m
+[2m2026-05-19T09:28:36.284353Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'expression' is missing[0m
+[2m2026-05-19T09:28:41.731329Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'expression' is missing[0m
+[2m2026-05-19T09:29:23.975252Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'expression' is missing[0m
+[2m2026-05-19T09:29:25.571105Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'expression' is missing[0m
+[2m2026-05-19T09:29:31.052821Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'expression' is missing[0m
+[2m2026-05-19T14:33:37.794228Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Cancelling all remaining tasks (2)[0m
+[2m2026-05-19T14:33:37.811592Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Shutting down[0m
+[2m2026-05-19T14:40:29.379321Z[0m [[32m[1minfo     [0m] [1m[<main>] Parlant server version 3.3.1[0m
+[2m2026-05-19T14:40:29.379793Z[0m [[32m[1minfo     [0m] [1m[<main>] Using home directory 'C:\Users\lucag\SwarmDev_Parallel\parlant-data'[0m
+[2m2026-05-19T14:40:29.382800Z[0m [[32m[1minfo     [0m] [1m[<main>] No external modules selected[0m
+[2m2026-05-19T14:40:30.114874Z[0m [[32m[1minfo     [0m] [1m[<main>] Initialized OpenRouterService[0m
+[2m2026-05-19T14:40:30.115370Z[0m [[32m[1minfo     [0m] [1m[<main>] OpenRouter model name: openai/gpt-4o-mini[0m
+[2m2026-05-19T14:40:30.115588Z[0m [[32m[1minfo     [0m] [1m[<main>] OpenRouter embedder model name: openai/text-embedding-3-large[0m
+[2m2026-05-19T14:40:49.281004Z[0m [[32m[1minfo     [0m] [1m[<main>] .-----------------------------------------.[0m
+[2m2026-05-19T14:40:49.281945Z[0m [[32m[1minfo     [0m] [1m[<main>] | Server is ready for some serious action |[0m
+[2m2026-05-19T14:40:49.282456Z[0m [[32m[1minfo     [0m] [1m[<main>] '-----------------------------------------'[0m
+[2m2026-05-19T14:40:49.282812Z[0m [[32m[1minfo     [0m] [1m[<main>] Server authorization policy: development[0m
+[2m2026-05-19T14:40:49.283139Z[0m [[32m[1minfo     [0m] [1m[<main>] Try the Sandbox UI at http://localhost:8800[0m
+[2m2026-05-19T14:40:49.778708Z[0m [[32m[1minfo     [0m] [1m[<main>] Server is ready to accept requests.[0m
+[2m2026-05-19T14:47:05.986308Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'expression' is missing[0m
+[2m2026-05-19T14:47:07.520038Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'target_context' is missing[0m
+[2m2026-05-19T14:47:07.520903Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'description' is missing[0m
+[2m2026-05-19T14:47:07.521872Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'a2a_ocl_constraints' is missing[0m
+[2m2026-05-19T14:49:11.716176Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Cancelling all remaining tasks (2)[0m
+[2m2026-05-19T14:49:11.743765Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Shutting down[0m
+[2m2026-05-19T14:49:20.392036Z[0m [[32m[1minfo     [0m] [1m[<main>] Parlant server version 3.3.1[0m
+[2m2026-05-19T14:49:20.392898Z[0m [[32m[1minfo     [0m] [1m[<main>] Using home directory 'C:\Users\lucag\SwarmDev_Parallel\parlant-data'[0m
+[2m2026-05-19T14:49:20.399042Z[0m [[32m[1minfo     [0m] [1m[<main>] No external modules selected[0m
+[2m2026-05-19T14:49:22.299097Z[0m [[32m[1minfo     [0m] [1m[<main>] Initialized OpenRouterService[0m
+[2m2026-05-19T14:49:22.299817Z[0m [[32m[1minfo     [0m] [1m[<main>] OpenRouter model name: openai/gpt-4o-mini[0m
+[2m2026-05-19T14:49:22.300366Z[0m [[32m[1minfo     [0m] [1m[<main>] OpenRouter embedder model name: openai/text-embedding-3-large[0m
+[2m2026-05-19T14:49:46.851428Z[0m [[32m[1minfo     [0m] [1m[<main>] .-----------------------------------------.[0m
+[2m2026-05-19T14:49:46.852488Z[0m [[32m[1minfo     [0m] [1m[<main>] | Server is ready for some serious action |[0m
+[2m2026-05-19T14:49:46.853055Z[0m [[32m[1minfo     [0m] [1m[<main>] '-----------------------------------------'[0m
+[2m2026-05-19T14:49:46.853753Z[0m [[32m[1minfo     [0m] [1m[<main>] Server authorization policy: development[0m
+[2m2026-05-19T14:49:46.854337Z[0m [[32m[1minfo     [0m] [1m[<main>] Try the Sandbox UI at http://localhost:8800[0m
+[2m2026-05-19T14:49:47.361209Z[0m [[32m[1minfo     [0m] [1m[<main>] Server is ready to accept requests.[0m
+[2m2026-05-19T14:51:14.031236Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'expression' is missing[0m
+[2m2026-05-19T14:51:17.471302Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'expression' is missing[0m
+[2m2026-05-19T14:51:27.375325Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'expression' is missing[0m
+[2m2026-05-19T14:52:11.074500Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'content' is missing[0m
+[2m2026-05-19T14:52:11.075190Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'content' is missing[0m
+[2m2026-05-19T14:52:32.820699Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'expression' is missing[0m
+[2m2026-05-19T14:53:16.720078Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'expression' is missing[0m
+[2m2026-05-19T14:53:19.834599Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'expression' is missing[0m
+[2m2026-05-19T14:53:32.233300Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'expression' is missing[0m
+[2m2026-05-19T14:53:43.343898Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'expression' is missing[0m
+[2m2026-05-19T14:53:43.998241Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'target_context' is missing[0m
+[2m2026-05-19T14:53:43.999117Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'description' is missing[0m
+[2m2026-05-19T14:53:43.999709Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'a2a_ocl_constraints' is missing[0m
+[2m2026-05-19T14:56:38.248371Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'expression' is missing[0m
+[2m2026-05-19T14:56:40.895756Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'expression' is missing[0m
+[2m2026-05-19T14:56:52.341845Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'expression' is missing[0m
+[2m2026-05-19T14:57:17.020851Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolCaller] Inference::Completion: Argument 'expression' is missing[0m
+[2m2026-05-19T15:01:46.112999Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Cancelling all remaining tasks (2)[0m
+[2m2026-05-19T15:01:46.144583Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Shutting down[0m
+[2m2026-05-19T15:02:06.260608Z[0m [[32m[1minfo     [0m] [1m[<main>] Parlant server version 3.3.1[0m
+[2m2026-05-19T15:02:06.261680Z[0m [[32m[1minfo     [0m] [1m[<main>] Using home directory 'C:\Users\lucag\SwarmDev_Parallel\parlant-data'[0m
+[2m2026-05-19T15:02:06.265805Z[0m [[32m[1minfo     [0m] [1m[<main>] No external modules selected[0m
+[2m2026-05-19T15:02:06.994345Z[0m [[32m[1minfo     [0m] [1m[<main>] Initialized OpenRouterService[0m
+[2m2026-05-19T15:02:06.994852Z[0m [[32m[1minfo     [0m] [1m[<main>] OpenRouter model name: meta-llama/llama-3.3-70b-instruct:free[0m
+[2m2026-05-19T15:02:06.995128Z[0m [[32m[1minfo     [0m] [1m[<main>] OpenRouter embedder model name: openai/text-embedding-3-large[0m
+[2m2026-05-19T15:02:17.960084Z[0m [[32m[1minfo     [0m] [1m[<main>] .-----------------------------------------.[0m
+[2m2026-05-19T15:02:17.961565Z[0m [[32m[1minfo     [0m] [1m[<main>] | Server is ready for some serious action |[0m
+[2m2026-05-19T15:02:17.962078Z[0m [[32m[1minfo     [0m] [1m[<main>] '-----------------------------------------'[0m
+[2m2026-05-19T15:02:17.962616Z[0m [[32m[1minfo     [0m] [1m[<main>] Server authorization policy: development[0m
+[2m2026-05-19T15:02:17.962995Z[0m [[32m[1minfo     [0m] [1m[<main>] Try the Sandbox UI at http://localhost:8800[0m
+[2m2026-05-19T15:02:18.458836Z[0m [[32m[1minfo     [0m] [1m[<main>] Server is ready to accept requests.[0m
+[2m2026-05-19T15:03:30.630836Z[0m [[31m[1merror    [0m] [1m[<main>][MessageEventComposer][CannedResponseGenerator] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:30.646007Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:30.650783Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:30.673809Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:30.676743Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:30.811506Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:30.862546Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:33.326500Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:33.388755Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:33.429707Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:33.521599Z[0m [[31m[1merror    [0m] [1m[<main>][MessageEventComposer][CannedResponseGenerator] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:33.540383Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:33.589689Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:33.738899Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:39.109143Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:39.351686Z[0m [[33m[1mwarning  [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch] Attempt 0 failed: ['Traceback (most recent call last):\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\engines\\alpha\\guideline_matching\\generic\\guideline_actionable_batch.py", line 111, in process\n    inference = await self._schematic_generator.generate(\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<2 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\generation.py", line 296, in generate\n    result = await self.do_generate(prompt, hints)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 137, in wrapped_func\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 146, in wrapped_func\n    return await policy.apply(state, func, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 67, in apply\n    raise e\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 62, in apply\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 146, in wrapped_func\n    return await policy.apply(state, func, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 62, in apply\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 127, in wrapped_func\n    return await func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\adapters\\nlp\\openrouter_service.py", line 171, in do_generate\n    response = await self._client.chat.completions.create(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<4 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\resources\\chat\\completions\\completions.py", line 2739, in create\n    return await self._post(\n           ^^^^^^^^^^^^^^^^^\n    ...<53 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\_base_client.py", line 1931, in post\n    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\_base_client.py", line 1716, in request\n    raise self._make_status_error_from_response(err.response) from None\n', "openai.RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit exceeded: limit_rpm/meta-llama/llama-3.3-70b-instruct/839b2e30-a1b4-4974-b980-3e534b5873b1. High demand for meta-llama/llama-3.3-70b-instruct:free on OpenRouter - limited to 8 requests per minute. Please retry shortly.', 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '8', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1779203040000'}, 'provider_name': None}}, 'user_id': 'user_3BOu3mIamadi7CwZdTUFFOKcACo'}\n"][0m
+[2m2026-05-19T15:03:39.382859Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:39.402522Z[0m [[33m[1mwarning  [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch] Attempt 0 failed: ['Traceback (most recent call last):\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\engines\\alpha\\guideline_matching\\generic\\guideline_actionable_batch.py", line 111, in process\n    inference = await self._schematic_generator.generate(\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<2 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\generation.py", line 296, in generate\n    result = await self.do_generate(prompt, hints)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 137, in wrapped_func\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 146, in wrapped_func\n    return await policy.apply(state, func, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 67, in apply\n    raise e\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 62, in apply\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 146, in wrapped_func\n    return await policy.apply(state, func, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 62, in apply\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 127, in wrapped_func\n    return await func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\adapters\\nlp\\openrouter_service.py", line 171, in do_generate\n    response = await self._client.chat.completions.create(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<4 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\resources\\chat\\completions\\completions.py", line 2739, in create\n    return await self._post(\n           ^^^^^^^^^^^^^^^^^\n    ...<53 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\_base_client.py", line 1931, in post\n    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\_base_client.py", line 1716, in request\n    raise self._make_status_error_from_response(err.response) from None\n', "openai.RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit exceeded: limit_rpm/meta-llama/llama-3.3-70b-instruct/839b2e30-a1b4-4974-b980-3e534b5873b1. High demand for meta-llama/llama-3.3-70b-instruct:free on OpenRouter - limited to 8 requests per minute. Please retry shortly.', 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '8', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1779203040000'}, 'provider_name': None}}, 'user_id': 'user_3BOu3mIamadi7CwZdTUFFOKcACo'}\n"][0m
+[2m2026-05-19T15:03:39.406006Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:39.424823Z[0m [[33m[1mwarning  [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch] Attempt 0 failed: ['Traceback (most recent call last):\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\engines\\alpha\\guideline_matching\\generic\\guideline_actionable_batch.py", line 111, in process\n    inference = await self._schematic_generator.generate(\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<2 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\generation.py", line 296, in generate\n    result = await self.do_generate(prompt, hints)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 137, in wrapped_func\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 146, in wrapped_func\n    return await policy.apply(state, func, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 67, in apply\n    raise e\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 62, in apply\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 146, in wrapped_func\n    return await policy.apply(state, func, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 62, in apply\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 127, in wrapped_func\n    return await func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\adapters\\nlp\\openrouter_service.py", line 171, in do_generate\n    response = await self._client.chat.completions.create(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<4 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\resources\\chat\\completions\\completions.py", line 2739, in create\n    return await self._post(\n           ^^^^^^^^^^^^^^^^^\n    ...<53 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\_base_client.py", line 1931, in post\n    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\_base_client.py", line 1716, in request\n    raise self._make_status_error_from_response(err.response) from None\n', "openai.RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit exceeded: limit_rpm/meta-llama/llama-3.3-70b-instruct/839b2e30-a1b4-4974-b980-3e534b5873b1. High demand for meta-llama/llama-3.3-70b-instruct:free on OpenRouter - limited to 8 requests per minute. Please retry shortly.', 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '8', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1779203040000'}, 'provider_name': None}}, 'user_id': 'user_3BOu3mIamadi7CwZdTUFFOKcACo'}\n"][0m
+[2m2026-05-19T15:03:39.576583Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:39.591843Z[0m [[33m[1mwarning  [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch] Attempt 0 failed: ['Traceback (most recent call last):\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\engines\\alpha\\guideline_matching\\generic\\guideline_actionable_batch.py", line 111, in process\n    inference = await self._schematic_generator.generate(\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<2 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\generation.py", line 296, in generate\n    result = await self.do_generate(prompt, hints)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 137, in wrapped_func\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 146, in wrapped_func\n    return await policy.apply(state, func, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 67, in apply\n    raise e\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 62, in apply\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 146, in wrapped_func\n    return await policy.apply(state, func, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 62, in apply\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 127, in wrapped_func\n    return await func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\adapters\\nlp\\openrouter_service.py", line 171, in do_generate\n    response = await self._client.chat.completions.create(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<4 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\resources\\chat\\completions\\completions.py", line 2739, in create\n    return await self._post(\n           ^^^^^^^^^^^^^^^^^\n    ...<53 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\_base_client.py", line 1931, in post\n    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\_base_client.py", line 1716, in request\n    raise self._make_status_error_from_response(err.response) from None\n', "openai.RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit exceeded: limit_rpm/meta-llama/llama-3.3-70b-instruct/839b2e30-a1b4-4974-b980-3e534b5873b1. High demand for meta-llama/llama-3.3-70b-instruct:free on OpenRouter - limited to 8 requests per minute. Please retry shortly.', 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '8', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1779203040000'}, 'provider_name': None}}, 'user_id': 'user_3BOu3mIamadi7CwZdTUFFOKcACo'}\n"][0m
+[2m2026-05-19T15:03:39.608504Z[0m [[31m[1merror    [0m] [1m[<main>][MessageEventComposer][CannedResponseGenerator] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:39.614998Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:39.630895Z[0m [[33m[1mwarning  [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch] Attempt 0 failed: ['Traceback (most recent call last):\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\engines\\alpha\\guideline_matching\\generic\\guideline_actionable_batch.py", line 111, in process\n    inference = await self._schematic_generator.generate(\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<2 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\generation.py", line 296, in generate\n    result = await self.do_generate(prompt, hints)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 137, in wrapped_func\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 146, in wrapped_func\n    return await policy.apply(state, func, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 67, in apply\n    raise e\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 62, in apply\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 146, in wrapped_func\n    return await policy.apply(state, func, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 62, in apply\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 127, in wrapped_func\n    return await func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\adapters\\nlp\\openrouter_service.py", line 171, in do_generate\n    response = await self._client.chat.completions.create(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<4 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\resources\\chat\\completions\\completions.py", line 2739, in create\n    return await self._post(\n           ^^^^^^^^^^^^^^^^^\n    ...<53 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\_base_client.py", line 1931, in post\n    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\_base_client.py", line 1716, in request\n    raise self._make_status_error_from_response(err.response) from None\n', "openai.RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit exceeded: limit_rpm/meta-llama/llama-3.3-70b-instruct/839b2e30-a1b4-4974-b980-3e534b5873b1. High demand for meta-llama/llama-3.3-70b-instruct:free on OpenRouter - limited to 8 requests per minute. Please retry shortly.', 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '8', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1779203040000'}, 'provider_name': None}}, 'user_id': 'user_3BOu3mIamadi7CwZdTUFFOKcACo'}\n"][0m
+[2m2026-05-19T15:03:39.644230Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:39.680942Z[0m [[33m[1mwarning  [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch] Attempt 0 failed: ['Traceback (most recent call last):\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\engines\\alpha\\guideline_matching\\generic\\guideline_actionable_batch.py", line 111, in process\n    inference = await self._schematic_generator.generate(\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<2 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\generation.py", line 296, in generate\n    result = await self.do_generate(prompt, hints)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 137, in wrapped_func\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 146, in wrapped_func\n    return await policy.apply(state, func, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 67, in apply\n    raise e\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 62, in apply\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 146, in wrapped_func\n    return await policy.apply(state, func, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 62, in apply\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 127, in wrapped_func\n    return await func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\adapters\\nlp\\openrouter_service.py", line 171, in do_generate\n    response = await self._client.chat.completions.create(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<4 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\resources\\chat\\completions\\completions.py", line 2739, in create\n    return await self._post(\n           ^^^^^^^^^^^^^^^^^\n    ...<53 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\_base_client.py", line 1931, in post\n    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\_base_client.py", line 1716, in request\n    raise self._make_status_error_from_response(err.response) from None\n', "openai.RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit exceeded: limit_rpm/meta-llama/llama-3.3-70b-instruct/839b2e30-a1b4-4974-b980-3e534b5873b1. High demand for meta-llama/llama-3.3-70b-instruct:free on OpenRouter - limited to 8 requests per minute. Please retry shortly.', 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '8', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1779203040000'}, 'provider_name': None}}, 'user_id': 'user_3BOu3mIamadi7CwZdTUFFOKcACo'}\n"][0m
+[2m2026-05-19T15:03:42.076999Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:42.128171Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:42.250463Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:42.435251Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:42.440447Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:42.514284Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:44.822123Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:45.002932Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:45.055784Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:45.149877Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:45.165950Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:45.421692Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:50.716557Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:50.724676Z[0m [[33m[1mwarning  [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] Attempt 0 failed: ['Traceback (most recent call last):\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\engines\\alpha\\guideline_matching\\generic\\guideline_actionable_batch.py", line 111, in process\n    inference = await self._schematic_generator.generate(\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<2 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\generation.py", line 296, in generate\n    result = await self.do_generate(prompt, hints)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 137, in wrapped_func\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 146, in wrapped_func\n    return await policy.apply(state, func, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 67, in apply\n    raise e\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 62, in apply\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 146, in wrapped_func\n    return await policy.apply(state, func, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 62, in apply\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 127, in wrapped_func\n    return await func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\adapters\\nlp\\openrouter_service.py", line 171, in do_generate\n    response = await self._client.chat.completions.create(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<4 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\resources\\chat\\completions\\completions.py", line 2739, in create\n    return await self._post(\n           ^^^^^^^^^^^^^^^^^\n    ...<53 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\_base_client.py", line 1931, in post\n    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\_base_client.py", line 1716, in request\n    raise self._make_status_error_from_response(err.response) from None\n', "openai.RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit exceeded: limit_rpm/meta-llama/llama-3.3-70b-instruct/839b2e30-a1b4-4974-b980-3e534b5873b1. High demand for meta-llama/llama-3.3-70b-instruct:free on OpenRouter - limited to 8 requests per minute. Please retry shortly.', 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '8', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1779203040000'}, 'provider_name': None}}, 'user_id': 'user_3BOu3mIamadi7CwZdTUFFOKcACo'}\n"][0m
+[2m2026-05-19T15:03:50.738582Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:50.753232Z[0m [[33m[1mwarning  [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] Attempt 0 failed: ['Traceback (most recent call last):\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\engines\\alpha\\guideline_matching\\generic\\guideline_actionable_batch.py", line 111, in process\n    inference = await self._schematic_generator.generate(\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<2 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\generation.py", line 296, in generate\n    result = await self.do_generate(prompt, hints)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 137, in wrapped_func\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 146, in wrapped_func\n    return await policy.apply(state, func, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 67, in apply\n    raise e\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 62, in apply\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 146, in wrapped_func\n    return await policy.apply(state, func, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 62, in apply\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 127, in wrapped_func\n    return await func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\adapters\\nlp\\openrouter_service.py", line 171, in do_generate\n    response = await self._client.chat.completions.create(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<4 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\resources\\chat\\completions\\completions.py", line 2739, in create\n    return await self._post(\n           ^^^^^^^^^^^^^^^^^\n    ...<53 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\_base_client.py", line 1931, in post\n    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\_base_client.py", line 1716, in request\n    raise self._make_status_error_from_response(err.response) from None\n', "openai.RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit exceeded: limit_rpm/meta-llama/llama-3.3-70b-instruct/839b2e30-a1b4-4974-b980-3e534b5873b1. High demand for meta-llama/llama-3.3-70b-instruct:free on OpenRouter - limited to 8 requests per minute. Please retry shortly.', 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '8', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1779203040000'}, 'provider_name': None}}, 'user_id': 'user_3BOu3mIamadi7CwZdTUFFOKcACo'}\n"][0m
+[2m2026-05-19T15:03:50.839559Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:50.864622Z[0m [[33m[1mwarning  [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] Attempt 0 failed: ['Traceback (most recent call last):\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\engines\\alpha\\guideline_matching\\generic\\guideline_actionable_batch.py", line 111, in process\n    inference = await self._schematic_generator.generate(\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<2 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\generation.py", line 296, in generate\n    result = await self.do_generate(prompt, hints)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 137, in wrapped_func\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 146, in wrapped_func\n    return await policy.apply(state, func, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 67, in apply\n    raise e\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 62, in apply\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 146, in wrapped_func\n    return await policy.apply(state, func, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 62, in apply\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 127, in wrapped_func\n    return await func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\adapters\\nlp\\openrouter_service.py", line 171, in do_generate\n    response = await self._client.chat.completions.create(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<4 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\resources\\chat\\completions\\completions.py", line 2739, in create\n    return await self._post(\n           ^^^^^^^^^^^^^^^^^\n    ...<53 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\_base_client.py", line 1931, in post\n    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\_base_client.py", line 1716, in request\n    raise self._make_status_error_from_response(err.response) from None\n', "openai.RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit exceeded: limit_rpm/meta-llama/llama-3.3-70b-instruct/839b2e30-a1b4-4974-b980-3e534b5873b1. High demand for meta-llama/llama-3.3-70b-instruct:free on OpenRouter - limited to 8 requests per minute. Please retry shortly.', 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '8', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1779203040000'}, 'provider_name': None}}, 'user_id': 'user_3BOu3mIamadi7CwZdTUFFOKcACo'}\n"][0m
+[2m2026-05-19T15:03:51.027371Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:51.053436Z[0m [[33m[1mwarning  [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] Attempt 0 failed: ['Traceback (most recent call last):\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\engines\\alpha\\guideline_matching\\generic\\guideline_actionable_batch.py", line 111, in process\n    inference = await self._schematic_generator.generate(\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<2 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\generation.py", line 296, in generate\n    result = await self.do_generate(prompt, hints)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 137, in wrapped_func\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 146, in wrapped_func\n    return await policy.apply(state, func, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 67, in apply\n    raise e\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 62, in apply\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 146, in wrapped_func\n    return await policy.apply(state, func, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 62, in apply\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 127, in wrapped_func\n    return await func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\adapters\\nlp\\openrouter_service.py", line 171, in do_generate\n    response = await self._client.chat.completions.create(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<4 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\resources\\chat\\completions\\completions.py", line 2739, in create\n    return await self._post(\n           ^^^^^^^^^^^^^^^^^\n    ...<53 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\_base_client.py", line 1931, in post\n    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\_base_client.py", line 1716, in request\n    raise self._make_status_error_from_response(err.response) from None\n', "openai.RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit exceeded: limit_rpm/meta-llama/llama-3.3-70b-instruct/839b2e30-a1b4-4974-b980-3e534b5873b1. High demand for meta-llama/llama-3.3-70b-instruct:free on OpenRouter - limited to 8 requests per minute. Please retry shortly.', 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '8', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1779203040000'}, 'provider_name': None}}, 'user_id': 'user_3BOu3mIamadi7CwZdTUFFOKcACo'}\n"][0m
+[2m2026-05-19T15:03:51.069767Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:51.095381Z[0m [[33m[1mwarning  [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] Attempt 0 failed: ['Traceback (most recent call last):\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\engines\\alpha\\guideline_matching\\generic\\guideline_actionable_batch.py", line 111, in process\n    inference = await self._schematic_generator.generate(\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<2 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\generation.py", line 296, in generate\n    result = await self.do_generate(prompt, hints)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 137, in wrapped_func\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 146, in wrapped_func\n    return await policy.apply(state, func, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 67, in apply\n    raise e\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 62, in apply\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 146, in wrapped_func\n    return await policy.apply(state, func, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 62, in apply\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 127, in wrapped_func\n    return await func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\adapters\\nlp\\openrouter_service.py", line 171, in do_generate\n    response = await self._client.chat.completions.create(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<4 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\resources\\chat\\completions\\completions.py", line 2739, in create\n    return await self._post(\n           ^^^^^^^^^^^^^^^^^\n    ...<53 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\_base_client.py", line 1931, in post\n    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\_base_client.py", line 1716, in request\n    raise self._make_status_error_from_response(err.response) from None\n', "openai.RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit exceeded: limit_rpm/meta-llama/llama-3.3-70b-instruct/839b2e30-a1b4-4974-b980-3e534b5873b1. High demand for meta-llama/llama-3.3-70b-instruct:free on OpenRouter - limited to 8 requests per minute. Please retry shortly.', 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '8', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1779203040000'}, 'provider_name': None}}, 'user_id': 'user_3BOu3mIamadi7CwZdTUFFOKcACo'}\n"][0m
+[2m2026-05-19T15:03:51.202611Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:51.219194Z[0m [[33m[1mwarning  [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] Attempt 0 failed: ['Traceback (most recent call last):\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\engines\\alpha\\guideline_matching\\generic\\guideline_actionable_batch.py", line 111, in process\n    inference = await self._schematic_generator.generate(\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<2 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\generation.py", line 296, in generate\n    result = await self.do_generate(prompt, hints)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 137, in wrapped_func\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 146, in wrapped_func\n    return await policy.apply(state, func, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 67, in apply\n    raise e\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 62, in apply\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 146, in wrapped_func\n    return await policy.apply(state, func, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 62, in apply\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 127, in wrapped_func\n    return await func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\adapters\\nlp\\openrouter_service.py", line 171, in do_generate\n    response = await self._client.chat.completions.create(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<4 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\resources\\chat\\completions\\completions.py", line 2739, in create\n    return await self._post(\n           ^^^^^^^^^^^^^^^^^\n    ...<53 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\_base_client.py", line 1931, in post\n    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\_base_client.py", line 1716, in request\n    raise self._make_status_error_from_response(err.response) from None\n', "openai.RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit exceeded: limit_rpm/meta-llama/llama-3.3-70b-instruct/839b2e30-a1b4-4974-b980-3e534b5873b1. High demand for meta-llama/llama-3.3-70b-instruct:free on OpenRouter - limited to 8 requests per minute. Please retry shortly.', 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '8', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1779203040000'}, 'provider_name': None}}, 'user_id': 'user_3BOu3mIamadi7CwZdTUFFOKcACo'}\n"][0m
+[2m2026-05-19T15:03:56.465778Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:56.526835Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:56.761547Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:56.893935Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:56.905986Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:57.044856Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:59.172878Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:59.247638Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:59.605133Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:59.609925Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:03:59.797938Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:04:00.051799Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:04:31.644775Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:04:31.651891Z[0m [[33m[1mwarning  [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] Attempt 0 failed: ['Traceback (most recent call last):\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\engines\\alpha\\guideline_matching\\generic\\guideline_actionable_batch.py", line 111, in process\n    inference = await self._schematic_generator.generate(\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<2 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\generation.py", line 296, in generate\n    result = await self.do_generate(prompt, hints)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 137, in wrapped_func\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 146, in wrapped_func\n    return await policy.apply(state, func, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 67, in apply\n    raise e\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 62, in apply\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 146, in wrapped_func\n    return await policy.apply(state, func, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 62, in apply\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 127, in wrapped_func\n    return await func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\adapters\\nlp\\openrouter_service.py", line 171, in do_generate\n    response = await self._client.chat.completions.create(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<4 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\resources\\chat\\completions\\completions.py", line 2739, in create\n    return await self._post(\n           ^^^^^^^^^^^^^^^^^\n    ...<53 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\_base_client.py", line 1931, in post\n    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\_base_client.py", line 1716, in request\n    raise self._make_status_error_from_response(err.response) from None\n', "openai.RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit exceeded: limit_rpm/meta-llama/llama-3.3-70b-instruct/839b2e30-a1b4-4974-b980-3e534b5873b1. High demand for meta-llama/llama-3.3-70b-instruct:free on OpenRouter - limited to 8 requests per minute. Please retry shortly.', 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '8', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1779203100000'}, 'provider_name': None}}, 'user_id': 'user_3BOu3mIamadi7CwZdTUFFOKcACo'}\n"][0m
+[2m2026-05-19T15:04:31.712114Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher] Processing error: ['Traceback (most recent call last):\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\engines\\alpha\\guideline_matching\\generic\\guideline_actionable_batch.py", '
+ 'line 111, in process\n'
+ '    inference = await self._schematic_generator.generate(\n'
+ '                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n'
+ '    ...<2 lines>...\n'
+ '    )\n'
+ '    ^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\generation.py", '
+ 'line 296, in generate\n'
+ '    result = await self.do_generate(prompt, hints)\n'
+ '             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", '
+ 'line 137, in wrapped_func\n'
+ '    return await func(state, *args, **kwargs)\n'
+ '           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", '
+ 'line 146, in wrapped_func\n'
+ '    return await policy.apply(state, func, *args, **kwargs)\n'
+ '           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", '
+ 'line 67, in apply\n'
+ '    raise e\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", '
+ 'line 62, in apply\n'
+ '    return await func(state, *args, **kwargs)\n'
+ '           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", '
+ 'line 146, in wrapped_func\n'
+ '    return await policy.apply(state, func, *args, **kwargs)\n'
+ '           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", '
+ 'line 62, in apply\n'
+ '    return await func(state, *args, **kwargs)\n'
+ '           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", '
+ 'line 127, in wrapped_func\n'
+ '    return await func(*args, **kwargs)\n'
+ '           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\adapters\\nlp\\openrouter_service.py", '
+ 'line 171, in do_generate\n'
+ '    response = await self._client.chat.completions.create(\n'
+ '               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n'
+ '    ...<4 lines>...\n'
+ '    )\n'
+ '    ^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\resources\\chat\\completions\\completions.py", '
+ 'line 2739, in create\n'
+ '    return await self._post(\n'
+ '           ^^^^^^^^^^^^^^^^^\n'
+ '    ...<53 lines>...\n'
+ '    )\n'
+ '    ^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\_base_client.py", '
+ 'line 1931, in post\n'
+ '    return await self.request(cast_to, opts, stream=stream, '
+ 'stream_cls=stream_cls)\n'
+ '           '
+ '^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\_base_client.py", '
+ 'line 1716, in request\n'
+ '    raise self._make_status_error_from_response(err.response) from None\n',
+ "openai.RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit "
+ 'exceeded: '
+ 'limit_rpm/meta-llama/llama-3.3-70b-instruct/839b2e30-a1b4-4974-b980-3e534b5873b1. '
+ 'High demand for meta-llama/llama-3.3-70b-instruct:free on OpenRouter - '
+ "limited to 8 requests per minute. Please retry shortly.', 'code': 429, "
+ "'metadata': {'headers': {'X-RateLimit-Limit': '8', 'X-RateLimit-Remaining': "
+ "'0', 'X-RateLimit-Reset': '1779203100000'}, 'provider_name': None}}, "
+ "'user_id': 'user_3BOu3mIamadi7CwZdTUFFOKcACo'}\n",
+ '\nThe above exception was the direct cause of the following exception:\n\n',
+ 'Traceback (most recent call last):\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\engines\\alpha\\engine.py", '
+ 'line 197, in process\n'
+ '    await self._do_process(loaded_context)\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\engines\\alpha\\engine.py", '
+ 'line 301, in _do_process\n'
+ '    iteration_result = await self._run_preparation_iteration(\n'
+ '                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n'
+ '        context, preamble_task, plan\n'
+ '        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n'
+ '    )\n'
+ '    ^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\engines\\alpha\\engine.py", '
+ 'line 498, in _run_preparation_iteration\n'
+ '    result = await self._run_initial_preparation_iteration(context, '
+ 'preamble_task, plan)\n'
+ '             '
+ '^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\engines\\alpha\\engine.py", '
+ 'line 589, in _run_initial_preparation_iteration\n'
+ '    await self._load_matched_guidelines_and_journeys(context, plan)\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\engines\\alpha\\engine.py", '
+ 'line 1246, in _load_matched_guidelines_and_journeys\n'
+ '    matching_result = await self._guideline_matcher.match_guidelines(\n'
+ '                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n'
+ '    ...<3 lines>...\n'
+ '    )\n'
+ '    ^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\engines\\alpha\\guideline_matching\\guideline_matcher.py", '
+ 'line 255, in match_guidelines\n'
+ '    batch_results = await async_utils.safe_gather(*batch_tasks)\n'
+ '                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\async_utils.py", '
+ 'line 167, in safe_gather\n'
+ '    return await asyncio.gather(\n'
+ '           ^^^^^^^^^^^^^^^^^^^^^\n'
+ '    ...<2 lines>...\n'
+ '    )\n'
+ '    ^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", '
+ 'line 137, in wrapped_func\n'
+ '    return await func(state, *args, **kwargs)\n'
+ '           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", '
+ 'line 146, in wrapped_func\n'
+ '    return await policy.apply(state, func, *args, **kwargs)\n'
+ '           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", '
+ 'line 67, in apply\n'
+ '    raise e\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", '
+ 'line 62, in apply\n'
+ '    return await func(state, *args, **kwargs)\n'
+ '           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", '
+ 'line 127, in wrapped_func\n'
+ '    return await func(*args, **kwargs)\n'
+ '           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\engines\\alpha\\guideline_matching\\guideline_matcher.py", '
+ 'line 181, in _process_guideline_matching_batch_with_retry\n'
+ '    return await batch.process()\n'
+ '           ^^^^^^^^^^^^^^^^^^^^^\n',
+ '  File '
+ '"C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\engines\\alpha\\guideline_matching\\generic\\guideline_actionable_batch.py", '
+ 'line 153, in process\n'
+ '    raise GuidelineMatchingBatchError() from last_generation_exception\n',
+ 'parlant.core.engines.alpha.guideline_matching.guideline_matcher.GuidelineMatchingBatchError: '
+ 'Guideline Matching Batch failed\n'][0m
+[2m2026-05-19T15:04:31.765033Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:04:31.768752Z[0m [[33m[1mwarning  [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] Attempt 0 failed: ['Traceback (most recent call last):\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\engines\\alpha\\guideline_matching\\generic\\guideline_actionable_batch.py", line 111, in process\n    inference = await self._schematic_generator.generate(\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<2 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\generation.py", line 296, in generate\n    result = await self.do_generate(prompt, hints)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 137, in wrapped_func\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 146, in wrapped_func\n    return await policy.apply(state, func, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 67, in apply\n    raise e\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 62, in apply\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 146, in wrapped_func\n    return await policy.apply(state, func, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 62, in apply\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 127, in wrapped_func\n    return await func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\adapters\\nlp\\openrouter_service.py", line 171, in do_generate\n    response = await self._client.chat.completions.create(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<4 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\resources\\chat\\completions\\completions.py", line 2739, in create\n    return await self._post(\n           ^^^^^^^^^^^^^^^^^\n    ...<53 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\_base_client.py", line 1931, in post\n    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\_base_client.py", line 1716, in request\n    raise self._make_status_error_from_response(err.response) from None\n', "openai.RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit exceeded: limit_rpm/meta-llama/llama-3.3-70b-instruct/839b2e30-a1b4-4974-b980-3e534b5873b1. High demand for meta-llama/llama-3.3-70b-instruct:free on OpenRouter - limited to 8 requests per minute. Please retry shortly.', 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '8', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1779203100000'}, 'provider_name': None}}, 'user_id': 'user_3BOu3mIamadi7CwZdTUFFOKcACo'}\n"][0m
+[2m2026-05-19T15:04:31.914253Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:04:31.919093Z[0m [[33m[1mwarning  [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] Attempt 0 failed: ['Traceback (most recent call last):\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\engines\\alpha\\guideline_matching\\generic\\guideline_actionable_batch.py", line 111, in process\n    inference = await self._schematic_generator.generate(\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<2 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\generation.py", line 296, in generate\n    result = await self.do_generate(prompt, hints)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 137, in wrapped_func\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 146, in wrapped_func\n    return await policy.apply(state, func, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 67, in apply\n    raise e\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 62, in apply\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 146, in wrapped_func\n    return await policy.apply(state, func, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 62, in apply\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 127, in wrapped_func\n    return await func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\adapters\\nlp\\openrouter_service.py", line 171, in do_generate\n    response = await self._client.chat.completions.create(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<4 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\resources\\chat\\completions\\completions.py", line 2739, in create\n    return await self._post(\n           ^^^^^^^^^^^^^^^^^\n    ...<53 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\_base_client.py", line 1931, in post\n    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\_base_client.py", line 1716, in request\n    raise self._make_status_error_from_response(err.response) from None\n', "openai.RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit exceeded: limit_rpm/meta-llama/llama-3.3-70b-instruct/839b2e30-a1b4-4974-b980-3e534b5873b1. High demand for meta-llama/llama-3.3-70b-instruct:free on OpenRouter - limited to 8 requests per minute. Please retry shortly.', 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '8', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1779203100000'}, 'provider_name': None}}, 'user_id': 'user_3BOu3mIamadi7CwZdTUFFOKcACo'}\n"][0m
+[2m2026-05-19T15:04:32.078457Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:04:32.087944Z[0m [[33m[1mwarning  [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] Attempt 0 failed: ['Traceback (most recent call last):\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\engines\\alpha\\guideline_matching\\generic\\guideline_actionable_batch.py", line 111, in process\n    inference = await self._schematic_generator.generate(\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<2 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\generation.py", line 296, in generate\n    result = await self.do_generate(prompt, hints)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 137, in wrapped_func\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 146, in wrapped_func\n    return await policy.apply(state, func, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 67, in apply\n    raise e\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 62, in apply\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 146, in wrapped_func\n    return await policy.apply(state, func, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 62, in apply\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 127, in wrapped_func\n    return await func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\adapters\\nlp\\openrouter_service.py", line 171, in do_generate\n    response = await self._client.chat.completions.create(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<4 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\resources\\chat\\completions\\completions.py", line 2739, in create\n    return await self._post(\n           ^^^^^^^^^^^^^^^^^\n    ...<53 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\_base_client.py", line 1931, in post\n    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\_base_client.py", line 1716, in request\n    raise self._make_status_error_from_response(err.response) from None\n', "openai.RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit exceeded: limit_rpm/meta-llama/llama-3.3-70b-instruct/839b2e30-a1b4-4974-b980-3e534b5873b1. High demand for meta-llama/llama-3.3-70b-instruct:free on OpenRouter - limited to 8 requests per minute. Please retry shortly.', 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '8', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1779203100000'}, 'provider_name': None}}, 'user_id': 'user_3BOu3mIamadi7CwZdTUFFOKcACo'}\n"][0m
+[2m2026-05-19T15:04:32.117942Z[0m [[31m[1merror    [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] 
+Rate limit exceeded for model 'meta-llama/llama-3.3-70b-instruct:free'.
+OpenRouter API rate limit exceeded. Possible reasons:
+1. Your account may have insufficient API credits.
+2. You may be using a free-tier account with limited request capacity.
+3. You might have exceeded the requests-per-minute limit for your account.
+
+Recommended actions:
+- Check your OpenRouter account balance and billing status.
+- Review your API usage limits in OpenRouter's dashboard.
+- For more details on rate limits and usage tiers, visit:
+    https://openrouter.ai/docs/api-reference/limits
+
+Consider:
+  - Using a different model
+  - Waiting a moment before retrying
+  - Adding your own API key for higher limits
+[0m
+[2m2026-05-19T15:04:32.123352Z[0m [[33m[1mwarning  [0m] [1m[<main>][GuidelineMatcher][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch][GenericActionableGuidelineMatchingBatch] Attempt 0 failed: ['Traceback (most recent call last):\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\engines\\alpha\\guideline_matching\\generic\\guideline_actionable_batch.py", line 111, in process\n    inference = await self._schematic_generator.generate(\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<2 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\generation.py", line 296, in generate\n    result = await self.do_generate(prompt, hints)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 137, in wrapped_func\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 146, in wrapped_func\n    return await policy.apply(state, func, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 67, in apply\n    raise e\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 62, in apply\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 146, in wrapped_func\n    return await policy.apply(state, func, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 62, in apply\n    return await func(state, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\core\\nlp\\policies.py", line 127, in wrapped_func\n    return await func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\parlant\\adapters\\nlp\\openrouter_service.py", line 171, in do_generate\n    response = await self._client.chat.completions.create(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<4 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\resources\\chat\\completions\\completions.py", line 2739, in create\n    return await self._post(\n           ^^^^^^^^^^^^^^^^^\n    ...<53 lines>...\n    )\n    ^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\_base_client.py", line 1931, in post\n    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\lucag\\SwarmDev_Parallel\\.venv\\Lib\\site-packages\\openai\\_base_client.py", line 1716, in request\n    raise self._make_status_error_from_response(err.response) from None\n', "openai.RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit exceeded: limit_rpm/meta-llama/llama-3.3-70b-instruct/839b2e30-a1b4-4974-b980-3e534b5873b1. High demand for meta-llama/llama-3.3-70b-instruct:free on OpenRouter - limited to 8 requests per minute. Please retry shortly.', 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '8', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1779203100000'}, 'provider_name': None}}, 'user_id': 'user_3BOu3mIamadi7CwZdTUFFOKcACo'}\n"][0m
+[2m2026-05-19T15:04:48.688044Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Cancelling all remaining tasks (2)[0m
+[2m2026-05-19T15:04:48.703230Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Shutting down[0m

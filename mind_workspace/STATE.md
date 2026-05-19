@@ -1,5 +1,8 @@
-# STATE.md - Stato avanzamento Onde
+Per quanto riguarda i modelli di dati, non avremo bisogno di database o strutture complesse. L'unica fonte dati (Data Source) è un file statico locale situato in ./chakin/datasets.csv. Il modello dati deve riflettere esattamente le 9 colonne di questo file: Name, Dimension, Corpus, VocabularySize, Method, Language, Paper, Author e URL. I dati andranno caricati e filtrati in memoria esclusivamente tramite la libreria pandas.
 
-- **Wave 1: Modello dati e API base** - COMPLETATA (Contratto JSON pubblicato)
-- **Wave 2: Gestione prenotazioni e cancellazioni** - COMPLETATA (Codice generato e validato)
-- **Wave 3: Edge cases e vincoli** - IN ATTESA
+Riguardo alle API, chiarisco che non useremo alcuna API esterna di terze parti per la ricerca. La funzione chakin.search(lang) deve semplicemente filtrare il file CSV caricato con pandas. L'unica interazione di rete avverrà in chakin.download(number, save_dir), che dovrà scaricare il file puntato dalla colonna URL del CSV. Per fare questo bastano i moduli standard di Python per le richieste HTTP.
+
+Infine, per i casi limite (edge cases), devi gestire tassativamente queste tre situazioni per rispettare i vincoli di performance e robustezza:
+1. Input utente non validi (es. inserimento di una lingua non presente nel CSV o di un indice numerico errato per il download).
+2. Interruzioni di rete: serve un 'efficient error handling' per gestire le disconnessioni o i download interrotti senza far crashare brutalmente lo script.
+3. Efficienza della memoria: poiché i word vector sono file di grandi dimensioni, il download deve essere gestito in modo efficiente (es. a chunk) e il progresso deve essere sempre tracciato visivamente tramite la libreria progressbar2. Assicurati anche che la libreria six sia tra le dipendenze.

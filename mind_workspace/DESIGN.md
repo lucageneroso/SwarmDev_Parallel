@@ -1,51 +1,18 @@
-# DESIGN.md - Gestionale Prenotazioni BIRROTECA
+The chakin project is designed to streamline the process of downloading pre-trained word vectors, which are essential components in natural language processing (NLP) tasks. The ease of access to various word vectors allows researchers and developers to enhance language models effectively.
 
-## Scopo
-Sistema per la gestione delle prenotazioni tavoli alla BIRROTECA, con cancellazione autonoma e visualizzazione disponibilità in tempo reale.
+Background
+chakin addresses the challenge of accessing diverse pre-trained word vectors from multiple sources. It simplifies the retrieval process, eliminating the need for manual searches and downloads, thereby saving time and reducing complexity.
 
-## Modello Dati
-- **Tavolo**
-  - `id`: string/int (identificativo univoco)
-  - `numero_posti`: int (numero massimo persone per tavolo)
+Goals
+The primary goal of chakin is to provide an efficient, user-friendly tool to download pre-trained word vectors. It aims to support NLP applications by making a wide range of word vectors easily accessible.
 
-- **Prenotazione**
-  - `id`: string/int (identificativo univoco)
-  - `nome_cliente`: string
-  - `numero_persone`: int
-  - `data_ora`: datetime (data e ora prenotazione)
-  - `tavolo_id`: riferimento a Tavolo
-  - `stato`: enum ["attiva", "cancellata"]
+Data Model
+The only data source is a static local file located in ./chakin/datasets.csv. The data model must reflect exactly the 9 columns of this file: Name, Dimension, Corpus, VocabularySize, Method, Language, Paper, Author, and URL. Data will be loaded and filtered in memory exclusively using the pandas library.
 
-## Flusso Prenotazione
-1. L'utente accede all'app e seleziona una fascia oraria.
-2. Il sistema mostra i tavoli disponibili per quella fascia (nessuna doppia prenotazione sullo stesso tavolo e orario).
-3. L'utente seleziona tavolo, inserisce nome e numero persone, conferma la prenotazione.
-4. L'utente può cancellare autonomamente la prenotazione in qualsiasi momento.
-5. Alla cancellazione, il tavolo torna immediatamente disponibile per la stessa fascia oraria.
-6. Non è prevista la modifica delle prenotazioni: per cambiare dati occorre cancellare e rifare la prenotazione.
-7. Nessuna notifica automatica (email, push, ecc.).
+APIs
+No external third-party APIs will be used for searching. The function chakin.search(lang) will simply filter the loaded CSV file with pandas. The only network interaction will occur in chakin.download(number, save_dir), which will download the file pointed to by the URL column of the CSV. Standard Python modules for HTTP requests will suffice.
 
-## API Principali
-- **GET /tavoli/disponibili?data_ora=...**
-  - Restituisce lista tavoli disponibili per data/ora specificata.
-- **POST /prenotazioni**
-  - Crea una nuova prenotazione (richiede nome_cliente, numero_persone, data_ora, tavolo_id).
-- **DELETE /prenotazioni/{id}**
-  - Cancella una prenotazione (solo se effettuata dall'utente stesso).
-- **GET /prenotazioni/mie**
-  - Restituisce le prenotazioni dell'utente.
-
-## Edge Cases
-- Prenotazione su tavolo già occupato nella stessa fascia oraria: rifiutata.
-- Cancellazione: nessun limite temporale, il tavolo torna subito disponibile.
-- Nessuna modifica prenotazione: solo cancellazione e nuova creazione.
-
-## Vincoli
-- Un tavolo non può avere più di una prenotazione attiva per la stessa data/ora.
-- Numero persone per prenotazione ≤ numero_posti del tavolo.
-- Solo l'utente che ha creato la prenotazione può cancellarla.
-
-## Non Previsto
-- Notifiche automatiche (email, push, ecc.).
-- Politiche di cancellazione restrittive.
-- Gestione di modifiche alle prenotazioni.
+Edge Cases
+1. Invalid user input (e.g., entering a language not present in the CSV or an incorrect numeric index for download).
+2. Network interruptions: efficient error handling is required to manage disconnections or interrupted downloads without crashing the script.
+3. Memory efficiency: since word vectors are large files, downloads must be managed efficiently (e.g., in chunks), and progress must be visually tracked using the progressbar2 library. Ensure that the six library is among the dependencies.

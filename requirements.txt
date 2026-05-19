@@ -4,3 +4,23 @@ lark
 python-dotenv
 pika
 pydantic
+
+
+# --- CORE ORCHESTRATION & AGENTS ---
+langgraph
+langchain-core
+langchain-community
+litellm
+
+# --- ASYNCHRONOUS MESSAGING & CONFIG ---
+pika
+python-dotenv
+
+# --- DATA VALIDATION & PARSING ---
+pydantic
+sqlalchemy
+lark
+
+# --- BACKEND QUALITY GATES (CRITICS) ---
+black
+flake8
