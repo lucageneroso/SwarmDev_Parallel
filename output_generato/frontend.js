@@ -1,23 +1,61 @@
-const calculate = async (a, b, operation) => {
-    try {
-        const response = await fetch('/api/calculate', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ a, b, operation }),
-        });
+import React, { useState } from 'react';
 
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
+const App = () => {
+  const [selectedTime, setSelectedTime] = useState('');
+  const [surname, setSurname] = useState('');
+  const [availableTables, setAvailableTables] = useState([]);
 
-        const data = await response.json();
-        return data.result;
-    } catch (error) {
-        console.error('Error:', error);
-        throw error;
-    }
+  const timeSlots = ['18:00', '19:00', '20:00', '21:00'];
+
+  const handleTimeChange = (event) => {
+    setSelectedTime(event.target.value);
+    // Simulazione di tavoli disponibili in base all'orario selezionato
+    setAvailableTables(selectedTime ? ['Table 1', 'Table 2'] : []);
+  };
+
+  const handleSurnameChange = (event) => {
+    setSurname(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Logica per la prenotazione
+    alert(`Prenotazione effettuata per ${surname} alle ${selectedTime}`);
+  };
+
+  return (
+    <div>
+      <h1>Prenotazione Tavoli</h1>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Seleziona Fascia Oraria:
+          <select value={selectedTime} onChange={handleTimeChange}>
+            <option value="">--Seleziona--</option>
+            {timeSlots.map((time) => (
+              <option key={time} value={time}>{time}</option>
+            ))}
+          </select>
+        </label>
+        <br />
+        <label>
+          Cognome:
+          <input type="text" value={surname} onChange={handleSurnameChange} />
+        </label>
+        <br />
+        <button type="submit">Prenota</button>
+      </form>
+      {availableTables.length > 0 && (
+        <div>
+          <h2>Tavoli Disponibili:</h2>
+          <ul>
+            {availableTables.map((table) => (
+              <li key={table}>{table}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  );
 };
 
-export default calculate;
+export default App;

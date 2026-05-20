@@ -1,0 +1,9 @@
+{
+  "frontend_requirements": "La web app deve avere una homepage per i clienti, un form per la prenotazione, una dashboard per i dipendenti e sezioni di gestione per gli amministratori. Deve includere funzionalità di login e registrazione, con gestione dei ruoli per limitare l'accesso alle funzionalità in base al tipo di utente.",
+  "backend_requirements": "Il backend deve gestire la logica di business per le prenotazioni e i turni, garantire la sicurezza delle credenziali degli utenti e fornire un'API per l'interazione con il frontend. Deve anche gestire la persistenza dei dati in un database, assicurando che le informazioni siano accessibili e aggiornate.",
+  "a2a_ocl_constraints": [
+    "context Prenotazione inv: self.orario >= currentDate() and self.numeroCoperti > 0",
+    "context Turno inv: self.data >= currentDate()",
+    "context Utente inv: self.ruolo != null and (self.ruolo = 'Cliente' or self.ruolo = 'Dipendente' or self.ruolo = 'Amministratore')"
+  ]
+}

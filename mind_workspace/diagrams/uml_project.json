@@ -1,0 +1,8 @@
+{
+  "code": "graph TD; A[Frontend]-->B[Booking Module]; B-->C[API]; C-->D[Database]; C-->E[Error Handling]; D-->F[Admin Interface];",
+  "mermaid": "{\n  \"theme\": \"default\"\n}",
+  "updateDiagram": true,
+  "rough": false,
+  "panZoom": true,
+  "grid": true
+}
