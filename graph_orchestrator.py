@@ -46,9 +46,20 @@ class OrchestratorState(TypedDict):
     kanban_backend_issue_id: Optional[str]    # Seaclip issue UUID for Backend
     kanban_error: Optional[str]               # Last Seaclip error (info, never blocking)
 
+    # ── RAG Memory (ChromaDB) ────────────────────────────
+    frontend_rag_context: Optional[str]       # Past solutions from ChromaDB
+    backend_rag_context: Optional[str]
+
+    # ── Runtime Self-Healing (PM2) ───────────────────────
+    runtime_errors: Optional[str]             # Errors extracted from PM2 logs
+    runtime_retry_count: Annotated[int, operator.add]  # Runtime retry counter
+
 # Constants
 MAX_RETRIES = 3
 MAX_OCL_RETRIES = 3
+MAX_RUNTIME_RETRIES = 2
+RUNTIME_WAIT_SECONDS = 8  # Seconds to wait after PM2 start before reading logs
+CHROMADB_COLLECTION = "swarmdev_fixes"  # ChromaDB collection for RAG memory
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 DIRECTIVES_DIR = os.path.join(CURRENT_DIR, "directives")
 SUPERPOWERS_DIR = os.path.join(CURRENT_DIR, "superpowers", "skills")
@@ -204,6 +215,12 @@ def _render_uml_diagram(mermaid_syntax: str, workspace_dir: str) -> tuple:
     project_file = os.path.join(diagrams_dir, "uml_project.json")
     output_png = os.path.join(diagrams_dir, "architecture_uml.png")
     
+    if os.path.exists(output_png):
+        try:
+            os.remove(output_png)
+        except OSError:
+            pass
+            
     cli_bin = _resolve_cli_binary("cli-anything-mermaid")
     
     # Step 1: Create mermaid project
@@ -277,6 +294,112 @@ def _seaclip_move_issue(issue_id: Optional[str], column: str) -> bool:
         "--column", column,
     ])
     return result["success"]
+
+
+# ── ACI/ChromaDB RAG Helpers ─────────────────────────────────────────
+def _chromadb_health_check() -> bool:
+    """Check if ChromaDB server is reachable (Docker on localhost:8000)."""
+    cli_bin = _resolve_cli_binary("cli-anything-chromadb")
+    result = safe_cli_invoke([cli_bin, "--json", "server", "heartbeat"], timeout=5)
+    return result["success"]
+
+
+def _chromadb_ensure_collection() -> bool:
+    """Ensure the swarmdev_fixes collection exists. Idempotent."""
+    cli_bin = _resolve_cli_binary("cli-anything-chromadb")
+    result = safe_cli_invoke([
+        cli_bin, "--json", "collection", "create",
+        "--name", CHROMADB_COLLECTION,
+    ])
+    # Success OR already exists (409/error) is fine
+    return True
+
+
+def _chromadb_query(error_text: str, n_results: int = 3) -> Optional[str]:
+    """Query RAG memory for past solutions to a given error. Returns formatted context or None."""
+    if not error_text:
+        return None
+    cli_bin = _resolve_cli_binary("cli-anything-chromadb")
+    result = safe_cli_invoke([
+        cli_bin, "--json", "query", "search",
+        "--collection", CHROMADB_COLLECTION,
+        "--text", error_text[:500],  # Limit query length
+        "--n-results", str(n_results),
+    ], parse_json=True)
+    if result["success"] and result.get("parsed"):
+        parsed = result["parsed"]
+        docs = parsed.get("documents", [[]])[0] if isinstance(parsed.get("documents"), list) else []
+        if docs:
+            return "\n---\n".join(docs[:n_results])
+    return None
+
+
+def _chromadb_add_fix(error: str, solution_summary: str) -> bool:
+    """Store a successful error->fix pair in RAG memory."""
+    import hashlib
+    doc_id = "fix_" + hashlib.md5(error.encode()).hexdigest()[:12]
+    text = f"ERRORE: {error[:200]}\nSOLUZIONE: {solution_summary[:500]}"
+    cli_bin = _resolve_cli_binary("cli-anything-chromadb")
+    result = safe_cli_invoke([
+        cli_bin, "--json", "document", "add",
+        "--collection", CHROMADB_COLLECTION,
+        "--text", text,
+        "--id", doc_id,
+    ])
+    return result["success"]
+
+
+# ── ACI/PM2 Runtime Helpers ──────────────────────────────────────────
+def _pm2_start(script_path: str, name: str = "swarmdev_backend") -> bool:
+    """Start a process via PM2. Cleans up any previous instance first."""
+    cli_bin = _resolve_cli_binary("cli-anything-pm2")
+    # Cleanup previous instance (ignore errors)
+    safe_cli_invoke([cli_bin, "--json", "lifecycle", "delete", name], timeout=10)
+    result = safe_cli_invoke([
+        cli_bin, "--json", "lifecycle", "start", script_path,
+        "--name", name,
+    ], timeout=15)
+    return result["success"]
+
+
+def _pm2_get_logs(name: str = "swarmdev_backend", lines: int = 30) -> Optional[str]:
+    """Read recent logs from a PM2 process. Returns stdout text or None."""
+    cli_bin = _resolve_cli_binary("cli-anything-pm2")
+    result = safe_cli_invoke([
+        cli_bin, "--json", "logs", "view", name,
+        "--lines", str(lines),
+    ], parse_json=True)
+    if result["success"] and result.get("parsed"):
+        return result["parsed"].get("stdout", "") or result["parsed"].get("stderr", "")
+    # Fallback: raw stdout
+    if result["success"]:
+        return result["stdout"]
+    return None
+
+
+def _pm2_stop(name: str = "swarmdev_backend") -> bool:
+    """Stop and delete a PM2 process."""
+    cli_bin = _resolve_cli_binary("cli-anything-pm2")
+    safe_cli_invoke([cli_bin, "--json", "lifecycle", "stop", name], timeout=10)
+    safe_cli_invoke([cli_bin, "--json", "lifecycle", "delete", name], timeout=10)
+    return True
+
+
+def _extract_runtime_errors(log_text: str) -> Optional[str]:
+    """Extract Python runtime errors (Traceback/Exception) from PM2 log output."""
+    if not log_text:
+        return None
+    error_markers = ["Traceback", "Error:", "Exception:", "ModuleNotFoundError",
+                     "ImportError", "SyntaxError", "NameError", "TypeError"]
+    lines = log_text.split("\n")
+    error_lines = []
+    capturing = False
+    for line in lines:
+        if any(marker in line for marker in error_markers):
+            capturing = True
+        if capturing:
+            error_lines.append(line)
+    return "\n".join(error_lines) if error_lines else None
 
 
 def extract_code(text: str) -> str:
@@ -592,6 +715,9 @@ def frontend_actor(state: OrchestratorState):
             f"CRITICAL FAILURE. Linter errors found:\n{state['frontend_errors']}\n\n"
             f"Fix ALL errors. Re-output the ENTIRE project using <file> tags."
         )
+    # RAG: Inject past solutions if available
+    if state.get("frontend_rag_context"):
+        user_content += f"\n\n[RAG MEMORY - Past Solutions for Similar Errors]\n{state['frontend_rag_context']}"
         
     hum_msg = HumanMessage(content=user_content)
     response = worker_llm.invoke([sys_msg, hum_msg])
@@ -645,6 +771,9 @@ def backend_actor(state: OrchestratorState):
             f"CRITICAL FAILURE. Linter errors found:\n{state['backend_errors']}\n\n"
             f"Fix ALL errors. Re-output the ENTIRE project using <file> tags."
         )
+    # RAG: Inject past solutions if available
+    if state.get("backend_rag_context"):
+        user_content += f"\n\n[RAG MEMORY - Past Solutions for Similar Errors]\n{state['backend_rag_context']}"
         
     hum_msg = HumanMessage(content=user_content)
     response = worker_llm.invoke([sys_msg, hum_msg])
@@ -718,7 +847,21 @@ def frontend_critic(state: OrchestratorState):
         write_project_to_dir(files, tmp_dir)
         errors = run_quality_gate_on_dir(tmp_dir, "js")
     
-    return {"frontend_errors": errors if errors else None}
+    if errors:
+        # RAG READ: query ChromaDB for past solutions to these errors
+        rag_hint = _chromadb_query(errors)
+        if rag_hint:
+            print("[Frontend Critic/RAG] Found past solutions in memory")
+            return {"frontend_errors": errors, "frontend_rag_context": f"[RAG MEMORY - Past Solutions]\n{rag_hint}"}
+        return {"frontend_errors": errors, "frontend_rag_context": None}
+    
+    # RAG WRITE: if we fixed errors in a previous retry, save the solution
+    if state.get("retry_count", 0) > 0 and state.get("frontend_errors"):
+        prev_error = state["frontend_errors"]
+        _chromadb_add_fix(prev_error, "Frontend code fixed after retry via linter feedback")
+        print("[Frontend Critic/RAG] Fix saved to RAG memory")
+    
+    return {"frontend_errors": None, "frontend_rag_context": None}
 
 def backend_critic(state: OrchestratorState):
     print("[Backend Critic] Evaluating Code...")
@@ -742,7 +885,21 @@ def backend_critic(state: OrchestratorState):
         write_project_to_dir(py_files, tmp_dir)
         errors = run_quality_gate_on_dir(tmp_dir, "py")
     
-    return {"backend_errors": errors if errors else None}
+    if errors:
+        # RAG READ: query ChromaDB for past solutions to these errors
+        rag_hint = _chromadb_query(errors)
+        if rag_hint:
+            print("[Backend Critic/RAG] Found past solutions in memory")
+            return {"backend_errors": errors, "backend_rag_context": f"[RAG MEMORY - Past Solutions]\n{rag_hint}"}
+        return {"backend_errors": errors, "backend_rag_context": None}
+    
+    # RAG WRITE: if we fixed errors in a previous retry, save the solution
+    if state.get("retry_count", 0) > 0 and state.get("backend_errors"):
+        prev_error = state["backend_errors"]
+        _chromadb_add_fix(prev_error, "Backend code fixed after retry via linter feedback")
+        print("[Backend Critic/RAG] Fix saved to RAG memory")
+    
+    return {"backend_errors": None, "backend_rag_context": None}
 
 # ============================================================================
 # 6. ROUTING E DOCUMENTATION
@@ -854,8 +1011,97 @@ def documentation_node(state: OrchestratorState):
     _seaclip_move_issue(state.get("kanban_backend_issue_id"), "Done")
     print("[Documentation Node] 📋 Kanban: Both tickets moved to Done")
     
-    print(f"\n[Documentation Node] 🎉 Workspace pronto: {workspace_root}")
+    print(f"\n[Documentation Node] Workspace pronto: {workspace_root}")
     return {"documentation_path": workspace_root, "documentation_ready": True}
+
+
+# ============================================================================
+# 6b. RUNTIME SELF-HEALING NODE (PM2)
+# ============================================================================
+def runtime_execution_node(state: OrchestratorState):
+    """Launch the generated backend via PM2, check logs for runtime crashes."""
+    print("[Runtime Node] Launching backend via PM2 for runtime validation...")
+    
+    # ACI/Seaclip: Move backend ticket to Testing
+    _seaclip_move_issue(state.get("kanban_backend_issue_id"), "Testing")
+    
+    doc_path = state.get("documentation_path", "")
+    if not doc_path:
+        print("[Runtime Node] No documentation_path, skipping runtime check")
+        return {"runtime_errors": None}
+    
+    backend_dir = os.path.join(doc_path, "backend")
+    
+    # Try multiple common entry points
+    possible_entry_points = [
+        "main.py",
+        "app.py",
+        os.path.join("app", "main.py"),
+        os.path.join("app", "app.py"),
+        os.path.join("src", "main.py")
+    ]
+    
+    main_py = None
+    for ep in possible_entry_points:
+        cand = os.path.join(backend_dir, ep)
+        if os.path.exists(cand):
+            main_py = cand
+            break
+            
+    if not main_py:
+        print("[Runtime Node] No main.py/app.py found in root or app/, skipping runtime check")
+        return {"runtime_errors": None}
+    
+    # Step 1: Start the process via PM2
+    started = _pm2_start(main_py, name="swarmdev_backend")
+    if not started:
+        print("[Runtime Node] PM2 start failed (non-blocking, PM2 may not be installed)")
+        return {"runtime_errors": None}
+    
+    # Step 2: Wait for the server to stabilize
+    import time
+    print(f"[Runtime Node] Waiting {RUNTIME_WAIT_SECONDS}s for process to stabilize...")
+    time.sleep(RUNTIME_WAIT_SECONDS)
+    
+    # Step 3: Read logs
+    logs = _pm2_get_logs("swarmdev_backend", lines=30)
+    
+    # Step 4: Analyze for runtime errors
+    if logs:
+        runtime_errs = _extract_runtime_errors(logs)
+        if runtime_errs:
+            print(f"[Runtime Node] Runtime errors detected:\n{runtime_errs[:300]}")
+            _pm2_stop("swarmdev_backend")
+            return {
+                "runtime_errors": runtime_errs,
+                "backend_errors": f"RUNTIME CRASH (from PM2 logs):\n{runtime_errs}",
+                "runtime_retry_count": 1,
+            }
+        else:
+            print("[Runtime Node] Backend running clean - no errors in logs")
+    else:
+        print("[Runtime Node] No logs captured (process may have exited immediately)")
+    
+    # Cleanup
+    _pm2_stop("swarmdev_backend")
+    
+    # ACI/Seaclip: Move backend ticket to Done (runtime passed)
+    _seaclip_move_issue(state.get("kanban_backend_issue_id"), "Done")
+    print("[Runtime Node] Runtime validation PASSED")
+    return {"runtime_errors": None}
+
+
+def runtime_router(state: OrchestratorState) -> str:
+    """Route based on runtime errors: loop back to backend_actor or END."""
+    if state.get("runtime_errors") and state.get("runtime_retry_count", 0) < MAX_RUNTIME_RETRIES:
+        print(f"[Runtime Router] Runtime crash detected. Routing back to backend_actor (retry {state.get('runtime_retry_count', 0)}/{MAX_RUNTIME_RETRIES})")
+        return "backend_actor"
+    
+    if state.get("runtime_errors"):
+        print("[Runtime Router] Max runtime retries reached. Exiting with runtime failures.")
+    else:
+        print("[Runtime Router] All clear. Pipeline complete.")
+    return END
 
 
 # ============================================================================
@@ -878,6 +1124,7 @@ def build_orchestrator() -> StateGraph:
     workflow.add_node("backend_critic", backend_critic)
     workflow.add_node("routing_node", routing_node)
     workflow.add_node("documentation_node", documentation_node)
+    workflow.add_node("runtime_execution_node", runtime_execution_node)
     
     # --- MIND ROUTING ---
     workflow.set_entry_point("human_node")
@@ -915,7 +1162,17 @@ def build_orchestrator() -> StateGraph:
         }
     )
     
-    workflow.add_edge("documentation_node", END)
+    # --- RUNTIME SELF-HEALING ---
+    workflow.add_edge("documentation_node", "runtime_execution_node")
+    
+    workflow.add_conditional_edges(
+        "runtime_execution_node",
+        runtime_router,
+        {
+            "backend_actor": "backend_actor",
+            END: END,
+        }
+    )
     
     return workflow.compile()
 
@@ -954,6 +1211,12 @@ def start_interactive_session():
         "kanban_frontend_issue_id": None,
         "kanban_backend_issue_id": None,
         "kanban_error": None,
+        # RAG Memory
+        "frontend_rag_context": None,
+        "backend_rag_context": None,
+        # Runtime Self-Healing
+        "runtime_errors": None,
+        "runtime_retry_count": 0,
     }
     
     print(f"\n🚀 Avviando l'esecuzione del DAG...")

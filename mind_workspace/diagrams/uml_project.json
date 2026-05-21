@@ -1,5 +1,5 @@
 {
-  "code": "graph TD; A[Frontend]-->B[Booking Module]; B-->C[API]; C-->D[Database]; C-->E[Error Handling]; D-->F[Admin Interface];",
+  "code": "graph TD; A[User]-->B[Movie Service]; B-->C[Seat Selection Service]; C-->D[Payment Service]; D-->C; C-->E[Update Seat Availability]; A-->F[Authentication Service];",
   "mermaid": "{\n  \"theme\": \"default\"\n}",
   "updateDiagram": true,
   "rough": false,

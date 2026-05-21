@@ -1,0 +1,10 @@
+{
+  "frontend_requirements": "The frontend must allow users to view available movies, select seats on a seating plan, and complete payments securely.",
+  "backend_requirements": "The backend must handle movie management, seat selection, payment processing, and user authentication using secure APIs.",
+  "a2a_ocl_constraints": [
+    "context Payment inv: self.transaction_status = 'completed' implies self.user.payment_info->size() > 0",
+    "context FilmManagement inv: self.movies->exists(m | m.title != '')",
+    "context Authentication inv: self.user.role != 'guest' implies self.sessions->size() > 0"
+  ],
+  "mermaid_syntax": "graph TD; A[User]-->B[Movie Service]; B-->C[Seat Selection Service]; C-->D[Payment Service]; D-->C; C-->E[Update Seat Availability]; A-->F[Authentication Service];"
+}
