@@ -27,6 +27,7 @@ class OrchestratorState(TypedDict):
     design_doc: Optional[str]
     ocl_errors: Optional[str]
     json_contract: Optional[str]
+    requirements_json: Optional[str]
     
     frontend_code: Optional[str]
     backend_code: Optional[str]
@@ -54,11 +55,24 @@ class OrchestratorState(TypedDict):
     # ── Runtime Self-Healing (PM2) ───────────────────────
     runtime_errors: Optional[str]             # Errors extracted from PM2 logs
     runtime_retry_count: Annotated[int, operator.add]  # Runtime retry counter
+    
+    # ── Testing Swarm ────────────────────────────────────
+    test_files: Optional[dict]
+    test_feedback: Optional[str]
+    test_coverage: Optional[float]
+    test_retry_count: Annotated[int, operator.add]
+    
+    # ── Quality Gate (SonarQube) ─────────────────────────
+    quality_passed: Optional[bool]
+    quality_feedback: Optional[str]
+    quality_retry_count: Annotated[int, operator.add]
 
 # Constants
 MAX_RETRIES = 3
 MAX_OCL_RETRIES = 3
 MAX_RUNTIME_RETRIES = 2
+MAX_TEST_RETRIES = 2
+MAX_QUALITY_RETRIES = 2
 RUNTIME_WAIT_SECONDS = 8  # Seconds to wait after PM2 start before reading logs
 CHROMADB_COLLECTION = "swarmdev_fixes"  # ChromaDB collection for RAG memory
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -506,10 +520,17 @@ def discovery_node(state: OrchestratorState):
         tokens = response.usage_metadata.get('total_tokens', 0)
         
     content = response.content
-    if "DESIGN_APPROVED:" in content:
-        parts = content.split("DESIGN_APPROVED:")
+    
+    # Normalizzazione per catturare varianti prodotte dall'LLM come "### DESIGN APPROVED:" o "DESIGN APPROVED:"
+    normalized_content = content.replace("DESIGN APPROVED:", "DESIGN_APPROVED:")
+    
+    if "DESIGN_APPROVED:" in normalized_content:
+        parts = normalized_content.split("DESIGN_APPROVED:")
         msg = parts[0].strip()
-        design_doc = parts[1].strip() if len(parts) > 1 else "Design Doc Generato."
+        
+        # Pulisci eventuali hash o backtick rimasti prima del payload del design doc
+        raw_design = parts[1].strip() if len(parts) > 1 else "Design Doc Generato."
+        design_doc = raw_design.lstrip("# \n") # rimuove markdown sporco all'inizio
         
         if msg:
             print(f"\n[Mind]: {msg}\n")
@@ -872,6 +893,282 @@ def conditional_router(state: OrchestratorState) -> Sequence[str]:
         
     return next_nodes
 
+# ============================================================================
+# 5. V4.0 CI/CD NODES (PLACEHOLDERS)
+# ============================================================================
+def requirements_node(state: OrchestratorState):
+    print("[Mind/Requirements] Estrazione requisiti dal Design Doc...")
+    design_doc = state.get("design_doc", "")
+    
+    # Costruisci il prompt usando la nuova SOP
+    sys_msg = SystemMessage(content=load_sop("requirements_engineer", design_doc=design_doc))
+    
+    print("[Mind/Requirements] Thinking...")
+    # Using the same global mind_llm used in other Mind nodes
+    global mind_llm
+    response = mind_llm.invoke([sys_msg])
+    
+    # Extract token usage
+    tokens = 0
+    if hasattr(response, 'usage_metadata') and response.usage_metadata:
+        tokens = response.usage_metadata.get('total_tokens', 0)
+        
+    content = response.content.strip()
+    
+    # Rimuovi eventuali backticks markdown
+    if content.startswith("```json"):
+        content = content[7:]
+    elif content.startswith("```"):
+        content = content[3:]
+        
+    if content.endswith("```"):
+        content = content[:-3]
+        
+    content = content.strip()
+    
+    print(f"[Mind/Requirements] ✅ Requisiti estratti correttamente.")
+    return {"requirements_json": content, "total_tokens": tokens}
+
+def test_writer_actor(state: OrchestratorState):
+    print("[Testing Swarm] Generazione Unit Tests...")
+    backend_code = state.get("backend_code", "")
+    requirements = state.get("requirements_json", "")
+    feedback = state.get("test_feedback", "")
+    
+    sys_msg = SystemMessage(content=load_sop(
+        "test_writer_actor", 
+        backend_code=backend_code, 
+        requirements=requirements,
+        test_feedback=feedback
+    ))
+    
+    global worker_llm
+    response = worker_llm.invoke([sys_msg])
+    
+    tokens = 0
+    if hasattr(response, 'usage_metadata') and response.usage_metadata:
+        tokens = response.usage_metadata.get('total_tokens', 0)
+        
+    test_files = parse_xml_files(response.content)
+    if not test_files:
+        print("[Testing Swarm] ⚠️ Nessun file XML di test generato dall'LLM.")
+        
+    print(f"[Testing Swarm] ✅ Generati {len(test_files)} file di test.")
+    return {"test_files": test_files, "total_tokens": tokens}
+
+def test_evaluator_node(state: OrchestratorState):
+    print("[Testing Swarm] Esecuzione Sandbox Pytest --cov...")
+    import uuid
+    import shutil
+    
+    sandbox_name = f".sandbox_test_{uuid.uuid4().hex[:8]}"
+    sandbox_dir = os.path.join(CURRENT_DIR, "workspace", sandbox_name)
+    os.makedirs(sandbox_dir, exist_ok=True)
+    
+    # 1. Scrittura files backend e test
+    backend_code = state.get("backend_code", "")
+    b_files = parse_xml_files(backend_code) if backend_code else {}
+    test_files = state.get("test_files", {})
+    
+    if b_files:
+        write_project_to_dir(b_files, sandbox_dir)
+    if test_files:
+        write_project_to_dir(test_files, sandbox_dir)
+        
+    # 2. Installazione dipendenze
+    req_path = os.path.join(sandbox_dir, "requirements.txt")
+    if os.path.exists(req_path):
+        subprocess.run(
+            [sys.executable, "-m", "pip", "install", "-r", req_path, "pytest", "pytest-cov", "httpx", "--quiet"],
+            capture_output=True, timeout=120
+        )
+    else:
+        subprocess.run(
+            [sys.executable, "-m", "pip", "install", "pytest", "pytest-cov", "httpx", "fastapi", "uvicorn", "--quiet"],
+            capture_output=True, timeout=120
+        )
+        
+    # 3. Esecuzione pytest con iniezione PYTHONPATH
+    env = os.environ.copy()
+    env["PYTHONPATH"] = sandbox_dir
+    
+    print("[Testing Swarm] Avvio pytest...")
+    cov_target = "app" if os.path.exists(os.path.join(sandbox_dir, "app")) else "."
+    
+    pytest_res = subprocess.run(
+        [sys.executable, "-m", "pytest", "tests/", f"--cov={cov_target}", "--cov-report=json"],
+        cwd=sandbox_dir, env=env, capture_output=True, text=True
+    )
+    
+    coverage_val = 0.0
+    feedback = ""
+    
+    # 4. Lettura coverage.json
+    cov_file = os.path.join(sandbox_dir, "coverage.json")
+    if os.path.exists(cov_file):
+        try:
+            with open(cov_file, "r", encoding="utf-8") as f:
+                cov_data = json.load(f)
+            coverage_val = cov_data.get("totals", {}).get("percent_covered_display", 0.0)
+            coverage_val = float(coverage_val)
+            
+            # Extract uncovered files
+            missing_files = []
+            files = cov_data.get("files", {})
+            for fname, fdata in files.items():
+                missing = fdata.get("missing_lines", [])
+                if missing:
+                    missing_files.append(f"{fname}: missing lines {missing}")
+            if missing_files:
+                feedback = "Uncovered lines:\n" + "\n".join(missing_files)
+        except Exception as e:
+            print(f"[Testing Swarm] Errore lettura coverage.json: {e}")
+            feedback = f"Pytest Output:\n{pytest_res.stdout}\n{pytest_res.stderr}"
+    else:
+        print("[Testing Swarm] ⚠️ coverage.json non generato. Pytest ha fallito la collection o l'import?")
+        print(f"[Testing Swarm] 📝 Pytest STDOUT:\n{pytest_res.stdout}")
+        if pytest_res.stderr:
+            print(f"[Testing Swarm] 📝 Pytest STDERR:\n{pytest_res.stderr}")
+        feedback = f"Pytest Output:\n{pytest_res.stdout}\n{pytest_res.stderr}"
+        
+    print(f"[Testing Swarm] Coverage calcolata: {coverage_val}%")
+    
+    # Effimero: eliminiamo la sandbox
+    shutil.rmtree(sandbox_dir, ignore_errors=True)
+    
+    return {"test_coverage": coverage_val, "test_feedback": feedback, "test_retry_count": 1}
+
+def test_router(state: OrchestratorState) -> str:
+    cov = state.get("test_coverage", 0)
+    retries = state.get("test_retry_count", 0)
+    
+    if cov < 85 and retries < MAX_TEST_RETRIES:
+        print(f"[Testing Swarm] Coverage {cov}% < 85% (Retry {retries}/{MAX_TEST_RETRIES}). Micro-Loop per generare test mancanti.")
+        return "test_writer_actor"
+        
+    if cov < 85:
+        print(f"[Testing Swarm] Coverage {cov}% < 85% ma MAX_TEST_RETRIES raggiunto. Procedo.")
+    else:
+        print(f"[Testing Swarm] Coverage {cov}% >= 85%. Passaggio al Quality Gate.")
+        
+    return "quality_evaluation_node"
+
+def quality_evaluation_node(state: OrchestratorState):
+    print("[Quality Gate] Avvio Analisi SonarQube Scanner...")
+    import uuid
+    import shutil
+    import time
+    import requests
+    
+    project_key = f"swarmdev_{uuid.uuid4().hex[:8]}"
+    sandbox_name = f".sandbox_sonar_{project_key}"
+    sandbox_dir = os.path.join(CURRENT_DIR, "workspace", sandbox_name)
+    os.makedirs(sandbox_dir, exist_ok=True)
+    
+    # 1. Scrittura files backend
+    backend_code = state.get("backend_code", "")
+    b_files = parse_xml_files(backend_code) if backend_code else {}
+    if b_files:
+        write_project_to_dir(b_files, sandbox_dir)
+        
+    # 2. Generazione sonar-project.properties
+    sonar_props = f"""sonar.projectKey={project_key}
+sonar.sources=.
+sonar.host.url=http://localhost:9000
+"""
+    with open(os.path.join(sandbox_dir, "sonar-project.properties"), "w", encoding="utf-8") as f:
+        f.write(sonar_props)
+        
+    # 3. Scansione
+    scanner_exe = shutil.which("sonar-scanner")
+    if not scanner_exe:
+        print("[Quality Gate] ⚠️ sonar-scanner non trovato nel PATH. Salto il quality gate.")
+        shutil.rmtree(sandbox_dir, ignore_errors=True)
+        return {"quality_passed": True, "quality_feedback": None}
+        
+    print(f"[Quality Gate] Esecuzione sonar-scanner (Project: {project_key})...")
+    scanner_res = subprocess.run(
+        [scanner_exe],
+        cwd=sandbox_dir, capture_output=True, text=True
+    )
+    if scanner_res.returncode != 0:
+        print("[Quality Gate] ⚠️ sonar-scanner fallito. Salto il quality gate.")
+        print(f"[Quality Gate] 📝 Sonar STDOUT:\n{scanner_res.stdout}")
+        if scanner_res.stderr:
+            print(f"[Quality Gate] 📝 Sonar STDERR:\n{scanner_res.stderr}")
+        shutil.rmtree(sandbox_dir, ignore_errors=True)
+        return {"quality_passed": True, "quality_feedback": None}
+        
+    # 4. Polling API SonarQube per Quality Gate Status
+    print("[Quality Gate] Polling SonarQube per Quality Gate status...")
+    quality_passed = True
+    feedback = ""
+    status_url = f"http://localhost:9000/api/qualitygates/project_status?projectKey={project_key}"
+    
+    max_attempts = 15
+    for attempt in range(max_attempts):
+        time.sleep(2)
+        try:
+            resp = requests.get(status_url)
+            if resp.status_code == 200:
+                status_data = resp.json()
+                status = status_data.get("projectStatus", {}).get("status", "NONE")
+                
+                if status == "OK":
+                    print("[Quality Gate] ✅ Quality Gate SUPERATO.")
+                    break
+                elif status == "ERROR":
+                    print("[Quality Gate] ❌ Quality Gate FALLITO.")
+                    quality_passed = False
+                    
+                    # Estrazione Vulnerabilità / Code Smells
+                    issues_url = f"http://localhost:9000/api/issues/search?projectKeys={project_key}&ps=5"
+                    i_resp = requests.get(issues_url)
+                    if i_resp.status_code == 200:
+                        issues = i_resp.json().get("issues", [])
+                        feedback_lines = ["SONARQUBE ISSUES FOUND:"]
+                        for issue in issues:
+                            msg = issue.get("message", "Issue")
+                            comp = issue.get("component", "")
+                            line = issue.get("line", "?")
+                            feedback_lines.append(f"- {comp} (Line {line}): {msg}")
+                        feedback = "\n".join(feedback_lines)
+                        print(f"[Quality Gate] Trovate {len(issues)} issue principali.")
+                    break
+            elif resp.status_code == 404:
+                # Il report non è ancora stato processato dal server
+                continue
+        except requests.exceptions.RequestException:
+            print("[Quality Gate] ⚠️ Impossibile contattare SonarQube (http://localhost:9000). Salto il Quality Gate.")
+            quality_passed = True
+            break
+            
+    # Cleanup
+    shutil.rmtree(sandbox_dir, ignore_errors=True)
+    
+    return {
+        "quality_passed": quality_passed, 
+        "quality_feedback": feedback, 
+        "quality_retry_count": 1
+    }
+
+def quality_router(state: OrchestratorState) -> str:
+    passed = state.get("quality_passed", True)
+    retries = state.get("quality_retry_count", 0)
+    
+    if not passed and retries < MAX_QUALITY_RETRIES:
+        print(f"[Quality Gate] Quality Gate fallito (Retry {retries}/{MAX_QUALITY_RETRIES}). Routing a backend_actor per refactoring.")
+        return "backend_actor"
+        
+    if not passed:
+        print(f"[Quality Gate] Quality Gate fallito ma MAX_QUALITY_RETRIES raggiunto. Procedo.")
+        
+    print("[Quality Gate] Passaggio a Documentation Node.")
+    return "documentation_node"
+
+# ============================================================================
+# 6. DOCUMENTATION NODE
+# ============================================================================
 def documentation_node(state: OrchestratorState):
     print("[Documentation Node] Creating GitHub-ready workspace...")
     
@@ -900,6 +1197,12 @@ def documentation_node(state: OrchestratorState):
     if b_files:
         write_project_to_dir(b_files, backend_dir)
         print(f"[Documentation Node] ✅ Backend: {len(b_files)} file(s) scritti in {backend_dir}")
+        
+    # --- Salva Unit Tests ---
+    t_files = state.get("test_files", {})
+    if t_files:
+        write_project_to_dir(t_files, backend_dir)
+        print(f"[Documentation Node] ✅ Unit Tests: {len(t_files)} file(s) scritti in {backend_dir}")
     elif b_raw:
         os.makedirs(backend_dir, exist_ok=True)
         with open(os.path.join(backend_dir, "main.py"), "w", encoding="utf-8") as f:
@@ -914,6 +1217,11 @@ def documentation_node(state: OrchestratorState):
         with open(os.path.join(workspace_root, "CONTRACT.json"), "w", encoding="utf-8") as f:
             f.write(state["json_contract"])
     
+    # Salva REQUIREMENTS.json
+    if state.get("requirements_json"):
+        with open(os.path.join(workspace_root, "REQUIREMENTS.json"), "w", encoding="utf-8") as f:
+            f.write(state["requirements_json"])
+            
     # Salva DESIGN.md
     if state.get("design_doc"):
         with open(os.path.join(workspace_root, "DESIGN.md"), "w", encoding="utf-8") as f:
@@ -939,6 +1247,8 @@ def documentation_node(state: OrchestratorState):
         f.write("  backend/     # Python API\n")
         f.write("  DESIGN.md    # Design document\n")
         f.write("  CONTRACT.json # A2A-OCL Contract\n")
+        if state.get("requirements_json"):
+            f.write("  REQUIREMENTS.json # Software Requirements (FR & NFR)\n")
         if has_uml:
             f.write("  architecture_uml.png  # ACI-generated UML diagram\n")
         f.write("```\n")
@@ -1076,6 +1386,7 @@ def build_orchestrator() -> StateGraph:
     workflow.add_node("discovery_node", discovery_node)
     workflow.add_node("planning_node", planning_node)
     workflow.add_node("validate_ocl_node", validate_ocl_node)
+    workflow.add_node("requirements_node", requirements_node) # V4.0
     workflow.add_node("fanout_node", fanout_node)
     
     # 2. Worker Nodes
@@ -1084,6 +1395,13 @@ def build_orchestrator() -> StateGraph:
     workflow.add_node("frontend_critic", frontend_critic)
     workflow.add_node("backend_critic", backend_critic)
     workflow.add_node("routing_node", routing_node)
+    
+    # 3. V4.0 CI/CD Nodes
+    workflow.add_node("test_writer_actor", test_writer_actor)
+    workflow.add_node("test_evaluator_node", test_evaluator_node)
+    workflow.add_node("quality_evaluation_node", quality_evaluation_node)
+    
+    # 4. Post-Processing Nodes
     workflow.add_node("documentation_node", documentation_node)
     workflow.add_node("runtime_execution_node", runtime_execution_node)
     
@@ -1099,8 +1417,10 @@ def build_orchestrator() -> StateGraph:
     workflow.add_edge("planning_node", "validate_ocl_node")
     workflow.add_conditional_edges("validate_ocl_node", router_ocl, {
         "planning_node": "planning_node",
-        "fanout_node": "fanout_node"
+        "fanout_node": "requirements_node" # V4.0 intercept
     })
+    
+    workflow.add_edge("requirements_node", "fanout_node") # V4.0
     
     # --- WORKER ROUTING ---
     workflow.add_edge("fanout_node", "frontend_actor")
@@ -1118,8 +1438,28 @@ def build_orchestrator() -> StateGraph:
         {
             "frontend_actor": "frontend_actor",
             "backend_actor": "backend_actor",
-            "documentation_node": "documentation_node",
+            "documentation_node": "test_writer_actor", # V4.0 intercept
             END: END
+        }
+    )
+    
+    # --- V4.0 CI/CD ROUTING ---
+    workflow.add_edge("test_writer_actor", "test_evaluator_node")
+    workflow.add_conditional_edges(
+        "test_evaluator_node",
+        test_router,
+        {
+            "test_writer_actor": "test_writer_actor",
+            "quality_evaluation_node": "quality_evaluation_node"
+        }
+    )
+    
+    workflow.add_conditional_edges(
+        "quality_evaluation_node",
+        quality_router,
+        {
+            "backend_actor": "backend_actor",
+            "documentation_node": "documentation_node"
         }
     )
     

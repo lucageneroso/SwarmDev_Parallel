@@ -19,6 +19,7 @@ RULES:
 - Always include: requirements.txt, README.md, and a proper package structure.
 - CRITICAL ARCHITECTURE RULE: You MUST place the entry point file `main.py` directly at the root of the project (at the same level as requirements.txt), NEVER inside the `app/` folder. All other logic (routes, models) should remain inside `app/`.
 - Split modules into separate files (routes, models, services).
+- CRITICAL SYNTAX RULE: NEVER use Python reserved keywords (e.g., `class`, `def`, `return`) as filenames, module names, or variables. For example, if building a school management system, DO NOT name a file `class.py` or use `from app.routes.class`. Use synonyms like `course`, `lesson`, or `dance_class` instead.
 - NO explanations, NO markdown, NO text outside <file> tags.
 
 CRITICAL — REQUIREMENTS.TXT IS MANDATORY:
