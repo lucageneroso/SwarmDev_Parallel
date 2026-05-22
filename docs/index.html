@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwarmDev Parallel | Deterministic Agentic Framework</title>
+    <meta name="description" content="Un framework sperimentale basato su LangGraph per la parallelizzazione deterministica di agenti AI.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Mermaid.js for Graph Rendering -->
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ 
+          startOnLoad: true, 
+          theme: 'dark',
+          themeVariables: {
+            primaryColor: 'rgba(255, 255, 255, 0.05)',
+            primaryTextColor: '#E2E8F0',
+            primaryBorderColor: '#00F0FF',
+            lineColor: '#7000FF',
+            secondaryColor: '#05050A',
+            tertiaryColor: '#1a1a2e'
+          }
+      });
+    </script>
+</head>
+<body>
+    <canvas id="bg-canvas"></canvas>
+
+    <header class="navbar">
+        <div class="logo">SwarmDev <span>Parallel</span></div>
+        <nav>
+            <a href="#contesto">Contesto & Obiettivi</a>
+            <a href="#stato-arte">Stato dell'Arte</a>
+            <a href="#architecture">Architettura</a>
+            <a href="#grafo">Il Grafo</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero glass-panel">
+            <h1 class="reveal">L'Evoluzione dello Sviluppo Software Multi-Agente</h1>
+            <p class="reveal delay-1">Dimentica il "Chatter Smell". Abbraccia l'orchestrazione a grafo deterministica con validazione matematica A2A-OCL.</p>
+            <div class="cta-group reveal delay-2">
+                <a href="https://github.com/tuo-user/SwarmDev_Parallel" class="btn primary">Esplora la Repo</a>
+                <a href="#contesto" class="btn secondary">Scopri di più</a>
+            </div>
+        </section>
+
+        <!-- CONTESTO E OBIETTIVI -->
+        <section id="contesto" class="content-section">
+            <h2 class="reveal">Contesto e Obiettivi</h2>
+            <div class="card-grid">
+                <div class="card glass-panel reveal">
+                    <h3>Il Contesto: Chatter Smell</h3>
+                    <p>Gli agenti AI tradizionali, lasciati liberi di dialogare tra loro in linguaggio naturale, tendono a degenerare nel cosiddetto <strong>"Chatter Smell"</strong>: incomprensioni, loop discorsivi infiniti, allucinazioni collettive e progressiva perdita del focus sul task tecnico.</p>
+                </div>
+                <div class="card glass-panel reveal delay-1">
+                    <h3>L'Obiettivo: Parallelismo Deterministico</h3>
+                    <p>SwarmDev mira a eliminare le conversazioni inefficaci forzando gli agenti a comunicare esclusivamente tramite <strong>contratti JSON rigidi e validati matematicamente (A2A-OCL)</strong>. Vogliamo parallelizzare la scrittura del codice (es. frontend e backend insieme) in modo matematicamente sicuro e prevedibile.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- STATO DELL'ARTE -->
+        <section id="stato-arte" class="content-section">
+            <h2 class="reveal">Lo Stato dell'Arte</h2>
+            <div class="glass-panel reveal delay-1" style="padding: 3rem;">
+                <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">I framework attuali (es. AutoGen, CrewAI) eccellono nel brainstorming e nel problem solving discorsivo, ma faticano quando si tratta di produrre architetture ingegneristiche complesse senza supervisione. La natura probabilistica degli LLM porta inevitabilmente a divergenze nel codice.</p>
+                <p style="font-size: 1.1rem;"><strong>SwarmDev sposta il paradigma:</strong> non più "Agenti che parlano come umani", ma "Attori funzionali che elaborano transazioni di stato". Utilizzando <strong>LangGraph</strong>, lo stato dell'arte per i flussi di lavoro LLM orientati ai grafi ciclici (DAG), riusciamo ad ingabbiare la potenza generativa in percorsi direzionali obbligati (il metodo <em>Get-Shit-Done</em>), dove il routing è governato esclusivamente dai risultati crudi di linter e compilatori (Actor-Critic).</p>
+            </div>
+        </section>
+
+        <!-- PIPELINE ANIMATION -->
+        <section id="pipeline-animation" class="content-section">
+            <h2 class="reveal">Simulazione Flusso Dati</h2>
+            <p class="reveal" style="text-align: center; color: var(--text-muted); margin-bottom: 3rem;">Ecco come il dato viaggia dal planning fino al rilascio, attraversando i Quality Gate in parallelo.</p>
+            
+            <div class="pipeline-container glass-panel reveal delay-1">
+                <div class="node node-planning">Planning</div>
+                <div class="node node-req">Requirements</div>
+                <div class="node node-fanout">Fanout</div>
+                <div class="node node-actor-front">Frontend Actor</div>
+                <div class="node node-actor-back">Backend Actor</div>
+                <div class="node node-critic-front">Frontend Critic</div>
+                <div class="node node-critic-back">Backend Critic</div>
+                <div class="node node-gate">Quality Gate</div>
+                <div class="node node-test">Testing</div>
+                <div class="node node-docs">Documentation</div>
+                <div class="node node-deploy">Deploy</div>
+
+                <svg class="pipeline-svg">
+                    <!-- Base lines -->
+                    <line x1="8%" y1="50%" x2="18%" y2="50%" class="path-line" />
+                    <line x1="18%" y1="50%" x2="28%" y2="50%" class="path-line" />
+                    <line x1="28%" y1="50%" x2="42%" y2="25%" class="path-line" />
+                    <line x1="28%" y1="50%" x2="42%" y2="75%" class="path-line" />
+                    <line x1="42%" y1="25%" x2="56%" y2="25%" class="path-line" />
+                    <line x1="42%" y1="75%" x2="56%" y2="75%" class="path-line" />
+                    <line x1="56%" y1="25%" x2="70%" y2="50%" class="path-line" />
+                    <line x1="56%" y1="75%" x2="70%" y2="50%" class="path-line" />
+                    <line x1="70%" y1="50%" x2="80%" y2="50%" class="path-line" />
+                    <line x1="80%" y1="50%" x2="90%" y2="50%" class="path-line" />
+                    <line x1="90%" y1="50%" x2="98%" y2="50%" class="path-line" />
+
+                    <!-- Flowing energy lines -->
+                    <line x1="8%" y1="50%" x2="18%" y2="50%" class="path-flow flow-1" />
+                    <line x1="18%" y1="50%" x2="28%" y2="50%" class="path-flow flow-2" />
+                    <line x1="28%" y1="50%" x2="42%" y2="25%" class="path-flow flow-3" />
+                    <line x1="28%" y1="50%" x2="42%" y2="75%" class="path-flow flow-3" />
+                    <line x1="42%" y1="25%" x2="56%" y2="25%" class="path-flow flow-4" />
+                    <line x1="42%" y1="75%" x2="56%" y2="75%" class="path-flow flow-4" />
+                    <line x1="56%" y1="25%" x2="70%" y2="50%" class="path-flow flow-5" />
+                    <line x1="56%" y1="75%" x2="70%" y2="50%" class="path-flow flow-5" />
+                    <line x1="70%" y1="50%" x2="80%" y2="50%" class="path-flow flow-6" />
+                    <line x1="80%" y1="50%" x2="90%" y2="50%" class="path-flow flow-7" />
+                    <line x1="90%" y1="50%" x2="98%" y2="50%" class="path-flow flow-8" />
+                </svg>
+            </div>
+        </section>
+
+        <!-- ARCHITETTURA ED ECOSISTEMA -->
+        <section id="architecture" class="content-section">
+            <h2 class="reveal">Architettura e Flusso Parallelo</h2>
+            <div class="architecture-content glass-panel reveal delay-1">
+                <img src="assets/log2.png" alt="SwarmDev Architecture" class="arch-img">
+                <div class="arch-text">
+                    <h3>Un Ecosistema Solido</h3>
+                    <p>Il parallelismo non è lasciato al caso. Si poggia su infrastrutture avanzate:</p>
+                    <ul class="feature-list">
+                        <li><strong>SuperPowers & CodeWiki:</strong> Iniezione cognitiva (MIND) per consapevolezza architetturale profonda.</li>
+                        <li><strong>LLMWiki & ChromaDB:</strong> Memoria vettoriale RAG per ripescare soluzioni e prevenire regressioni (integrazione SeaClip).</li>
+                        <li><strong>Actor-Critic con Repomix:</strong> Ogni codice passa da un Gate di Qualità, che scatta uno snapshot XML della repo, offrendo feedback senza saturare la Context Window.</li>
+                        <li><strong>CLIAnything & Docker:</strong> Esecuzione fluida, isolata e sicura dell'analisi statica (Sonar, ESLint, Flake8).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- IL GRAFO MERMAID -->
+        <section id="grafo" class="content-section">
+            <h2 class="reveal">Il Grafo di LangGraph</h2>
+            <p class="reveal" style="text-align: center; color: var(--text-muted); margin-bottom: 2rem;">Ecco la rappresentazione visiva del Directed Acyclic Graph (DAG) che orchestra l'intero ciclo di vita, dal discovery umano alla validazione Actor-Critic.</p>
+            <div class="glass-panel reveal delay-1" style="padding: 2rem; overflow-x: auto; text-align: center;">
+                <pre class="mermaid">
+flowchart TD
+    human[fa:fa-user Human Node]
+    discovery[Discovery Node]
+    planning[Planning Node]
+    validate_ocl[Validate OCL Node]
+    requirements[Requirements Node]
+    fanout[Fanout Node]
+    
+    frontend_actor[Frontend Actor]
+    backend_actor[Backend Actor]
+    
+    frontend_critic[Frontend Critic]
+    backend_critic[Backend Critic]
+    
+    routing[Routing Node]
+    
+    test_writer[Test Writer Actor]
+    test_evaluator[Test Evaluator Node]
+    quality_eval[Quality Evaluation Node]
+    
+    docs[Documentation Node]
+    runtime[Runtime Execution Node]
+    
+    human --> discovery
+    discovery -->|Needs clarification| human
+    discovery -->|Requirements clear| planning
+    
+    planning --> validate_ocl
+    validate_ocl -->|Validation Failed| planning
+    validate_ocl -->|Validation OK| requirements
+    
+    requirements --> fanout
+    
+    fanout --> frontend_actor
+    fanout --> backend_actor
+    
+    frontend_actor --> frontend_critic
+    backend_actor --> backend_critic
+    
+    frontend_critic --> routing
+    backend_critic --> routing
+    
+    routing -->|Frontend Errors| frontend_actor
+    routing -->|Backend Errors| backend_actor
+    routing -->|Both Valid| test_writer
+    
+    test_writer --> test_evaluator
+    test_evaluator -->|Test Failed| test_writer
+    test_evaluator -->|Test Passed| quality_eval
+    
+    quality_eval -->|Coverage &lt; 85%| test_writer
+    quality_eval -->|Quality OK| docs
+    
+    docs --> runtime
+    runtime -->|Crash| runtime
+    runtime -->|Success| END((END))
+                </pre>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 SwarmDev Parallel. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
