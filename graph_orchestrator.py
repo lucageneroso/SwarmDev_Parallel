@@ -1,4 +1,5 @@
 import os
+from llm_wiki import load_sop
 import sys
 import tempfile
 import subprocess
@@ -130,6 +131,7 @@ def safe_cli_invoke(
     cwd: Optional[str] = None,
     timeout: int = CLI_TIMEOUT_SECONDS,
     parse_json: bool = False,
+    env: Optional[dict] = None,
 ) -> dict:
     """
     Invoca un comando CLI in modo sicuro per il DAG.
@@ -149,6 +151,7 @@ def safe_cli_invoke(
         proc = subprocess.run(
             cmd,
             cwd=cwd,
+            env=env,
             capture_output=True,
             text=True,
             timeout=timeout,
@@ -350,15 +353,56 @@ def _chromadb_add_fix(error: str, solution_summary: str) -> bool:
 
 
 # ── ACI/PM2 Runtime Helpers ──────────────────────────────────────────
-def _pm2_start(script_path: str, name: str = "swarmdev_backend") -> bool:
-    """Start a process via PM2. Cleans up any previous instance first."""
+def _pm2_start(script_path: str, name: str = "swarmdev_backend", interpreter: str = None, cwd: Optional[str] = None, env: Optional[dict] = None) -> bool:
+    """Start a process via PM2. Cleans up any previous instance first.
+    
+    Args:
+        interpreter: Path to the Python interpreter to use (e.g. sys.executable).
+                     When provided, creates an ephemeral Node.js launcher that
+                     PM2 executes natively, which spawns the correct Python process.
+    """
     cli_bin = _resolve_cli_binary("cli-anything-pm2")
     # Cleanup previous instance (ignore errors)
     safe_cli_invoke([cli_bin, "--json", "lifecycle", "delete", name], timeout=10)
+    
+    # PM2 is a Node.js process manager — it executes .js files natively.
+    # To run Python with the correct venv interpreter, we generate an
+    # ephemeral .js launcher that uses child_process.spawn.
+    launch_target = script_path
+    if interpreter:
+        script_dir = os.path.dirname(os.path.abspath(script_path))
+        launcher = os.path.join(script_dir, "_pm2_launcher.js")
+        abs_script = os.path.abspath(script_path).replace("\\", "\\\\")
+        abs_interp = interpreter.replace("\\", "\\\\")
+        
+        # Ensure spawn gets the cwd if provided
+        if cwd:
+            cwd_str = cwd.replace("\\", "\\\\")
+            cwd_prop = f', cwd: "{cwd_str}"'
+        else:
+            cwd_prop = ""
+            
+        # Ensure spawn gets the env if provided
+        if env:
+            import json
+            env_json = json.dumps(env)
+            env_prop = f', env: Object.assign({{}}, process.env, {env_json})'
+        else:
+            env_prop = ""
+        
+        with open(launcher, "w", encoding="utf-8") as f:
+            f.write(
+                f'const {{ spawn }} = require("child_process");\n'
+                f'const p = spawn("{abs_interp}", ["{abs_script}"], {{ stdio: "inherit"{cwd_prop}{env_prop} }});\n'
+                f'p.on("exit", (code) => process.exit(code || 0));\n'
+            )
+        launch_target = launcher
+        print(f"[PM2] Created Node.js launcher: {launcher}")
+    
     result = safe_cli_invoke([
-        cli_bin, "--json", "lifecycle", "start", script_path,
+        cli_bin, "--json", "lifecycle", "start", launch_target,
         "--name", name,
-    ], timeout=15)
+    ], timeout=15, cwd=cwd, env=env)
     return result["success"]
 
 
@@ -445,45 +489,12 @@ def human_node(state: OrchestratorState):
     history.append(HumanMessage(content=user_input))
     return {"chat_history": history}
 
-DISCOVERY_SYSTEM_PROMPT = """
-You are the SwarmDev Architect (The Mind). Your ONLY job in this phase is requirements elicitation.
-
-You will follow the BRAINSTORMING SKILL below to understand the user's idea through conversation.
-
-{brainstorming_skill}
-
----
-## CRITICAL RULES FOR THIS AUTOMATED PIPELINE (READ CAREFULLY)
-
-1. **ONE QUESTION AT A TIME.** Ask a single clarifying question and stop. Wait for the answer.
-2. **DO NOT write code, implementation plans, or subagent instructions.** You are NOT in a chat UI.
-   There are no real subagents. There is no file system access. Do NOT pretend to run commands.
-3. **DO NOT mention 'subagent-driven development', 'inline execution', writing-plans, or implementation plans.**
-   Those concepts do not exist in this pipeline.
-4. **WHEN TO STOP ELICITING:** When you have enough information to define the full system
-   (tech stack, data model, API endpoints, main components) AND the user has said YES/APPROVO/OK,
-   you MUST immediately emit the DESIGN_APPROVED trigger.
-5. **HOW TO EMIT THE TRIGGER:**
-   - Output EXACTLY the string `DESIGN_APPROVED:` on its own line.
-   - Immediately after that, write the complete Markdown design document.
-   - Example:
-     ```
-     DESIGN_APPROVED:
-     # MyProject Design
-     ## Overview
-     ...
-     ```
-6. **DO NOT output `DESIGN_APPROVED:` until the user has explicitly approved the design.**
-   Words like 'approvo', 'yes', 'sì', 'ok', 'proceed', 'looks good' count as approval.
-   Descriptions or clarifications do NOT count as approval.
-"""
-
 def discovery_node(state: OrchestratorState):
     history = state.get("chat_history", [])
     brainstorming_skill = load_superpowers()
     
     sys_msg = SystemMessage(
-        content=DISCOVERY_SYSTEM_PROMPT.format(brainstorming_skill=brainstorming_skill)
+        content=load_sop("mind_discovery", brainstorming_skill=brainstorming_skill)
     )
     
     print("[Mind] Thinking...")
@@ -521,36 +532,7 @@ def planning_node(state: OrchestratorState):
     design = state.get("design_doc", "")
     errors = state.get("ocl_errors", "")
     
-    sys_msg = SystemMessage(
-        content="You are the SwarmDev Architect. Based on the DESIGN, generate a JSON Contract. "
-                "The JSON must contain FOUR keys:\n"
-                "1. 'frontend_requirements' (string)\n"
-                "2. 'backend_requirements' (string)\n"
-                "3. 'a2a_ocl_constraints' (list of strings)\n"
-                "4. 'mermaid_syntax' (string): A Mermaid flowchart (graph TD) representing the system architecture. "
-                "Max 15 nodes. Use simple labels. Example: 'graph TD; A[Frontend]-->B[API Gateway]; B-->C[Database];'\n\n"
-                "=== A2A-OCL STRICT SYNTAX RULES ===\n"
-                "Each constraint MUST match: context TYPE inv: EXPRESSION\n\n"
-                "ALLOWED constructs:\n"
-                "- Navigation: self.field, self.field.subfield\n"
-                "- Comparison: =, !=, <, >, <=, >=\n"
-                "- Logic: and, or, implies, not\n"
-                "- Iterators: self.collection->forAll(x | EXPR), self.collection->exists(x | EXPR)\n"
-                "- Method calls on collections: self.collection->contains(value), self.collection->size()\n"
-                "- Literals: numbers (10, 0), booleans (true, false), strings with DOUBLE QUOTES (\"value\")\n"
-                "- Grouping: (expression)\n\n"
-                "FORBIDDEN (will cause parser failure):\n"
-                "- NO function calls like currentDate(), now(), getTime()\n"
-                "- NO single quotes: use \"value\" NOT 'value'\n"
-                "- NO null keyword: use not self.field = 0 instead\n"
-                "- NO standalone method calls: size() is only valid after -> like self.list->size()\n\n"
-                "VALID EXAMPLES:\n"
-                "- context Backend inv: self.cyclomatic_complexity <= 10\n"
-                "- context API inv: self.endpoints->forAll(e | e.response_time <= 200)\n"
-                "- context Data inv: self.records->exists(r | r.is_valid = true)\n"
-                "- context Auth inv: self.role != \"guest\" implies self.permissions->size() > 0\n\n"
-                "Output ONLY valid JSON. No markdown code fences."
-    )
+    sys_msg = SystemMessage(content=load_sop("mind_planning"))
     
     hum_msg_content = f"DESIGN:\n{design}\n"
     if errors:
@@ -673,35 +655,13 @@ def fanout_node(state: OrchestratorState):
 # ============================================================================
 # 4. WORKER NODES (Actors)
 # ============================================================================
-FRONTEND_SYSTEM_PROMPT = """
-You are the SwarmDev Frontend Blind Builder.
-You MUST generate a complete, multi-file React project structure ready for GitHub.
-DO NOT output a single monolithic file. Generate EVERY file the project needs.
-
-OUTPUT FORMAT (MANDATORY - NO EXCEPTIONS):
-Output ONLY using <file> XML tags, one per file:
-<file path="package.json">
-{ "name": "my-app", ... }
-</file>
-<file path="src/index.jsx">
-import React from 'react';
-...
-</file>
-
-RULES:
-- Use plain JavaScript (JSX), NOT TypeScript.
-- Always include: package.json, public/index.html, src/index.jsx, src/App.jsx.
-- Split components into separate files under src/components/.
-- NO explanations, NO markdown, NO text outside <file> tags.
-"""
-
 def frontend_actor(state: OrchestratorState):
     print("[Frontend Actor] Generating Code...")
     # ACI/Seaclip: Move ticket to In Progress
     _seaclip_move_issue(state.get("kanban_frontend_issue_id"), "In Progress")
     directives = load_directives()
     
-    sys_msg = SystemMessage(content=FRONTEND_SYSTEM_PROMPT + "\n" + directives)
+    sys_msg = SystemMessage(content=load_sop("frontend_actor") + "\n" + directives)
     
     try:
         reqs = json.loads(state['json_contract']).get('frontend_requirements', state['json_contract'])
@@ -728,36 +688,13 @@ def frontend_actor(state: OrchestratorState):
     
     return {"frontend_code": response.content, "total_tokens": tokens}
 
-BACKEND_SYSTEM_PROMPT = """
-You are the SwarmDev Backend Blind Builder.
-You MUST generate a complete, multi-file Python project structure ready for GitHub.
-DO NOT output a single monolithic file. Generate EVERY file the project needs.
-
-OUTPUT FORMAT (MANDATORY - NO EXCEPTIONS):
-Output ONLY using <file> XML tags, one per file:
-<file path="requirements.txt">
-fastapi
-uvicorn
-</file>
-<file path="app/main.py">
-from fastapi import FastAPI
-app = FastAPI()
-</file>
-
-RULES:
-- Use Python 3.10+.
-- Always include: requirements.txt, README.md, and a proper package structure.
-- Split modules into separate files (routes, models, services).
-- NO explanations, NO markdown, NO text outside <file> tags.
-"""
-
 def backend_actor(state: OrchestratorState):
     print("[Backend Actor] Generating Code...")
     # ACI/Seaclip: Move ticket to In Progress
     _seaclip_move_issue(state.get("kanban_backend_issue_id"), "In Progress")
     directives = load_directives()
     
-    sys_msg = SystemMessage(content=BACKEND_SYSTEM_PROMPT + "\n" + directives)
+    sys_msg = SystemMessage(content=load_sop("backend_actor") + "\n" + directives)
     
     try:
         reqs = json.loads(state['json_contract']).get('backend_requirements', state['json_contract'])
@@ -1032,46 +969,70 @@ def runtime_execution_node(state: OrchestratorState):
     
     backend_dir = os.path.join(doc_path, "backend")
     
-    # Try multiple common entry points
-    possible_entry_points = [
-        "main.py",
-        "app.py",
-        os.path.join("app", "main.py"),
-        os.path.join("app", "app.py"),
-        os.path.join("src", "main.py")
-    ]
+    # Zero Trust: LLM might put main.py in root or in app/
+    main_py = os.path.join(backend_dir, "main.py")
+    if not os.path.exists(main_py):
+        main_py = os.path.join(backend_dir, "app", "main.py")
     
-    main_py = None
-    for ep in possible_entry_points:
-        cand = os.path.join(backend_dir, ep)
-        if os.path.exists(cand):
-            main_py = cand
-            break
-            
-    if not main_py:
-        print("[Runtime Node] No main.py/app.py found in root or app/, skipping runtime check")
+    if not os.path.exists(main_py):
+        print(f"[Runtime Node] Entry point non trovato in {backend_dir} o {os.path.join(backend_dir, 'app')}, skippando runtime check")
         return {"runtime_errors": None}
+        
+    # Iniezione PYTHONPATH a livello OS per risolvere from app.routes
+    os.environ["PYTHONPATH"] = backend_dir
     
-    # Step 1: Start the process via PM2
-    started = _pm2_start(main_py, name="swarmdev_backend")
+    # Step 1: Ephemeral Environment Provisioning (pip install)
+    requirements_txt = os.path.join(backend_dir, "requirements.txt")
+    if os.path.exists(requirements_txt):
+        print("[Runtime Node] 📦 Installing dependencies from requirements.txt...")
+        pip_result = subprocess.run(
+            [sys.executable, "-m", "pip", "install", "-r", requirements_txt, "--quiet"],
+            capture_output=True, text=True, timeout=120,
+        )
+        if pip_result.returncode != 0:
+            pip_error = pip_result.stderr.strip() or pip_result.stdout.strip()
+            print(f"[Runtime Node] ❌ Pip install FAILED:\n{pip_error[:300]}")
+            return {
+                "runtime_errors": pip_error,
+                "backend_errors": f"DEPENDENCY INSTALL FAILED (pip):\n{pip_error}",
+                "runtime_retry_count": 1,
+            }
+        print("[Runtime Node] ✅ Dependencies installed successfully")
+    else:
+        print("[Runtime Node] ⚠️ No requirements.txt found — skipping pip install")
+    
+    # Prepare environment with PYTHONPATH for absolute imports
+    env = os.environ.copy()
+    env["PYTHONPATH"] = backend_dir
+    
+    pm2_name = f"backend_{os.path.basename(doc_path)}"
+    
+    # Step 2: Start the process via PM2 (with venv interpreter)
+    started = _pm2_start(
+        main_py,
+        name=pm2_name,
+        interpreter=sys.executable,
+        cwd=backend_dir,
+        env=env
+    )
     if not started:
         print("[Runtime Node] PM2 start failed (non-blocking, PM2 may not be installed)")
         return {"runtime_errors": None}
     
-    # Step 2: Wait for the server to stabilize
+    # Step 3: Wait for the server to stabilize
     import time
     print(f"[Runtime Node] Waiting {RUNTIME_WAIT_SECONDS}s for process to stabilize...")
     time.sleep(RUNTIME_WAIT_SECONDS)
     
     # Step 3: Read logs
-    logs = _pm2_get_logs("swarmdev_backend", lines=30)
+    logs = _pm2_get_logs(pm2_name, lines=30)
     
     # Step 4: Analyze for runtime errors
     if logs:
         runtime_errs = _extract_runtime_errors(logs)
         if runtime_errs:
             print(f"[Runtime Node] Runtime errors detected:\n{runtime_errs[:300]}")
-            _pm2_stop("swarmdev_backend")
+            _pm2_stop(pm2_name)
             return {
                 "runtime_errors": runtime_errs,
                 "backend_errors": f"RUNTIME CRASH (from PM2 logs):\n{runtime_errs}",
@@ -1083,7 +1044,7 @@ def runtime_execution_node(state: OrchestratorState):
         print("[Runtime Node] No logs captured (process may have exited immediately)")
     
     # Cleanup
-    _pm2_stop("swarmdev_backend")
+    _pm2_stop(pm2_name)
     
     # ACI/Seaclip: Move backend ticket to Done (runtime passed)
     _seaclip_move_issue(state.get("kanban_backend_issue_id"), "Done")
