@@ -123,6 +123,55 @@
             </div>
         </section>
 
+        <!-- MEMORIA RAG E CHROMADB -->
+        <section id="memoria-rag" class="content-section">
+            <h2 class="reveal">Memoria a Lungo Termine</h2>
+            
+            <div class="brain-wrapper glass-panel reveal delay-1">
+                <div class="brain-visual">
+                    <div class="b-scene">
+                        <div class="b-center">🧠</div>
+                        
+                        <!-- Vector Nodes -->
+                        <div class="v-node vn-1"></div>
+                        <div class="v-node vn-2"></div>
+                        <div class="v-node vn-3"></div>
+                        <div class="v-node vn-4"></div>
+                        <div class="v-node vn-5"></div>
+                        <div class="v-node vn-6"></div>
+
+                        <svg class="b-svg" width="100%" height="100%">
+                            <!-- Static connections -->
+                            <line x1="50%" y1="50%" x2="15%" y2="20%" class="b-line" />
+                            <line x1="50%" y1="50%" x2="85%" y2="20%" class="b-line" />
+                            <line x1="50%" y1="50%" x2="15%" y2="80%" class="b-line" />
+                            <line x1="50%" y1="50%" x2="85%" y2="80%" class="b-line" />
+                            <line x1="50%" y1="50%" x2="10%" y2="50%" class="b-line" />
+                            <line x1="50%" y1="50%" x2="90%" y2="50%" class="b-line" />
+                        </svg>
+                        
+                        <!-- Data Packets flying to brain -->
+                        <div class="b-data bd-1"></div>
+                        <div class="b-data bd-2"></div>
+                        <div class="b-data bd-3"></div>
+                        <div class="b-data bd-4"></div>
+                        <div class="b-data bd-5"></div>
+                        <div class="b-data bd-6"></div>
+                    </div>
+                </div>
+                
+                <div class="brain-text">
+                    <h3>Il Cervello: LLMWiki & ChromaDB</h3>
+                    <p style="margin-bottom: 1.5rem; color: var(--text-muted);">Come fa un sistema multi-agente a non ripetere gli stessi errori nei loop successivi? La risposta è una <strong>memoria vettoriale persistente</strong>.</p>
+                    <ul class="feature-list">
+                        <li><strong>ChromaDB:</strong> Un database vettoriale locale che memorizza ogni bugfix, snippet di codice e decisione architetturale sotto forma di <em>embeddings</em>.</li>
+                        <li><strong>Pattern LLMWiki:</strong> Una wiki semantica gestita dagli agenti stessi. Quando un critic segnala un errore, l'attore interroga ChromaDB (tramite SeaClip) per recuperare il contesto storico.</li>
+                        <li><strong>Prevenzione delle Regressioni:</strong> Il "cervello" si arricchisce iterazione dopo iterazione, garantendo che un problema risolto una volta non si ripresenti mai più.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
         <!-- STATO DELL'ARTE -->
         <section id="stato-arte" class="content-section">
             <h2 class="reveal">Lo Stato dell'Arte</h2>
@@ -198,6 +247,32 @@
             </div>
         </section>
 
+        <!-- MICRO-LOOPS & QUALITY GATE -->
+        <section id="micro-loops" class="content-section">
+            <h2 class="reveal">Micro-Loops e Quality Gate</h2>
+            <p class="reveal" style="text-align: center; color: var(--text-muted); margin-bottom: 3rem;">L'ingegneria dietro la magia: routing automatico basato sull'analisi statica (Actor-Critic).</p>
+            
+            <div class="terminal-wrapper glass-panel reveal delay-1">
+                <div class="terminal-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="term-title">Quality Gate - Micro-Loop Execution</span>
+                </div>
+                <div class="terminal-body">
+                    <p class="t-line t-1"><span class="t-prompt">$</span> <span>Repomix: Snapshot XML generato con successo.</span></p>
+                    <p class="t-line t-2"><span class="t-prompt">$</span> <span>Frontend_Critic: Esecuzione ESLint su branch isolato...</span></p>
+                    <p class="t-line t-error t-3"><span>ERROR: [ESLint] Parsing error: Unexpected token, expected "," (line 42)</span></p>
+                    <p class="t-line t-4"><span class="t-prompt">$</span> <span style="color: var(--secondary);">LangGraph Routing: Frontend_Critic -> Frontend_Actor</span></p>
+                    <p class="t-line t-5"><span class="t-prompt">$</span> <span>Frontend_Actor: Ricevuto errore dal compilatore. Correzione in corso (Tentativo 1/3)...</span></p>
+                    <p class="t-line t-6"><span class="t-prompt">$</span> <span>Frontend_Critic: Riesecuzione ESLint...</span></p>
+                    <p class="t-line t-success t-7"><span>SUCCESS: [ESLint] Nessun errore rilevato.</span></p>
+                    <p class="t-line t-8"><span class="t-prompt">$</span> <span style="color: var(--secondary);">LangGraph Routing: Frontend_Critic -> Test_Writer</span></p>
+                    <div class="cursor"></div>
+                </div>
+            </div>
+        </section>
+
         <!-- IL GRAFO MERMAID -->
         <section id="grafo" class="content-section">
             <h2 class="reveal">Il Grafo di LangGraph</h2>
@@ -261,6 +336,51 @@ flowchart TD
     runtime -->|Crash| runtime
     runtime -->|Success| END((END))
                 </pre>
+            </div>
+        </section>
+
+        <!-- SHOWCASE: I RISULTATI -->
+        <section id="showcase" class="content-section">
+            <h2 class="reveal">Cosa Può Costruire?</h2>
+            <div class="showcase-grid">
+                <div class="showcase-card glass-panel reveal">
+                    <div class="s-icon">🚀</div>
+                    <h4>Web App Full-Stack</h4>
+                    <p>In soli <strong>5 minuti</strong> di esecuzione parallela, SwarmDev genera Frontend (React/Vite) e Backend (FastAPI/Node) sincronizzati, con contratti API validati preventivamente.</p>
+                </div>
+                <div class="showcase-card glass-panel reveal delay-1">
+                    <div class="s-icon">🛡️</div>
+                    <h4>Codice Production-Ready</h4>
+                    <p>Grazie ai loop Actor-Critic, il risultato finale garantisce <strong style="color: var(--primary);">Zero Linting Errors</strong> e una copertura di Unit Testing (Pytest/Jest) superiore all'85%.</p>
+                </div>
+                <div class="showcase-card glass-panel reveal delay-2">
+                    <div class="s-icon">📚</div>
+                    <h4>Documentazione Viva</h4>
+                    <p>Ogni esecuzione produce aggiornamenti in tempo reale sul <strong>CodeWiki</strong>, documentando le scelte architetturali e generando README completi (come quello che hai di fronte).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- GETTING STARTED -->
+        <section id="getting-started" class="content-section">
+            <h2 class="reveal">Getting Started</h2>
+            <div class="qs-container glass-panel reveal delay-1">
+                <p>Pronto a sperimentare l'orchestrazione deterministica in locale? Assicurati di avere Docker e Python 3.10+ installati.</p>
+                <div class="code-block">
+                    <div class="code-header">Terminale</div>
+                    <pre><code><span class="c-comment"># Clona la repository</span>
+<span class="c-command">git clone</span> https://github.com/tuo-user/SwarmDev_Parallel.git
+<span class="c-command">cd</span> SwarmDev_Parallel
+
+<span class="c-comment"># Installa le dipendenze</span>
+<span class="c-command">pip install</span> -r requirements.txt
+
+<span class="c-comment"># Configura le API Keys e avvia il server SeaClip (Docker)</span>
+<span class="c-command">docker-compose</span> up -d seaclip sonar
+
+<span class="c-comment"># Avvia l'orchestratore LangGraph</span>
+<span class="c-command">python</span> graph_orchestrator.py</code></pre>
+                </div>
             </div>
         </section>
 
