@@ -11,7 +11,6 @@ PROJECT_ROOT = os.path.abspath(os.path.join(CURRENT_DIR, '..'))
 sys.path.append(PROJECT_ROOT)
 
 from quality_gate.ocl_evaluator import A2AOCLValidator
-from mind.publisher import publisher_instance
 from core.models import Contract
 import uuid
 
@@ -38,36 +37,7 @@ async def validate_a2a_ocl_expression(
     result_dict = ocl_validator.validate_expression(expression)
     return p.ToolResult(data=result_dict)
 
-@p.tool
-async def publish_final_contract(
-    context: p.ToolContext, 
-    target_context: Annotated[str, p.ToolParameterOptions(source="context", description="Il contesto (es. Frontend, Backend). Obbligatorio.")], 
-    description: Annotated[str, p.ToolParameterOptions(source="context", description="La descrizione in linguaggio naturale di ciò che l'Arm deve implementare. Obbligatorio.")], 
-    a2a_ocl_constraints: Annotated[list[str], p.ToolParameterOptions(source="context", description="La lista delle stringhe A2A-OCL che hai preventivamente validato. Obbligatorio.")]
-) -> p.ToolResult:
-    """
-    Quando hai finito di validare tutti i vincoli A2A-OCL per il tuo task e il contratto è pronto,
-    DEVI invocare questo tool per rilasciare il contratto al broker.
 
-    Args:
-        target_context (str): Il contesto (es. Frontend, Backend). Obbligatorio.
-        description (str): La descrizione in linguaggio naturale di ciò che l'Arm deve implementare. Obbligatorio.
-        a2a_ocl_constraints (list[str]): La lista delle stringhe A2A-OCL che hai preventivamente validato. Obbligatorio.
-    """
-    contract_id = str(uuid.uuid4())
-    contract = Contract(
-        id=contract_id,
-        context=target_context,
-        description=description,
-        a2a_ocl_constraints=a2a_ocl_constraints
-    )
-    
-    # Pubblica asincronamente (tramite l'infrastruttura sincrona del publisher in un thread o simulato qui)
-    try:
-        publisher_instance.publish_contract(contract)
-        return p.ToolResult(data={"status": "success", "message": f"Contratto {contract_id} rilasciato in produzione e inviato al worker."})
-    except Exception as e:
-         return p.ToolResult(data={"status": "error", "message": f"Errore broker: {str(e)}"})
 
 MIND_WORKSPACE = os.path.join(PROJECT_ROOT, "mind_workspace")
 os.makedirs(MIND_WORKSPACE, exist_ok=True)

@@ -4,7 +4,6 @@ from dotenv import load_dotenv
 import parlant.sdk as p
 from parlant_context.parlant_tools import (
     validate_a2a_ocl_expression, 
-    publish_final_contract,
     save_design_document,
     save_roadmap_document,
     save_state_document
@@ -67,13 +66,13 @@ async def main():
 
         await agent.create_guideline(
             condition="Sei in Fase 1 o Fase 2 e l'utente NON ha ancora esplicitamente approvato il design o la roadmap.",
-            action="Divieto Assoluto: È severamente vietato chiamare il tool publish_final_contract. Aspetta il consenso dell'utente."
+            action="Divieto Assoluto: Aspetta il consenso dell'utente."
         )
 
         await agent.create_guideline(
             condition="L'utente ha approvato la roadmap o ha richiesto di procedere con la prossima Onda.",
-            action="Fase 3 (Execution): Per l'Onda corrente, formula tu stesso l'architettura. DEVI generare e scrivere tu le espressioni OCL, il target context e la descrizione basandoti sul documento di design. NON chiedere MAI all'utente di fornirti questi dati. Valida prima ogni espressione OCL passandola al tool validate_a2a_ocl_expression. Una volta valido, pubblica il contratto con publish_final_contract (inventando tu target_context e description). Infine salva lo stato.",
-            tools=[validate_a2a_ocl_expression, publish_final_contract, save_state_document]
+            action="Fase 3 (Execution): Per l'Onda corrente, formula tu stesso l'architettura. DEVI generare e scrivere tu le espressioni OCL, il target context e la descrizione basandoti sul documento di design. NON chiedere MAI all'utente di fornirti questi dati. Valida prima ogni espressione OCL passandola al tool validate_a2a_ocl_expression. Una volta valido, salva lo stato.",
+            tools=[validate_a2a_ocl_expression, save_state_document]
         )
         
         print("✅ SwarmDev Orchestrator inizializzato.")

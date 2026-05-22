@@ -2,9 +2,11 @@ parlant
 sqlalchemy
 lark
 python-dotenv
-pika
 pydantic
-
+PyYAML
+requests
+google-genai
+openai
 
 # --- CORE ORCHESTRATION & AGENTS ---
 langgraph
@@ -13,7 +15,6 @@ langchain-community
 litellm
 
 # --- ASYNCHRONOUS MESSAGING & CONFIG ---
-pika
 python-dotenv
 
 # --- DATA VALIDATION & PARSING ---
