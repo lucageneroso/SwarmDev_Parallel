@@ -240,7 +240,7 @@
                     <ul class="feature-list">
                         <li><strong>SuperPowers & CodeWiki:</strong> Iniezione cognitiva (MIND) per consapevolezza architetturale profonda.</li>
                         <li><strong>LLMWiki & ChromaDB:</strong> Memoria vettoriale RAG per ripescare soluzioni e prevenire regressioni (integrazione SeaClip).</li>
-                        <li><strong>Actor-Critic con Repomix:</strong> Ogni codice passa da un Gate di Qualità, che scatta uno snapshot XML della repo, offrendo feedback senza saturare la Context Window.</li>
+                        <li><strong>Actor-Critic con CodeGraph:</strong> Ogni codice passa da un Gate di Qualità, che sfrutta un Knowledge Graph generato on-the-fly per offrire all'LLM contesto semantico (RAG su grafo) senza saturare la Context Window.</li>
                         <li><strong>CLIAnything & Docker:</strong> Esecuzione fluida, isolata e sicura dell'analisi statica (Sonar, ESLint, Flake8).</li>
                     </ul>
                 </div>
@@ -260,7 +260,7 @@
                     <span class="term-title">Quality Gate - Micro-Loop Execution</span>
                 </div>
                 <div class="terminal-body">
-                    <p class="t-line t-1"><span class="t-prompt">$</span> <span>Repomix: Snapshot XML generato con successo.</span></p>
+                    <p class="t-line t-1"><span class="t-prompt">$</span> <span>CodeGraph: Costruzione mappa semantica completata.</span></p>
                     <p class="t-line t-2"><span class="t-prompt">$</span> <span>Frontend_Critic: Esecuzione ESLint su branch isolato...</span></p>
                     <p class="t-line t-error t-3"><span>ERROR: [ESLint] Parsing error: Unexpected token, expected "," (line 42)</span></p>
                     <p class="t-line t-4"><span class="t-prompt">$</span> <span style="color: var(--secondary);">LangGraph Routing: Frontend_Critic -> Frontend_Actor</span></p>
@@ -269,6 +269,68 @@
                     <p class="t-line t-success t-7"><span>SUCCESS: [ESLint] Nessun errore rilevato.</span></p>
                     <p class="t-line t-8"><span class="t-prompt">$</span> <span style="color: var(--secondary);">LangGraph Routing: Frontend_Critic -> Test_Writer</span></p>
                     <div class="cursor"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CLUSTER DI TESTING -->
+        <section id="testing-cluster" class="content-section">
+            <h2 class="reveal">Il Cluster di Testing Sandbox</h2>
+            <p class="reveal" style="text-align: center; color: var(--text-muted); margin-bottom: 3rem;">Micro-loops dedicati per raggiungere l'85% di coverage prima del merge.</p>
+            
+            <div class="test-cluster-wrapper glass-panel reveal delay-1">
+                <div class="tc-scene">
+                    <div class="tc-actor">
+                        <div class="tc-icon">🧪</div>
+                        <div class="tc-label">Test Writer</div>
+                    </div>
+                    
+                    <div class="tc-track">
+                        <div class="tc-code-file">test_api.py</div>
+                        <div class="tc-code-file delay">test_auth.py</div>
+                    </div>
+                    
+                    <div class="tc-sandbox">
+                        <div class="tc-sandbox-title">Pytest Sandbox</div>
+                        <div class="tc-progress-bar">
+                            <div class="tc-progress-fill"></div>
+                        </div>
+                        <div class="tc-coverage-text">Coverage: <span class="tc-pct">0%</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CODEGRAPH DOCUMENTATION -->
+        <section id="codegraph-docs" class="content-section">
+            <h2 class="reveal">Knowledge Graph (CodeGraph)</h2>
+            <p class="reveal" style="text-align: center; color: var(--text-muted); margin-bottom: 3rem;">Come generiamo l'architettura automatica alla fine del ciclo vitale? Semplice, mappando tutto in SQLite.</p>
+            
+            <div class="cg-wrapper glass-panel reveal delay-1">
+                <div class="cg-text">
+                    <h3>Documentazione Auto-Generata</h3>
+                    <p>Il Documentation Node non si limita a zippare i file. Inizializza <strong>CodeGraph</strong> sulla repository generata per estrarne il Knowledge Graph completo.</p>
+                    <ul class="feature-list">
+                        <li><strong>Parsing AST:</strong> Gli alberi sintattici diventano nodi vettoriali.</li>
+                        <li><strong>Graph RAG:</strong> L'orchestratore naviga il grafo per capire chi chiama cosa.</li>
+                        <li><strong>Mermaid Diagram:</strong> Viene autogenerato un diagramma UML architetturale perfetto, salvato assieme al progetto.</li>
+                    </ul>
+                </div>
+                
+                <div class="cg-visual">
+                    <div class="cg-node cgn-1">main.py</div>
+                    <div class="cg-node cgn-2">auth.py</div>
+                    <div class="cg-node cgn-3">database.py</div>
+                    <div class="cg-node cgn-4">models.py</div>
+                    
+                    <svg class="cg-edges" width="100%" height="100%">
+                        <line x1="50%" y1="20%" x2="20%" y2="50%" class="cg-edge" />
+                        <line x1="50%" y1="20%" x2="80%" y2="50%" class="cg-edge" />
+                        <line x1="20%" y1="50%" x2="50%" y2="80%" class="cg-edge" />
+                        <line x1="80%" y1="50%" x2="50%" y2="80%" class="cg-edge" />
+                    </svg>
+                    
+                    <div class="cg-pulse"></div>
                 </div>
             </div>
         </section>

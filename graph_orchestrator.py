@@ -804,14 +804,29 @@ def frontend_critic(state: OrchestratorState):
     with tempfile.TemporaryDirectory() as tmp_dir:
         write_project_to_dir(files, tmp_dir)
         errors = run_quality_gate_on_dir(tmp_dir, "js")
+        
+        cg_context = ""
+        if errors:
+            print("[Frontend Critic] Costruzione Knowledge Graph (CodeGraph) per l'errore...")
+            npx = "npx.cmd" if os.name == "nt" else "npx"
+            try:
+                subprocess.run([npx, "--yes", "@colbymchenry/codegraph", "init", ".", "--index"], cwd=tmp_dir, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+                err_summary = errors.split("\n")[0][:100]
+                cg_res = subprocess.run([npx, "--yes", "@colbymchenry/codegraph", "context", err_summary], cwd=tmp_dir, capture_output=True, text=True)
+                if cg_res.stdout:
+                    cg_context = f"\n\n[CODEGRAPH SEMANTIC CONTEXT]\n{cg_res.stdout}"
+            except Exception as e:
+                print(f"[Frontend Critic] ⚠️ CodeGraph query fallita: {e}")
+
+    full_error = f"{errors}{cg_context}" if errors else None
     
-    if errors:
+    if full_error:
         # RAG READ: query ChromaDB for past solutions to these errors
         rag_hint = _chromadb_query(errors)
         if rag_hint:
             print("[Frontend Critic/RAG] Found past solutions in memory")
-            return {"frontend_errors": errors, "frontend_rag_context": f"[RAG MEMORY - Past Solutions]\n{rag_hint}"}
-        return {"frontend_errors": errors, "frontend_rag_context": None}
+            return {"frontend_errors": full_error, "frontend_rag_context": f"[RAG MEMORY - Past Solutions]\n{rag_hint}"}
+        return {"frontend_errors": full_error, "frontend_rag_context": None}
     
     # RAG WRITE: if we fixed errors in a previous retry, save the solution
     if state.get("retry_count", 0) > 0 and state.get("frontend_errors"):
@@ -842,14 +857,29 @@ def backend_critic(state: OrchestratorState):
     with tempfile.TemporaryDirectory() as tmp_dir:
         write_project_to_dir(py_files, tmp_dir)
         errors = run_quality_gate_on_dir(tmp_dir, "py")
+        
+        cg_context = ""
+        if errors:
+            print("[Backend Critic] Costruzione Knowledge Graph (CodeGraph) per l'errore...")
+            npx = "npx.cmd" if os.name == "nt" else "npx"
+            try:
+                subprocess.run([npx, "--yes", "@colbymchenry/codegraph", "init", ".", "--index"], cwd=tmp_dir, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+                err_summary = errors.split("\n")[0][:100]
+                cg_res = subprocess.run([npx, "--yes", "@colbymchenry/codegraph", "context", err_summary], cwd=tmp_dir, capture_output=True, text=True)
+                if cg_res.stdout:
+                    cg_context = f"\n\n[CODEGRAPH SEMANTIC CONTEXT]\n{cg_res.stdout}"
+            except Exception as e:
+                print(f"[Backend Critic] ⚠️ CodeGraph query fallita: {e}")
+
+    full_error = f"{errors}{cg_context}" if errors else None
     
-    if errors:
+    if full_error:
         # RAG READ: query ChromaDB for past solutions to these errors
         rag_hint = _chromadb_query(errors)
         if rag_hint:
             print("[Backend Critic/RAG] Found past solutions in memory")
-            return {"backend_errors": errors, "backend_rag_context": f"[RAG MEMORY - Past Solutions]\n{rag_hint}"}
-        return {"backend_errors": errors, "backend_rag_context": None}
+            return {"backend_errors": full_error, "backend_rag_context": f"[RAG MEMORY - Past Solutions]\n{rag_hint}"}
+        return {"backend_errors": full_error, "backend_rag_context": None}
     
     # RAG WRITE: if we fixed errors in a previous retry, save the solution
     if state.get("retry_count", 0) > 0 and state.get("backend_errors"):
@@ -1251,7 +1281,31 @@ def documentation_node(state: OrchestratorState):
             f.write("  REQUIREMENTS.json # Software Requirements (FR & NFR)\n")
         if has_uml:
             f.write("  architecture_uml.png  # ACI-generated UML diagram\n")
+        f.write("  CODEGRAPH_ARCHITECTURE.md # Diagramma generato via CodeGraph\n")
         f.write("```\n")
+        
+    # ── CodeGraph Architecture Generation ──
+    print("[Documentation Node] Running CodeGraph to generate architectural overview...")
+    npx = "npx.cmd" if os.name == "nt" else "npx"
+    try:
+        subprocess.run([npx, "--yes", "@colbymchenry/codegraph", "init", ".", "--index"], cwd=workspace_root, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        res_files = subprocess.run([npx, "--yes", "@colbymchenry/codegraph", "files"], cwd=workspace_root, capture_output=True, text=True)
+        res_ctx = subprocess.run([npx, "--yes", "@colbymchenry/codegraph", "context", "Explain project architecture"], cwd=workspace_root, capture_output=True, text=True)
+        
+        cg_output = f"Files:\n{res_files.stdout}\n\nContext:\n{res_ctx.stdout}"
+        sys_msg = SystemMessage(content="You are an expert software architect. Given the following CodeGraph output of a project, generate a Mermaid class diagram or flowchart summarizing the architecture. Output ONLY the raw markdown with ```mermaid ... ``` without other text.")
+        hum_msg = HumanMessage(content=cg_output)
+        
+        global mind_llm
+        cg_resp = mind_llm.invoke([sys_msg, hum_msg])
+        mermaid_code = extract_code(cg_resp.content)
+        
+        if mermaid_code:
+            with open(os.path.join(workspace_root, "CODEGRAPH_ARCHITECTURE.md"), "w", encoding="utf-8") as f:
+                f.write(f"# CodeGraph Architectural Map\n\n```mermaid\n{mermaid_code}\n```\n")
+            print("[Documentation Node] ✅ CodeGraph architecture diagram generated in CODEGRAPH_ARCHITECTURE.md")
+    except Exception as e:
+        print(f"[Documentation Node] ⚠️ Failed to generate CodeGraph architecture: {e}")
     
     # ── ACI/Seaclip: Move both tickets to Done ──
     _seaclip_move_issue(state.get("kanban_frontend_issue_id"), "Done")

@@ -3,5 +3,6 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/superpowers" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/workspace/codegraph_repo" vcs="Git" />
   </component>
 </project>
