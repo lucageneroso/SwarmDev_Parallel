@@ -173,6 +173,81 @@ def build_orchestrator() -> StateGraph:
     return workflow.compile()
 
 
+def ensure_services_running():
+    import socket
+    import subprocess
+    import time
+    
+    print("\n" + "="*53)
+    print("🚀 Verifica Servizi Infrastrutturali in corso...")
+    print("="*53)
+
+    def check_port(port: int, host="127.0.0.1") -> bool:
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            s.settimeout(1)
+            return s.connect_ex((host, port)) == 0
+
+    # 1. SeaClip
+    if not check_port(5200):
+        print("[-] Avvio SeaClip-Lite (Porta 5200)...")
+        seaclip_script = os.path.join(CURRENT_DIR, "seaclip_server", "main.py")
+        subprocess.Popen([sys.executable, seaclip_script], 
+                         stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        time.sleep(2)
+        if check_port(5200):
+            print("[✓] SeaClip-Lite avviato.")
+        else:
+            print("[!] Errore avvio SeaClip-Lite.")
+    else:
+        print("[✓] SeaClip-Lite già in esecuzione.")
+
+    # 2. ChromaDB
+    if not check_port(8000):
+        print("[-] Avvio ChromaDB via Docker (Porta 8000)...")
+        try:
+            res = subprocess.run('docker ps -a -q --filter ancestor=chromadb/chroma', shell=True, capture_output=True, text=True)
+            container_id = res.stdout.strip().split('\n')[0]
+            if container_id:
+                subprocess.run(['docker', 'start', container_id], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            else:
+                subprocess.run(["docker", "run", "-d", "-p", "8000:8000", "chromadb/chroma"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            time.sleep(3)
+        except Exception:
+            pass
+        if check_port(8000):
+            print("[✓] ChromaDB avviato.")
+        else:
+            print("[!] Errore avvio ChromaDB.")
+    else:
+        print("[✓] ChromaDB già in esecuzione.")
+
+    # 3. SonarQube
+    if not check_port(9000):
+        print("[-] Avvio SonarQube via Docker (Porta 9000)...")
+        try:
+            res = subprocess.run('docker ps -a -q --filter ancestor=sonarqube', shell=True, capture_output=True, text=True)
+            container_id = res.stdout.strip().split('\n')[0]
+            if container_id:
+                subprocess.run(['docker', 'start', container_id], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            else:
+                subprocess.run(["docker", "run", "-d", "-p", "9000:9000", "sonarqube:lts"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            
+            print("[-] Attendo avvio SonarQube (potrebbe richiedere 10-15s)...")
+            for _ in range(15):
+                if check_port(9000): break
+                time.sleep(1)
+        except Exception:
+            pass
+        if check_port(9000):
+            print("[✓] SonarQube avviato.")
+        else:
+            print("[!] Errore avvio SonarQube.")
+    else:
+        print("[✓] SonarQube già in esecuzione.")
+    
+    print("="*53 + "\n")
+
+
 # ============================================================================
 # EXECUTION ENTRYPOINT
 # ============================================================================
@@ -183,6 +258,8 @@ def start_interactive_session():
     print("Modello Mind:", mind_model_name)
     print("Modello Worker:", llm_model)
     print("=====================================================")
+    
+    ensure_services_running()
     
     orchestrator = build_orchestrator()
     
