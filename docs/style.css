@@ -591,8 +591,8 @@ footer {
     .json-fly { left: 50%; transform: translateX(-50%); }
 }
 
-/* --- BRAIN / CHROMADB --- */
-.brain-wrapper {
+/* --- SWARM MIND --- */
+.mind-wrapper {
     display: flex;
     flex-wrap: wrap-reverse;
     gap: 3rem;
@@ -600,104 +600,182 @@ footer {
     align-items: center;
 }
 
-.brain-text {
+.mind-text {
     flex: 1;
     min-width: 300px;
 }
 
-.brain-visual {
+.mind-visual {
     flex: 1;
     min-width: 300px;
-    height: 350px;
+    height: 500px;
     background: rgba(0, 0, 0, 0.3);
     border-radius: 15px;
     border: 1px solid var(--glass-border);
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2.5rem 0;
     overflow: hidden;
 }
 
-.b-scene {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0; left: 0;
+.layer {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 1.5rem;
+    background: rgba(0, 240, 255, 0.05);
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    box-shadow: inset 0 0 20px rgba(0, 240, 255, 0.02);
 }
 
-.b-center {
+.layer-1 { height: 90px; }
+.layer-2 { height: 110px; background: rgba(255, 189, 46, 0.05); border-color: rgba(255, 189, 46, 0.2); }
+.layer-3 { height: 130px; background: rgba(112, 0, 255, 0.05); border-color: rgba(112, 0, 255, 0.2); }
+
+.layer-title {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 4rem;
-    z-index: 10;
-    animation: brainPulse 3s ease-in-out infinite;
-    filter: drop-shadow(0 0 20px var(--secondary));
+    top: -12px;
+    left: 15px;
+    background: var(--bg-color);
+    padding: 0 10px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
 }
 
-@keyframes brainPulse {
-    0%, 100% { transform: translate(-50%, -50%) scale(1); filter: drop-shadow(0 0 10px var(--secondary)); }
-    50% { transform: translate(-50%, -50%) scale(1.15); filter: drop-shadow(0 0 35px var(--secondary)); }
+.layer-divider {
+    text-align: center;
+    position: relative;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.v-node {
-    position: absolute;
-    width: 12px;
-    height: 12px;
+.drop-arrow {
+    color: rgba(255, 189, 46, 0.8);
+    font-size: 1.5rem;
+    animation: dropArrow 1.5s infinite;
+}
+
+@keyframes dropArrow {
+    0% { transform: translateY(-5px); opacity: 0.3; }
+    50% { transform: translateY(5px); opacity: 1; }
+    100% { transform: translateY(-5px); opacity: 0.3; }
+}
+
+.consolidation-node {
+    font-size: 0.7rem;
+    color: var(--secondary);
+    border: 1px solid var(--secondary);
+    padding: 2px 8px;
+    border-radius: 8px;
+    background: rgba(112, 0, 255, 0.1);
+    animation: pulseNode 3s infinite;
+}
+
+@keyframes pulseNode {
+    0%, 100% { box-shadow: 0 0 5px rgba(112, 0, 255, 0.2); }
+    50% { box-shadow: 0 0 15px rgba(112, 0, 255, 0.8); }
+}
+
+/* Layer 1: Working Memory Tokens */
+.token-flow {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+.token {
+    width: 20px;
+    height: 20px;
     background: var(--primary);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 5;
+    border-radius: 4px;
     box-shadow: 0 0 10px var(--primary);
-    animation: nodePulse 3s infinite alternate;
+    animation: flashToken 1.2s infinite alternate;
 }
 
-.vn-1 { top: 20%; left: 15%; animation-delay: 0.2s; }
-.vn-2 { top: 20%; left: 85%; animation-delay: 0.5s; }
-.vn-3 { top: 80%; left: 15%; animation-delay: 0.8s; }
-.vn-4 { top: 80%; left: 85%; animation-delay: 1.1s; }
-.vn-5 { top: 50%; left: 10%; animation-delay: 1.4s; }
-.vn-6 { top: 50%; left: 90%; animation-delay: 1.7s; }
+.token.delay-small { animation-delay: 0.4s; }
+.token.delay-large { animation-delay: 0.8s; }
 
-@keyframes nodePulse {
-    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
-    100% { transform: translate(-50%, -50%) scale(1.5); opacity: 1; box-shadow: 0 0 20px var(--primary); }
+@keyframes flashToken {
+    0% { opacity: 0.2; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1.1); }
 }
 
-.b-svg {
+/* Layer 2: SQLite Logs */
+.log-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.log-entry {
+    width: 80%;
+    height: 12px;
+    background: rgba(255, 189, 46, 0.8);
+    border-radius: 2px;
+    opacity: 0;
+}
+
+.log-1 { animation: stackLog 4s infinite; }
+.log-2 { animation: stackLog 4s infinite 1.3s; }
+.log-3 { animation: stackLog 4s infinite 2.6s; }
+
+@keyframes stackLog {
+    0% { transform: translateY(-20px); opacity: 0; }
+    20% { transform: translateY(0); opacity: 1; }
+    80% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(20px); opacity: 0; }
+}
+
+/* Layer 3: Semantic Memory Vectors */
+.vector-space {
+    position: relative;
+    width: 100%;
+    height: 80px;
+    margin-top: 0px;
+}
+
+.vector {
+    position: absolute;
+    width: 10px; height: 10px;
+    background: var(--secondary);
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--secondary);
+    animation: floatVector 4s infinite alternate ease-in-out;
+    z-index: 5;
+}
+
+.v1 { top: 20%; left: 20%; animation-delay: 0s; }
+.v2 { top: 30%; left: 80%; animation-delay: 1s; }
+.v3 { top: 80%; left: 30%; animation-delay: 2s; }
+.v4 { top: 70%; left: 70%; animation-delay: 3s; }
+.v5 { top: 50%; left: 50%; width: 14px; height: 14px; animation-delay: 0.5s; box-shadow: 0 0 25px var(--secondary); }
+
+@keyframes floatVector {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(10px, -10px) scale(1.3); }
+}
+
+.v-connections {
     position: absolute;
     top: 0; left: 0;
     z-index: 1;
 }
 
-.b-line {
-    stroke: var(--glass-border);
+.v-line {
+    stroke: rgba(112, 0, 255, 0.4);
     stroke-width: 1.5;
     stroke-dasharray: 4, 4;
 }
-
-.b-data {
-    position: absolute;
-    width: 6px; height: 6px;
-    background: #fff;
-    border-radius: 50%;
-    z-index: 8;
-    box-shadow: 0 0 10px #fff, 0 0 20px var(--primary);
-    opacity: 0;
-}
-
-.bd-1 { animation: dataFly1 3s infinite 0.2s; }
-.bd-2 { animation: dataFly2 3s infinite 0.5s; }
-.bd-3 { animation: dataFly3 3s infinite 0.8s; }
-.bd-4 { animation: dataFly4 3s infinite 1.1s; }
-.bd-5 { animation: dataFly5 3s infinite 1.4s; }
-.bd-6 { animation: dataFly6 3s infinite 1.7s; }
-
-@keyframes dataFly1 { 0% { top: 20%; left: 15%; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { top: 50%; left: 50%; opacity: 0; } }
-@keyframes dataFly2 { 0% { top: 20%; left: 85%; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { top: 50%; left: 50%; opacity: 0; } }
-@keyframes dataFly3 { 0% { top: 80%; left: 15%; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { top: 50%; left: 50%; opacity: 0; } }
-@keyframes dataFly4 { 0% { top: 80%; left: 85%; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { top: 50%; left: 50%; opacity: 0; } }
-@keyframes dataFly5 { 0% { top: 50%; left: 10%; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { top: 50%; left: 50%; opacity: 0; } }
-@keyframes dataFly6 { 0% { top: 50%; left: 90%; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { top: 50%; left: 50%; opacity: 0; } }
 
 /* --- TERMINAL ANIMATION (MICRO-LOOPS) --- */
 .terminal-wrapper {

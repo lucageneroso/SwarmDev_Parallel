@@ -34,7 +34,7 @@
         <div class="logo">SwarmDev <span>Parallel</span></div>
         <nav>
             <a href="#contesto">Contesto & Obiettivi</a>
-            <a href="#stato-arte">Stato dell'Arte</a>
+            <a href="#swarm-mind">Swarm Mind</a>
             <a href="#architecture">Architettura</a>
             <a href="#grafo">Il Grafo</a>
         </nav>
@@ -123,51 +123,75 @@
             </div>
         </section>
 
-        <!-- MEMORIA RAG E CHROMADB -->
-        <section id="memoria-rag" class="content-section">
-            <h2 class="reveal">Memoria a Lungo Termine</h2>
+        <!-- SWARM MIND: 3-LAYER MEMORY -->
+        <section id="swarm-mind" class="content-section">
+            <h2 class="reveal">Mente ad Alveare (Swarm Mind)</h2>
+            <p class="reveal" style="text-align: center; color: var(--text-muted); margin-bottom: 3rem;">L'architettura cognitiva stratificata che apprende dagli errori e consolida l'esperienza nel tempo.</p>
             
-            <div class="brain-wrapper glass-panel reveal delay-1">
-                <div class="brain-visual">
-                    <div class="b-scene">
-                        <div class="b-center">🧠</div>
-                        
-                        <!-- Vector Nodes -->
-                        <div class="v-node vn-1"></div>
-                        <div class="v-node vn-2"></div>
-                        <div class="v-node vn-3"></div>
-                        <div class="v-node vn-4"></div>
-                        <div class="v-node vn-5"></div>
-                        <div class="v-node vn-6"></div>
-
-                        <svg class="b-svg" width="100%" height="100%">
-                            <!-- Static connections -->
-                            <line x1="50%" y1="50%" x2="15%" y2="20%" class="b-line" />
-                            <line x1="50%" y1="50%" x2="85%" y2="20%" class="b-line" />
-                            <line x1="50%" y1="50%" x2="15%" y2="80%" class="b-line" />
-                            <line x1="50%" y1="50%" x2="85%" y2="80%" class="b-line" />
-                            <line x1="50%" y1="50%" x2="10%" y2="50%" class="b-line" />
-                            <line x1="50%" y1="50%" x2="90%" y2="50%" class="b-line" />
-                        </svg>
-                        
-                        <!-- Data Packets flying to brain -->
-                        <div class="b-data bd-1"></div>
-                        <div class="b-data bd-2"></div>
-                        <div class="b-data bd-3"></div>
-                        <div class="b-data bd-4"></div>
-                        <div class="b-data bd-5"></div>
-                        <div class="b-data bd-6"></div>
+            <div class="mind-wrapper glass-panel reveal delay-1">
+                <div class="mind-visual">
+                    <div class="layer layer-1">
+                        <div class="layer-title">1. Working Memory (Active Context)</div>
+                        <div class="token-flow">
+                            <div class="token"></div><div class="token delay-small"></div><div class="token delay-large"></div>
+                        </div>
+                    </div>
+                    <div class="layer-divider">
+                        <div class="drop-arrow">↓</div>
+                    </div>
+                    <div class="layer layer-2">
+                        <div class="layer-title">2. Episodic Buffer (SQLite)</div>
+                        <div class="log-stack">
+                            <div class="log-entry log-1"></div>
+                            <div class="log-entry log-2"></div>
+                            <div class="log-entry log-3"></div>
+                        </div>
+                    </div>
+                    <div class="layer-divider">
+                        <div class="consolidation-node">Consolidation<br>Node</div>
+                    </div>
+                    <div class="layer layer-3">
+                        <div class="layer-title">3. Semantic Memory (ChromaDB)</div>
+                        <div class="vector-space">
+                            <div class="vector v1"></div><div class="vector v2"></div><div class="vector v3"></div>
+                            <div class="vector v4"></div><div class="vector v5"></div>
+                            <svg class="v-connections" width="100%" height="100%">
+                                <line x1="20%" y1="20%" x2="50%" y2="50%" class="v-line" />
+                                <line x1="80%" y1="30%" x2="50%" y2="50%" class="v-line" />
+                                <line x1="30%" y1="80%" x2="50%" y2="50%" class="v-line" />
+                                <line x1="70%" y1="70%" x2="50%" y2="50%" class="v-line" />
+                            </svg>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="brain-text">
-                    <h3>Il Cervello: LLMWiki & ChromaDB</h3>
-                    <p style="margin-bottom: 1.5rem; color: var(--text-muted);">Come fa un sistema multi-agente a non ripetere gli stessi errori nei loop successivi? La risposta è una <strong>memoria vettoriale persistente</strong>.</p>
+                <div class="mind-text">
+                    <h3>Implementazione e Architettura</h3>
+                    <p style="margin-bottom: 1.5rem; color: var(--text-muted);">La memoria non è un semplice database, ma un processo di distillazione cognitiva in 3 fasi:</p>
                     <ul class="feature-list">
-                        <li><strong>ChromaDB:</strong> Un database vettoriale locale che memorizza ogni bugfix, snippet di codice e decisione architetturale sotto forma di <em>embeddings</em>.</li>
-                        <li><strong>Pattern LLMWiki:</strong> Una wiki semantica gestita dagli agenti stessi. Quando un critic segnala un errore, l'attore interroga ChromaDB (tramite SeaClip) per recuperare il contesto storico.</li>
-                        <li><strong>Prevenzione delle Regressioni:</strong> Il "cervello" si arricchisce iterazione dopo iterazione, garantendo che un problema risolto una volta non si ripresenti mai più.</li>
+                        <li><strong>Sensory & Working Memory:</strong> Lo stato corrente del grafo LangGraph. È volatile e contiene solo il contesto strettamente necessario per l'esecuzione del task corrente.</li>
+                        <li><strong>Episodic Buffer (Diario di Bordo):</strong> Ogni azione, input, output ed errore viene loggato in tempo reale in un database SQLite (Short-Term).</li>
+                        <li><strong>Long-Term Semantic Memory:</strong> A fine ciclo, il <em>Consolidation Node</em> estrae gli episodi rilevanti (es. bug risolti), li sintetizza usando il <code>mind_llm</code> e li converte in vettori dentro ChromaDB.</li>
                     </ul>
+                    
+                    <h3 style="margin-top: 2rem;">Metamemoria: LTP e LTD</h3>
+                    <p style="margin-bottom: 1.5rem; color: var(--text-muted);">Ispirata alle neuroscienze, la memoria implementa il Potenziamento e la Depressione a Lungo Termine.</p>
+                    <ul class="feature-list">
+                        <li><strong>LTP (Rinforzo):</strong> Se un ricordo prelevato da ChromaDB aiuta a risolvere un problema al primo tentativo, il suo <code>uses_count</code> aumenta e il timestamp si rinnova.</li>
+                        <li><strong>LTD (Oblio):</strong> I ricordi non usati da oltre 30 giorni o che portano a fallimenti ripetuti (<code>failures_count</code>) vengono degradati o dimenticati.</li>
+                    </ul>
+
+                    <h3 style="margin-top: 2rem;">Ispezione tramite CLI</h3>
+                    <div class="code-block" style="margin-top: 1rem;">
+                        <pre><code><span class="c-comment"># Ispeziona il Diario di Bordo (Short-Term)</span>
+<span class="c-command">python</span> swarm_mind/cli.py short-term --active
+
+<span class="c-comment"># Verifica la top-10 dei Ricordi Consolidati</span>
+<span class="c-command">python</span> swarm_mind/cli.py long-term-list --limit 10
+
+<span class="c-comment"># Cerca soluzioni nel Cervello Vettoriale</span>
+<span class="c-command">python</span> swarm_mind/cli.py long-term-query "React error"</code></pre>
+                    </div>
                 </div>
             </div>
         </section>
