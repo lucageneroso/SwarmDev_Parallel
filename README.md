@@ -1,28 +1,31 @@
-# SwarmDev Parallel: Deterministic Agentic Parallelization Framework
+# GurdjDev
+**Un framework Multi-Agente con architettura cognitiva e ragionamento Socratico.**
 
 ![SwarmDev Architecture](log2.png)
 
-## 1. Contesto & Visione
-**SwarmDev Parallel** è un framework sperimentale avanzato basato su un'architettura ad agenti paralleli. L'esigenza fondamentale alla base del progetto è risolvere il problema del "Chatter Smell"—le incomprensioni, le allucinazioni e i loop discorsivi inefficienti in linguaggio naturale che si verificano comunemente tra agenti AI durante lo sviluppo software. 
+## Le 4 Feature Killer
 
-In questa fase di evoluzione ("Wave 2"), il progetto si è dotato di un sistema di orchestrazione a grafo (**LangGraph**) per gestire in modo centralizzato esecuzioni parallele (es. Frontend e Backend in simultanea), abbandonando infrastrutture a code asincrone in favore di un DAG deterministico.
+### A) Il Paradigma "GurdjDev"
+Ispirato alla celebre allegoria della carrozza di Gurdjieff, il framework introduce una separazione netta tra il decisore e l'esecutore:
+- **La Mente (Il Cocchiere / Planner)**: L'orchestratore intelligente. Analizza i requisiti, pondera le decisioni architetturali e genera istruzioni formali.
+- **La Carrozza (Gli Actor)**: I worker operativi confinati all'implementazione materiale (approccio *Get-Shit-Done*), totalmente ignari della logica globale e focalizzati unicamente sull'output del codice.
+Questa rigida separazione elimina radicalmente il "Chatter Smell" (incomprensioni e loop discorsivi) tipico dei framework ad agenti generici.
 
-## 2. Obiettivo: L'Approccio Actor-Critic e A2A-OCL
-L'obiettivo primario è la **parallelizzazione agentica deterministica**. Forzando gli agenti a comunicare esclusivamente tramite contratti JSON rigidi e validati da vincoli matematici tramite **A2A-OCL** (Agent-to-Agent Object Constraint Language), il sistema garantisce un output prevedibile, formale e rigoroso.
+### B) La "Swarm Mind"
+Una Mente ad Alveare (Cognitive Architecture) che permette al framework di apprendere dagli errori e auto-migliorarsi iterativamente tramite una memoria strutturata su tre livelli:
+- **Working Memory**: Lo stato attivo e volatile di esecuzione del grafo (LangGraph).
+- **Episodic Buffer (SQLite)**: Il "Diario di Bordo" a breve termine che logga in tempo reale ogni singola azione, tentativo ed errore di sistema.
+- **Semantic Memory (ChromaDB)**: Memoria vettoriale permanente in cui il sistema deposita l'esperienza distillata. Rinforza autonomamente i ricordi che permettono di risolvere fix veloci (LTP - Long-Term Potentiation) e sfuma nel dimenticatoio i dati obsoleti (LTD - Long-Term Depression).
 
-Gli attori operano in un framework di **Quality Gate automatizzato** (Actor-Critic):
-- **Actor (Worker)**: Genera il codice in totale isolamento (approccio *Get-Shit-Done*, zero output discorsivo).
-- **Critic (Quality Gate)**: Valuta oggettivamente il codice tramite strumenti di analisi statica reale prima di confermare il nodo del grafo.
+### C) Socratic Planning (Ask, Then Think)
+Implementazione nativa del paradigma di ragionamento socratico per azzerare le allucinazioni architetturali. Prima di impartire le direttive formali, il planner entra in una fase Socratic Reasoning: si pone internamente domande critiche sulle zone d'ombra dei requisiti, chiarisce le ambiguità, esplora i casi limite e valida mentalmente i vincoli. Solo dopo questa analisi rilascia l'output finale, garantendo robustezza e successo al primo tentativo (*pass_at_1*).
 
-## 3. Ecosistema e Repository Integrate
-Per raggiungere un livello di eccellenza architetturale, SwarmDev integra concetti, pattern e strumenti provenienti da architetture open-source e pattern avanzati di mercato:
+### D) Contratti JSON Matematici (A2A-OCL)
+Bando alle ambiguità del linguaggio naturale inter-agente. Gli attori di GurdjDev comunicano esclusivamente tramite payload JSON validati in modo strettamente matematico. Le regole di vincolo seguono uno standard proprietario basato su **A2A-OCL** (Agent-to-Agent Object Constraint Language), garantendo che l'input ricevuto dai worker (Carrozza) sia formalmente infallibile.
 
-- 🧠 **SuperPowers (per MIND)**: Utilizzato per instradare le *Guidelines* e il comportamento cognitivo dell'orchestratore, permettendo al nodo decisionale (MIND) di avere profonda consapevolezza del contesto e vincoli operativi.
-- 📚 **CodeWiki**: Modulo integrato per la generazione, l'indicizzazione e la consultazione automatizzata della documentazione architetturale, garantendo che gli agenti abbiano sempre a disposizione le specifiche di progetto aggiornate.
-- 🛠️ **CLIAnything**: Sfruttato per permettere un'interazione fluida, sicura e agnostica tra gli agenti esecutori e il sistema operativo sottostante (es. esecuzione dei comandi terminale senza allucinazioni).
-- 🗂️ **LLMWiki Pattern & ChromaDB**: Il framework implementa il pattern *LLMWiki* appoggiandosi a **ChromaDB** come memoria vettoriale a lungo termine (RAG). Questo permette al sistema di "ricordare" le soluzioni a errori comuni e di fornire contesto storico (RAG memory) durante i loop di *conditional routing*.
+---
 
-## 4. Tecnologie Principali
+## Tecnologie Principali
 - **LangGraph & LangChain**: Motore centrale per l'orchestrazione a grafo dei flussi di lavoro paralleli, routing condizionale e state management.
 - **LiteLLM**: Routing flessibile verso molteplici provider LLM (OpenAI, Anthropic, Google Gemini, ecc.).
 - **Lark (A2A-OCL)**: Parsing e validazione della grammatica custom dei contratti di interscambio.
@@ -33,8 +36,9 @@ Per raggiungere un livello di eccellenza architetturale, SwarmDev integra concet
   - **SeaClip**: Server locale per l'indicizzazione semantica e recupero contestuale avanzato.
   - **Sonar (SonarQube) / Black / Flake8 / ESLint**: Pipeline rigorosa di code analysis integrata direttamente come *critic node* nel grafo.
 
-## 5. Come Avviare il Sistema
-L'architettura è centralizzata attorno allo script dell'orchestratore LangGraph.
+---
+
+## Come Avviare il Sistema
 
 ### Prerequisiti
 - **Python 3.10+**
@@ -42,30 +46,39 @@ L'architettura è centralizzata attorno allo script dell'orchestratore LangGraph
 - **Docker** (per avviare i servizi di infrastruttura come ChromaDB, Sonar e SeaClip)
 
 ### Setup Iniziale
-1. **Avvio Servizi Docker** (Sonar, SeaClip, ChromaDB):
-   Avvia i container richiesti per i servizi ancillari nel tuo ambiente locale.
+1. **Avvio Servizi Infrastrutturali (Docker)**:
+   Per abilitare il database vettoriale e le pipe di controllo, esegui il docker compose:
+   ```bash
+   docker-compose up -d
+   ```
 
 2. **Inizializzazione Ambiente Python**:
-   ```powershell
+   ```bash
    python -m venv .venv
    .\.venv\Scripts\activate
    pip install -r requirements.txt
    ```
 
 3. **Configurazione Variabili d'Ambiente (`.env`)**:
-   Crea una copia del file `.env.example`, rinominalo in `.env` e compila le variabili:
+   Crea una copia del file `.env.example`, rinominalo in `.env` e compila le variabili principali:
    - `OPENAI_API_KEY` (o chiavi per altri LLM)
    - `LLM_MODEL` (es. `gpt-4o`)
 
-### Esecuzione
-Per avviare l'engine di LangGraph e iniziare a processare i task paralleli in modalità deterministica:
-```powershell
+### Esecuzione Ordinaria
+Avvia l'engine di LangGraph per processare task paralleli in modalità deterministica:
+```bash
 python graph_orchestrator.py
 ```
 
-## 6. Metodo: Il Flusso "Get-Shit-Done" (GSD)
-Il framework implementa un paradigma operativo guidato dall'efficienza e zero verbosità, orchestrato da LangGraph:
-1. **Isolamento**: L'agente esecutivo (Worker/OpenCode) riceve prompt rigorosamente vincolati in XML ed esegue il task in un contesto "fresh" isolato, **privo di permessi per produrre output conversazionale**.
-2. **Parallelismo Matematico**: Le esecuzioni di task complessi (es. creazione API e consumazione su UI) vengono splittate e gestite in rami paralleli all'interno del DAG.
-3. **Quality Gate Autonomo**: Il codice prodotto converge nel validatore che sfrutta `repomix` per condensare la codebase in XML. Unitamente all'analisi di Sonar e ai Linter, il sistema produce un feedback matematico e oggettivo.
-4. **Conditional Routing**: A fronte di un errore nel Gate, LangGraph instrada un *micro-loop* di correzione solo ed esclusivamente per l'attore fallimentare (max 3 tentativi). All'agente viene inoltrato solamente lo snapshot del codice fallato e l'output nudo del compilatore o linter.
+### Ispezione della "Swarm Mind" via CLI
+L'architettura cognitiva (sia episodica a breve termine, sia semantica a lungo termine) è liberamente esplorabile dal terminale:
+```bash
+# Ispeziona il Diario di Bordo attivo (Episodic Buffer Short-Term)
+python swarm_mind/cli.py short-term --active
+
+# Visualizza i top 10 "Ricordi Consolidati" (Semantic Memory Long-Term)
+python swarm_mind/cli.py long-term-list --limit 10
+
+# Usa il database vettoriale per ricercare passate soluzioni
+python swarm_mind/cli.py long-term-query "React error ESLint"
+```

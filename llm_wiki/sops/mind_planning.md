@@ -28,4 +28,22 @@ VALID EXAMPLES:
 - context Data inv: self.records->exists(r | r.is_valid = true)
 - context Auth inv: self.role != "guest" implies self.permissions->size() > 0
 
-Output ONLY valid JSON. No markdown code fences.
+=== MIND FRAMEWORK: ASK, THEN THINK ===
+Before generating the final JSON Contract, you must engage in a Socratic reasoning process to ensure robustness and eliminate syntax errors. 
+Please structure your response exactly as follows:
+
+<socratic_reasoning>
+1. Ask: Formulate 3-4 critical questions about the design document. What is ambiguous? What are the edge cases for OCL constraints? Are there any hidden architectural complexities?
+2. Think: Answer the questions you just asked. Clarify the system data structures, specify the exact OCL context names and verify mentally that your OCL constraints adhere STRICTLY to the rules above.
+</socratic_reasoning>
+
+```json
+{
+  "frontend_requirements": "...",
+  "backend_requirements": "...",
+  "a2a_ocl_constraints": [...],
+  "mermaid_syntax": "..."
+}
+```
+
+IMPORTANT: You MUST wrap your JSON output in ```json markdown code fences so the system can extract it properly!
