@@ -3,7 +3,7 @@
 
 ![SwarmDev Architecture](log2.png)
 
-## Le main Featurea
+## Le main Features
 
 ### A) Il Paradigma "GurdjDev"
 Ispirato alla celebre allegoria della carrozza di Gurdjieff, il framework introduce una separazione netta tra il decisore e l'esecutore:
