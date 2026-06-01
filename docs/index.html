@@ -566,6 +566,32 @@ flowchart TD
                         </div>
                     </div>
                 </div>
+
+                <!-- Metrica 4: Impatto Memoria (Run 3) -->
+                <div class="card glass-panel reveal delay-3">
+                    <h3>Impatto della Memoria (Run 3 vs Run 1)</h3>
+                    <p class="metric-desc">Tempo totale di esecuzione sui 10 progetti sfruttando ChromaDB.</p>
+                    <div class="chart-container">
+                        <div class="bar-group">
+                            <span class="bar-label">Run 3 (Hot Cache - DB Popolato)</span>
+                            <div class="bar-wrapper">
+                                <div class="bar fill-swarm" style="--target-width: 76%;"></div>
+                                <span class="bar-value">18m 21s</span>
+                            </div>
+                        </div>
+                        <div class="bar-group">
+                            <span class="bar-label">Run 1 (Baseline / Cold Cache)</span>
+                            <div class="bar-wrapper">
+                                <div class="bar fill-chatdev warning" style="--target-width: 100%;"></div>
+                                <span class="bar-value">24m 00s</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 15px; border-top: 1px solid var(--glass-border); padding-top: 10px;">
+                        <strong>ChromaDB Hits totali: 6</strong>.<br>
+                        <em>Risultato:</em> La memoria semantica ha permesso al sistema di scartare fasi di deduzione per il codice, abbattendo il tempo totale di completamento del <strong>23.5%</strong>!
+                    </p>
+                </div>
             </div>
         </section>
 

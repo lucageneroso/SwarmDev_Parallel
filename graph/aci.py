@@ -234,7 +234,7 @@ def _chromadb_query_raw(error_text: str, n_results: int = 3) -> Optional[dict]:
     import requests
     import litellm
     try:
-        emb_res = litellm.embedding(model="text-embedding-ada-002", input=[error_text[:500]])
+        emb_res = litellm.embedding(model="openrouter/openai/text-embedding-ada-002", input=[error_text[:500]])
         vector = emb_res.data[0]["embedding"]
         
         url_base = "http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections"
@@ -355,7 +355,7 @@ def _chromadb_add_fix(error: str, solution_summary: str, metadata: Optional[dict
     _chromadb_delete(doc_id)
     
     try:
-        emb_res = litellm.embedding(model="text-embedding-ada-002", input=[text])
+        emb_res = litellm.embedding(model="openrouter/openai/text-embedding-ada-002", input=[text])
         vector = emb_res.data[0]["embedding"]
         
         url_base = "http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections"

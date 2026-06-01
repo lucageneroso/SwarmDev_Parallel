@@ -70,6 +70,20 @@ Avvia l'engine di LangGraph per processare task paralleli in modalità determini
 python graph_orchestrator.py
 ```
 
+### Esecuzione Benchmark e Test (DevEval)
+Per riprodurre i benchmark di valutazione (confronto SwarmDev vs ChatDev) sui progetti Python del dataset DevEval:
+1. **Avvio Benchmark SwarmDev:**
+   ```bash
+   python scripts/run_all_deveval.py
+   ```
+   Questo comando processa l'intera cartella e produce un report completo in `workspace/deveval_summary.csv`.
+
+2. **Avvio Benchmark ChatDev (Baseline):**
+   ```bash
+   python scripts/run_all_chatdev.py
+   ```
+   Questo comando avvia gli stessi progetti usando l'architettura di base ChatDev 2.0 per il confronto. I log verranno esportati in `workspace/chatdev_summary.csv`.
+
 ### Ispezione della "Swarm Mind" via CLI
 L'architettura cognitiva (sia episodica a breve termine, sia semantica a lungo termine) è liberamente esplorabile dal terminale:
 ```bash

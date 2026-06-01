@@ -13,7 +13,7 @@ import yaml
 import warnings
 
 warnings.filterwarnings("ignore", message=".*ChatLiteLLM.*")
-from langchain_community.chat_models import ChatLiteLLM
+from langchain_litellm import ChatLiteLLM
 from dotenv import load_dotenv
 
 from graph.state import PROJECT_ROOT, DIRECTIVES_DIR, SUPERPOWERS_DIR

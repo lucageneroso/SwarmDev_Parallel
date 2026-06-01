@@ -97,7 +97,7 @@ Here is the PRD for the project:
 
 class AutoClientPO:
     def __init__(self, prd_content: str, model: str):
-        from langchain_community.chat_models import ChatLiteLLM
+        from langchain_litellm import ChatLiteLLM
         from langchain_core.messages import SystemMessage
         self.llm = ChatLiteLLM(model=model, max_retries=3, temperature=0.1)
         self.system_message = SystemMessage(
@@ -381,7 +381,8 @@ def save_metrics(
     print(f"[Metrics] Saved JSON report: {json_path}")
 
     # ── CSV summary ──────────────────────────────────────────────────────────
-    csv_path = os.path.join(PROJECT_ROOT, "workspace", "deveval_summary.csv")
+    workspace_dir = os.path.join(PROJECT_ROOT, "workspace")
+    csv_path = os.path.join(workspace_dir, "deveval_summary_run3.csv")
     file_exists = os.path.exists(csv_path)
     with open(csv_path, "a", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
