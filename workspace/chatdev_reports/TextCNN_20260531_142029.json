@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-05-31 14:20:29",
+  "framework": "ChatDev",
+  "project_name": "TextCNN",
+  "total_tokens": 0,
+  "self_test_pass_rate": 0.0,
+  "avg_cc": 0.0,
+  "avg_mi": 0.0,
+  "extra": {
+    "status": "CHATDEV_FAILURE"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "timestamp": "2026-05-30 12:46:23",
+  "project_name": "stocktrends",
+  "total_tokens": 43575,
+  "ocl_retry_count": 0,
+  "self_test_pass_rate": 75.0,
+  "avg_cc": 1.0,
+  "avg_mi": 100.0,
+  "chromadb_hits": 0,
+  "extra": {
+    "status": "COMPLETED",
+    "workspace": "C:\\Users\\lucag\\SwarmDev_Parallel\\workspace\\project_20260530_124542",
+    "self_test_details": {
+      "passed": 3,
+      "failed": 1,
+      "errors": 0,
+      "total": 4
+    },
+    "radon_cc_details": [
+      {
+        "file": "routes.py",
+        "name": "calculate",
+        "type": "function",
+        "complexity": 1,
+        "rank": "A"
+      },
+      {
+        "file": "routes.py",
+        "name": "report",
+        "type": "function",
+        "complexity": 1,
+        "rank": "A"
+      },
+      {
+        "file": "services.py",
+        "name": "calculate_indicators",
+        "type": "function",
+        "complexity": 1,
+        "rank": "A"
+      },
+      {
+        "file": "services.py",
+        "name": "generate_report",
+        "type": "function",
+        "complexity": 1,
+        "rank": "A"
+      }
+    ],
+    "radon_mi_details": [
+      {
+        "file": "main.py",
+        "mi": 100.0
+      },
+      {
+        "file": "routes.py",
+        "mi": 100.0
+      },
+      {
+        "file": "services.py",
+        "mi": 100.0
+      },
+      {
+        "file": "__init__.py",
+        "mi": 100.0
+      }
+    ],
+    "chromadb_queries": 1
+  }
+}

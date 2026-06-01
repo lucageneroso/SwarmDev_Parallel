@@ -1,0 +1,55 @@
+{
+  "timestamp": "2026-05-31 16:21:04",
+  "framework": "ChatDev",
+  "project_name": "stocktrends",
+  "total_tokens": 248304,
+  "self_test_pass_rate": 0.0,
+  "avg_cc": 4.5,
+  "avg_mi": 100.0,
+  "extra": {
+    "status": "COMPLETED",
+    "output_dir": "C:\\Users\\lucag\\SwarmDev_Parallel\\ChatDev\\WareHouse\\stocktrends_20260531161347",
+    "self_test_details": {
+      "passed": 0,
+      "failed": 0,
+      "errors": 0,
+      "total": 0
+    },
+    "radon_cc_details": [
+      {
+        "file": "data_loader.py",
+        "name": "DataLoader",
+        "type": "class",
+        "complexity": 5,
+        "rank": "A"
+      },
+      {
+        "file": "data_loader.py",
+        "name": "DataLoader",
+        "type": "class",
+        "complexity": 5,
+        "rank": "A"
+      },
+      {
+        "file": "data_loader.py",
+        "name": "load_csv",
+        "type": "method",
+        "complexity": 4,
+        "rank": "A"
+      },
+      {
+        "file": "data_loader.py",
+        "name": "load_csv",
+        "type": "method",
+        "complexity": 4,
+        "rank": "A"
+      }
+    ],
+    "radon_mi_details": [
+      {
+        "file": "data_loader.py",
+        "mi": 100.0
+      }
+    ]
+  }
+}

@@ -1,0 +1,105 @@
+Workflow OK.
+Please enter the task prompt: Detected 4 cycle(s) in the workflow graph.
+[2026-05-31T14:20:35.695819] [INFO] Event EventType.WORKFLOW_START - Workflow execution started Details: {'workflow_id': 'chakin', 'node_count': 26, 'edge_count': 54} 
+[2026-05-31T14:20:35.695819] [DEBUG] Executing graph with cycles using super-node scheduler 
+[2026-05-31T14:20:35.695819] [DEBUG] Executing super-node layer 0 with 2 items 
+[2026-05-31T14:20:35.695819] [DEBUG] Executing 2 items in parallel 
+[2026-05-31T14:20:35.696819] [DEBUG] Executing non-cycle node: USER 
+[2026-05-31T14:20:35.696819] [INFO] Node USER - Event EventType.NODE_START - Entering node USER Details: {'inputs': [{'role': 'user', 'content': 'The primary goal of `chakin` is to provide an efficient, user-friendly tool to download pre-trained word vectors. It aims to support NLP applications by making a wide range of word vectors easily accessible.', 'metadata': {'source': 'TASK'}}], 'node_type': 'passthrough', 'input_count': 1, 'predecessors': [], 'successors': ['Programmer Coding', 'Programmer Code Complete', 'Code Reviewer', 'Programmer Code Review', 'Programmer Test Error Summary', 'Software Test Engineer', 'Programmer Test Modification', 'Chief Executive Officer', 'Chief Product Officer']} 
+[2026-05-31T14:20:35.698326] [DEBUG] Processing 1 inputs together for node USER 
+[2026-05-31T14:20:35.698326] [DEBUG] Node USER cleaned up its input context after execution 
+[2026-05-31T14:20:35.698326] [DEBUG] Node USER processed 1 inputs into 1 output(s) 
+[2026-05-31T14:20:35.698326] [INFO] Node USER - Event EventType.NODE_END - Exiting node USER Details: {'output': 'The primary goal of `chakin` is to provide an efficient, user-friendly tool to download pre-trained word vectors. It aims to support NLP applications by making a wide range of word vectors easily accessible.', 'output_size': 207, 'output_count': 1, 'output_role': 'user', 'output_source': 'TASK'} 
+[2026-05-31T14:20:35.698326] [DEBUG] Node USER - Event EventType.EDGE_PROCESS - Processing edge from USER to Programmer Coding Details: {'to_node': 'Programmer Coding', 'trigger': False, 'condition': 'true', 'condition_label': 'true', 'condition_type': 'function', 'carry_data': True, 'keep_message': True, 'clear_context': False, 'clear_kept_context': False, 'process': None, 'process_type': None} 
+[2026-05-31T14:20:35.698326] [INFO] Edge condition met for USER -> Programmer Coding 
+[2026-05-31T14:20:35.698326] [DEBUG] Data passed from USER to Programmer Coding's input queue (type: message:user) 
+[2026-05-31T14:20:35.698326] [DEBUG] Node USER - Event EventType.EDGE_PROCESS - Processing edge from USER to Programmer Code Complete Details: {'to_node': 'Programmer Code Complete', 'trigger': False, 'condition': 'true', 'condition_label': 'true', 'condition_type': 'function', 'carry_data': True, 'keep_message': True, 'clear_context': False, 'clear_kept_context': False, 'process': None, 'process_type': None} 
+[2026-05-31T14:20:35.698326] [INFO] Edge condition met for USER -> Programmer Code Complete 
+[2026-05-31T14:20:35.698326] [DEBUG] Data passed from USER to Programmer Code Complete's input queue (type: message:user) 
+[2026-05-31T14:20:35.698326] [DEBUG] Node USER - Event EventType.EDGE_PROCESS - Processing edge from USER to Code Reviewer Details: {'to_node': 'Code Reviewer', 'trigger': False, 'condition': 'true', 'condition_label': 'true', 'condition_type': 'function', 'carry_data': True, 'keep_message': True, 'clear_context': False, 'clear_kept_context': False, 'process': None, 'process_type': None} 
+[2026-05-31T14:20:35.698326] [INFO] Edge condition met for USER -> Code Reviewer 
+[2026-05-31T14:20:35.698326] [DEBUG] Data passed from USER to Code Reviewer's input queue (type: message:user) 
+[2026-05-31T14:20:35.698326] [DEBUG] Node USER - Event EventType.EDGE_PROCESS - Processing edge from USER to Programmer Code Review Details: {'to_node': 'Programmer Code Review', 'trigger': False, 'condition': 'true', 'condition_label': 'true', 'condition_type': 'function', 'carry_data': True, 'keep_message': True, 'clear_context': False, 'clear_kept_context': False, 'process': None, 'process_type': None} 
+[2026-05-31T14:20:35.698326] [INFO] Edge condition met for USER -> Programmer Code Review 
+[2026-05-31T14:20:35.698326] [DEBUG] Data passed from USER to Programmer Code Review's input queue (type: message:user) 
+[2026-05-31T14:20:35.698326] [DEBUG] Node USER - Event EventType.EDGE_PROCESS - Processing edge from USER to Programmer Test Error Summary Details: {'to_node': 'Programmer Test Error Summary', 'trigger': False, 'condition': 'true', 'condition_label': 'true', 'condition_type': 'function', 'carry_data': True, 'keep_message': True, 'clear_context': False, 'clear_kept_context': False, 'process': None, 'process_type': None} 
+[2026-05-31T14:20:35.698326] [INFO] Edge condition met for USER -> Programmer Test Error Summary 
+[2026-05-31T14:20:35.698326] [DEBUG] Data passed from USER to Programmer Test Error Summary's input queue (type: message:user) 
+[2026-05-31T14:20:35.698326] [DEBUG] Node USER - Event EventType.EDGE_PROCESS - Processing edge from USER to Software Test Engineer Details: {'to_node': 'Software Test Engineer', 'trigger': False, 'condition': 'true', 'condition_label': 'true', 'condition_type': 'function', 'carry_data': True, 'keep_message': True, 'clear_context': False, 'clear_kept_context': False, 'process': None, 'process_type': None} 
+[2026-05-31T14:20:35.698326] [INFO] Edge condition met for USER -> Software Test Engineer 
+[2026-05-31T14:20:35.699334] [DEBUG] Data passed from USER to Software Test Engineer's input queue (type: message:user) 
+[2026-05-31T14:20:35.699334] [DEBUG] Node USER - Event EventType.EDGE_PROCESS - Processing edge from USER to Programmer Test Modification Details: {'to_node': 'Programmer Test Modification', 'trigger': False, 'condition': 'true', 'condition_label': 'true', 'condition_type': 'function', 'carry_data': True, 'keep_message': True, 'clear_context': False, 'clear_kept_context': False, 'process': None, 'process_type': None} 
+[2026-05-31T14:20:35.699334] [INFO] Edge condition met for USER -> Programmer Test Modification 
+[2026-05-31T14:20:35.699334] [DEBUG] Data passed from USER to Programmer Test Modification's input queue (type: message:user) 
+[2026-05-31T14:20:35.699334] [DEBUG] Node USER - Event EventType.EDGE_PROCESS - Processing edge from USER to Chief Executive Officer Details: {'to_node': 'Chief Executive Officer', 'trigger': False, 'condition': 'true', 'condition_label': 'true', 'condition_type': 'function', 'carry_data': True, 'keep_message': True, 'clear_context': False, 'clear_kept_context': False, 'process': None, 'process_type': None} 
+[2026-05-31T14:20:35.699334] [INFO] Edge condition met for USER -> Chief Executive Officer 
+[2026-05-31T14:20:35.699334] [DEBUG] Data passed from USER to Chief Executive Officer's input queue (type: message:user) 
+[2026-05-31T14:20:35.699334] [DEBUG] Node USER - Event EventType.EDGE_PROCESS - Processing edge from USER to Chief Product Officer Details: {'to_node': 'Chief Product Officer', 'trigger': False, 'condition': 'true', 'condition_label': 'true', 'condition_type': 'function', 'carry_data': True, 'keep_message': True, 'clear_context': False, 'clear_kept_context': False, 'process': None, 'process_type': None} 
+[2026-05-31T14:20:35.699334] [INFO] Edge condition met for USER -> Chief Product Officer 
+[2026-05-31T14:20:35.699334] [DEBUG] Data passed from USER to Chief Product Officer's input queue (type: message:user) 
+[2026-05-31T14:20:35.699334] [DEBUG] Executing non-cycle node: Coding Phase Prompt for Assistant 
+[2026-05-31T14:20:35.699334] [INFO] Node Coding Phase Prompt for Assistant - Event EventType.NODE_START - Entering node Coding Phase Prompt for Assistant Details: {'inputs': [{'role': 'user', 'content': 'The primary goal of `chakin` is to provide an efficient, user-friendly tool to download pre-trained word vectors. It aims to support NLP applications by making a wide range of word vectors easily accessible.', 'metadata': {'source': 'TASK'}}], 'node_type': 'literal', 'input_count': 1, 'predecessors': [], 'successors': ['Programmer Coding']} 
+Traceback (most recent call last):
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\runtime\node\executor\agent_executor.py", line 115, in execute
+    response_obj = self._invoke_provider(
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\runtime\node\executor\agent_executor.py", line 370, in _invoke_provider
+    response = self._execute_with_retry(node, retry_policy, _call_provider)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\runtime\node\executor\agent_executor.py", line 432, in _execute_with_retry
+    return retrier(func)
+           ^^^^^^^^^^^^^
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\.venv\Lib\site-packages\tenacity\__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\.venv\Lib\site-packages\tenacity\__init__.py", line 371, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\.venv\Lib\site-packages\tenacity\__init__.py", line 413, in exc_check
+    raise retry_exc.reraise()
+          ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\.venv\Lib\site-packages\tenacity\__init__.py", line 184, in reraise
+    raise self.last_attempt.result()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucag\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucag\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\.venv\Lib\site-packages\tenacity\__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\runtime\node\executor\agent_executor.py", line 360, in _call_provider
+    return provider.call_model(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\runtime\node\agent\providers\openai_provider.py", line 86, in call_model
+    response = client.chat.completions.create(**new_request_payload)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\.venv\Lib\site-packages\openai\_utils\_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\.venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1215, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\.venv\Lib\site-packages\openai\_base_client.py", line 1332, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\.venv\Lib\site-packages\openai\_base_client.py", line 1105, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+[2026-05-31T14:20:35.699334] [DEBUG] Processing 1 inputs together for node Coding Phase Prompt for Assistant 
+[2026-05-31T14:20:35.699334] [DEBUG] Node Coding Phase Prompt for Assistant cleaned up its input context after execution 
+[2026-05-31T14:20:35.699334] [DEBUG] Node Coding Phase Prompt for Assistant processed 1 inputs into 1 output(s) 
+[2026-05-31T14:20:35.699334] [INFO] Node Coding Phase Prompt for Assistant - Event EventType.NODE_END - Exiting node Coding Phase Prompt for Assistant Details: {'output': 'According to the new user\'s task and our software designs listed below: \nModality: Code.\nProgramming Language: Python.\nTask: Please refer to the input from user.\nWe have decided to complete the task through a executable software with multiple files implemented via Python. As the Programmer, to satisfy the new user\'s demands, you should write one or multiple files and make sure that every detail of the architecture is, in the end, implemented as code.\nThink step by step and reason yourself to the right decisions to make sure we get it right.\nYou will first lay out the names of the core classes, functions, methods that will be necessary, as well as a quick comment on their purpose.\nThen you will call the functions provided to firstly create Python venv, and then install packages. After that, you should implement the codes and call the functions to save them. \nNote: the code should be equipped with doc, such as:\n\n\n"""\nThis is the main module to launch the program\n"""\nfrom server import run\n\nif __name__ == "__main__":\n    run()\n\n\nPlease note that the code should be fully functional. Ensure to implement all functions. No placeholders (such as \'pass\' in Python).\nYou should call the provided functions to save your code.', 'output_size': 1232, 'output_count': 1, 'output_role': 'user', 'output_source': 'Coding Phase Prompt for Assistant'} 
+[2026-05-31T14:20:35.699334] [DEBUG] Node Coding Phase Prompt for Assistant - Event EventType.EDGE_PROCESS - Processing edge from Coding Phase Prompt for Assistant to Programmer Coding Details: {'to_node': 'Programmer Coding', 'trigger': True, 'condition': 'true', 'condition_label': 'true', 'condition_type': 'function', 'carry_data': True, 'keep_message': False, 'clear_context': False, 'clear_kept_context': False, 'process': None, 'process_type': None} 
+[2026-05-31T14:20:35.699334] [INFO] Edge condition met for Coding Phase Prompt for Assistant -> Programmer Coding 
+[2026-05-31T14:20:35.699334] [DEBUG] Data passed from Coding Phase Prompt for Assistant to Programmer Coding's input queue (type: message:user) 
+[2026-05-31T14:20:35.699334] [DEBUG] Edge Coding Phase Prompt for Assistant -> Programmer Coding triggered 
+[2026-05-31T14:20:35.699334] [DEBUG] node USER completed successfully 
+[2026-05-31T14:20:35.699334] [DEBUG] node Coding Phase Prompt for Assistant completed successfully 
+[2026-05-31T14:20:35.700332] [DEBUG] Executing super-node layer 1 with 1 items 
+[2026-05-31T14:20:35.700332] [DEBUG] Executing 1 items in parallel 
+[2026-05-31T14:20:35.700332] [DEBUG] Executing non-cycle node: Programmer Coding 
+[2026-05-31T14:20:35.700332] [INFO] Node Programmer Coding - Event EventType.NODE_START - Entering node Programmer Coding Details: {'inputs': [{'role': 'user', 'content': 'The primary goal of `chakin` is to provide an efficient, user-friendly tool to download pre-trained word vectors. It aims to support NLP applications by making a wide range of word vectors easily accessible.', 'metadata': {'source': 'USER'}, 'keep': True}, {'role': 'user', 'content': 'According to the new user\'s task and our software designs listed below: \nModality: Code.\nProgramming Language: Python.\nTask: Please refer to the input from user.\nWe have decided to complete the task through a executable software with multiple files implemented via Python. As the Programmer, to satisfy the new user\'s demands, you should write one or multiple files and make sure that every detail of the architecture is, in the end, implemented as code.\nThink step by step and reason yourself to the right decisions to make sure we get it right.\nYou will first lay out the names of the core classes, functions, methods that will be necessary, as well as a quick comment on their purpose.\nThen you will call the functions provided to firstly create Python venv, and then install packages. After that, you should implement the codes and call the functions to save them. \nNote: the code should be equipped with doc, such as:\n\n\n"""\nThis is the main module to launch the program\n"""\nfrom server import run\n\nif __name__ == "__main__":\n    run()\n\n\nPlease note that the code should be fully functional. Ensure to implement all functions. No placeholders (such as \'pass\' in Python).\nYou should call the provided functions to save your code.', 'metadata': {'source': 'Coding Phase Prompt for Assistant'}, 'preserve_role': True}], 'node_type': 'agent', 'input_count': 2, 'predecessors': ['Coding Phase Prompt for Assistant', 'USER'], 'successors': ['Code Complete Phase for Assistant']} 
+[2026-05-31T14:20:35.701081] [DEBUG] Processing 2 inputs together for node Programmer Coding 
+[2026-05-31T14:20:35.855811] [INFO] Node Programmer Coding - Event EventType.MODEL_CALL - Model call for node Programmer Coding Details: {'model_name': 'gpt-4o', 'input_data': 'ChatDev is a software company powered by multiple intelligent agents, such as chief executive officer, chief human resources officer, chief product officer, chief technology officer, etc, with a multi-agent organizational structure and the mission of \\"changing the digital world through programming\\".\nYou are Programmer. we are both working at ChatDev. We share a common interest in collaborating to successfully complete a task assigned by a new customer.\nYou can write/create computer software or applications by providing a specific programming language to the computer. You have extensive computing and coding experience in many varieties of programming languages and platforms, such as Python, Java, C, C++, HTML, CSS, JavaScript, XML, SQL, PHP, etc,.\nYou will receive the task from user.\nTo complete the task, you must call the functions to save or edit the codes that appropriately solves the requested instruction based on your expertise and customer\'s needs.The primary goal of `chakin` is to provide an efficient, user-friendly tool to download pre-trained word vectors. It aims to support NLP applications by making a wide range of word vectors easily accessible.According to the new user\'s task and our software designs listed below: \nModality: Code.\nProgramming Language: Python.\nTask: Please refer to the input from user.\nWe have decided to complete the task through a executable software with multiple files implemented via Python. As the Programmer, to satisfy the new user\'s demands, you should write one or multiple files and make sure that every detail of the architecture is, in the end, implemented as code.\nThink step by step and reason yourself to the right decisions to make sure we get it right.\nYou will first lay out the names of the core classes, functions, methods that will be necessary, as well as a quick comment on their purpose.\nThen you will call the functions provided to firstly create Python venv, and then install packages. After that, you should implement the codes and call the functions to save them. \nNote: the code should be equipped with doc, such as:\n\n\n"""\nThis is the main module to launch the program\n"""\nfrom server import run\n\nif __name__ == "__main__":\n    run()\n\n\nPlease note that the code should be fully functional. Ensure to implement all functions. No placeholders (such as \'pass\' in Python).\nYou should call the provided functions to save your code.', 'output': None, 'input_size': 2408, 'output_size': 0, 'stage': 'before'} 

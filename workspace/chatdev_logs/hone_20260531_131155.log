@@ -1,0 +1,60 @@
+Traceback (most recent call last):
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\run.py", line 7, in <module>
+    from runtime.bootstrap.schema import ensure_schema_registry_populated
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\runtime\__init__.py", line 1, in <module>
+    from runtime.sdk import WorkflowMetaInfo, WorkflowRunResult, run_workflow
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\runtime\sdk.py", line 8, in <module>
+    from check.check import load_config
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\check\check.py", line 15, in <module>
+    ensure_schema_registry_populated()
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\runtime\bootstrap\schema.py", line 26, in ensure_schema_registry_populated
+    import_module(module_name)
+  File "C:\Users\lucag\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\runtime\node\builtin_nodes.py", line 16, in <module>
+    from runtime.node.executor.agent_executor import AgentNodeExecutor
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\runtime\node\executor\__init__.py", line 6, in <module>
+    from runtime.node.executor.base import NodeExecutor, ExecutionContext
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\runtime\node\executor\base.py", line 12, in <module>
+    from runtime.node.agent import MemoryManager
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\runtime\node\agent\__init__.py", line 5, in <module>
+    from .tool import *
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\runtime\node\agent\tool\__init__.py", line 1, in <module>
+    from .tool_manager import ToolManager
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\runtime\node\agent\tool\tool_manager.py", line 15, in <module>
+    from fastmcp import Client
+  File "<frozen importlib._bootstrap>", line 1231, in _handle_fromlist
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\.venv\Lib\site-packages\fastmcp\__init__.py", line 50, in __getattr__
+    from fastmcp.client import Client
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\.venv\Lib\site-packages\fastmcp\client\__init__.py", line 4, in <module>
+    from .auth import OAuth, BearerAuth
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\.venv\Lib\site-packages\fastmcp\client\auth\__init__.py", line 2, in <module>
+    from .oauth import OAuth
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\.venv\Lib\site-packages\fastmcp\client\auth\oauth.py", line 11, in <module>
+    from key_value.aio.adapters.pydantic import PydanticAdapter
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\.venv\Lib\site-packages\key_value\aio\__init__.py", line 3, in <module>
+    from beartype import (
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\.venv\Lib\site-packages\beartype\__init__.py", line 158, in <module>
+    from beartype._decor.decormain import (
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\.venv\Lib\site-packages\beartype\_decor\decormain.py", line 127, in <module>
+    from beartype._decor.decorcache import beartype as beartype
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\.venv\Lib\site-packages\beartype\_decor\decorcache.py", line 38, in <module>
+    from beartype._decor.decorcore import beartype_object
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\.venv\Lib\site-packages\beartype\_decor\decorcore.py", line 26, in <module>
+    from beartype._decor._nontype.decornontype import beartype_nontype
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\.venv\Lib\site-packages\beartype\_decor\_nontype\decornontype.py", line 35, in <module>
+    from beartype._decor._nontype._wrap.wrapmain import generate_code
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\.venv\Lib\site-packages\beartype\_decor\_nontype\_wrap\wrapmain.py", line 32, in <module>
+    from beartype._decor._nontype._wrap._wrapargs import (
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\.venv\Lib\site-packages\beartype\_decor\_nontype\_wrap\_wrapargs.py", line 29, in <module>
+    from beartype._check.checkmake import make_code_raiser_func_pith_check
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\.venv\Lib\site-packages\beartype\_check\checkmake.py", line 33, in <module>
+    from beartype._check.error.errmain import (
+  File "<frozen importlib._bootstrap>", line 1178, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1149, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 936, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1032, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1130, in get_data
+KeyboardInterrupt

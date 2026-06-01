@@ -1,0 +1,66 @@
+{
+  "timestamp": "2026-05-31 15:42:52",
+  "framework": "ChatDev",
+  "project_name": "chakin",
+  "total_tokens": 222921,
+  "self_test_pass_rate": 0.0,
+  "avg_cc": 2.6,
+  "avg_mi": 100.0,
+  "extra": {
+    "status": "COMPLETED",
+    "output_dir": "C:\\Users\\lucag\\SwarmDev_Parallel\\ChatDev\\WareHouse\\chakin_20260531153653",
+    "self_test_details": {
+      "passed": 0,
+      "failed": 0,
+      "errors": 0,
+      "total": 0
+    },
+    "radon_cc_details": [
+      {
+        "file": "loader.py",
+        "name": "VectorLoader",
+        "type": "class",
+        "complexity": 4,
+        "rank": "A"
+      },
+      {
+        "file": "loader.py",
+        "name": "__init__",
+        "type": "method",
+        "complexity": 4,
+        "rank": "A"
+      },
+      {
+        "file": "loader.py",
+        "name": "load_vectors",
+        "type": "method",
+        "complexity": 3,
+        "rank": "A"
+      },
+      {
+        "file": "loader.py",
+        "name": "__init__",
+        "type": "method",
+        "complexity": 1,
+        "rank": "A"
+      },
+      {
+        "file": "main.py",
+        "name": "main",
+        "type": "function",
+        "complexity": 1,
+        "rank": "A"
+      }
+    ],
+    "radon_mi_details": [
+      {
+        "file": "loader.py",
+        "mi": 100.0
+      },
+      {
+        "file": "main.py",
+        "mi": 100.0
+      }
+    ]
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "timestamp": "2026-05-30 12:30:29",
+  "project_name": "chakin",
+  "total_tokens": 25298,
+  "ocl_retry_count": 1,
+  "self_test_pass_rate": 75.0,
+  "avg_cc": 2.67,
+  "avg_mi": 93.92,
+  "chromadb_hits": 0,
+  "extra": {
+    "status": "COMPLETED",
+    "workspace": "C:\\Users\\lucag\\SwarmDev_Parallel\\workspace\\project_20260530_122943",
+    "self_test_details": {
+      "passed": 6,
+      "failed": 2,
+      "errors": 0,
+      "total": 8
+    },
+    "radon_cc_details": [
+      {
+        "file": "routes.py",
+        "name": "download_word_vector",
+        "type": "function",
+        "complexity": 3,
+        "rank": "A"
+      },
+      {
+        "file": "services.py",
+        "name": "WordVectorService",
+        "type": "class",
+        "complexity": 3,
+        "rank": "A"
+      },
+      {
+        "file": "services.py",
+        "name": "download_word_vector",
+        "type": "method",
+        "complexity": 2,
+        "rank": "A"
+      }
+    ],
+    "radon_mi_details": [
+      {
+        "file": "main.py",
+        "mi": 100.0
+      },
+      {
+        "file": "routes.py",
+        "mi": 100.0
+      },
+      {
+        "file": "services.py",
+        "mi": 75.67
+      },
+      {
+        "file": "__init__.py",
+        "mi": 100.0
+      }
+    ],
+    "chromadb_queries": 1
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "timestamp": "2026-05-30 12:44:22",
+  "project_name": "readtime",
+  "total_tokens": 37691,
+  "ocl_retry_count": 1,
+  "self_test_pass_rate": 83.33,
+  "avg_cc": 1.5,
+  "avg_mi": 94.95,
+  "chromadb_hits": 0,
+  "extra": {
+    "status": "COMPLETED",
+    "workspace": "C:\\Users\\lucag\\SwarmDev_Parallel\\workspace\\project_20260530_124343",
+    "self_test_details": {
+      "passed": 5,
+      "failed": 1,
+      "errors": 0,
+      "total": 6
+    },
+    "radon_cc_details": [
+      {
+        "file": "models.py",
+        "name": "ReadingRequest",
+        "type": "class",
+        "complexity": 1,
+        "rank": "A"
+      },
+      {
+        "file": "models.py",
+        "name": "ReadingResponse",
+        "type": "class",
+        "complexity": 1,
+        "rank": "A"
+      },
+      {
+        "file": "routes.py",
+        "name": "estimate_reading_time",
+        "type": "function",
+        "complexity": 2,
+        "rank": "A"
+      },
+      {
+        "file": "services.py",
+        "name": "calculate_reading_time",
+        "type": "function",
+        "complexity": 2,
+        "rank": "A"
+      }
+    ],
+    "radon_mi_details": [
+      {
+        "file": "main.py",
+        "mi": 100.0
+      },
+      {
+        "file": "models.py",
+        "mi": 100.0
+      },
+      {
+        "file": "routes.py",
+        "mi": 100.0
+      },
+      {
+        "file": "services.py",
+        "mi": 74.75
+      },
+      {
+        "file": "__init__.py",
+        "mi": 100.0
+      }
+    ],
+    "chromadb_queries": 1
+  }
+}

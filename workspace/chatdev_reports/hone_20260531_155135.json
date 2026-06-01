@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-05-31 15:51:35",
+  "framework": "ChatDev",
+  "project_name": "hone",
+  "total_tokens": 285126,
+  "self_test_pass_rate": 0.0,
+  "avg_cc": 0.0,
+  "avg_mi": 0.0,
+  "extra": {
+    "status": "COMPLETED",
+    "output_dir": "C:\\Users\\lucag\\SwarmDev_Parallel\\ChatDev\\WareHouse\\hone_20260531154455",
+    "self_test_details": {
+      "passed": 0,
+      "failed": 0,
+      "errors": 0,
+      "total": 0
+    },
+    "radon_cc_details": [],
+    "radon_mi_details": []
+  }
+}

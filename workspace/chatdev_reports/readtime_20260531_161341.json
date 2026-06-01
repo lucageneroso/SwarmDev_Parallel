@@ -1,0 +1,80 @@
+{
+  "timestamp": "2026-05-31 16:13:41",
+  "framework": "ChatDev",
+  "project_name": "readtime",
+  "total_tokens": 343864,
+  "self_test_pass_rate": 0.0,
+  "avg_cc": 3.43,
+  "avg_mi": 78.66,
+  "extra": {
+    "status": "COMPLETED",
+    "output_dir": "C:\\Users\\lucag\\SwarmDev_Parallel\\ChatDev\\WareHouse\\readtime_20260531160608",
+    "self_test_details": {
+      "passed": 0,
+      "failed": 0,
+      "errors": 0,
+      "total": 0
+    },
+    "radon_cc_details": [
+      {
+        "file": "reading_time_calculator.py",
+        "name": "ReadingTimeCalculator",
+        "type": "class",
+        "complexity": 6,
+        "rank": "B"
+      },
+      {
+        "file": "reading_time_calculator.py",
+        "name": "calculate_reading_time_for_multiple_texts",
+        "type": "method",
+        "complexity": 6,
+        "rank": "B"
+      },
+      {
+        "file": "reading_time_calculator.py",
+        "name": "calculate_reading_time",
+        "type": "method",
+        "complexity": 4,
+        "rank": "A"
+      },
+      {
+        "file": "reading_time_calculator.py",
+        "name": "calculate_reading_time_with_details",
+        "type": "method",
+        "complexity": 4,
+        "rank": "A"
+      },
+      {
+        "file": "reading_time_calculator.py",
+        "name": "TextAnalyzer",
+        "type": "class",
+        "complexity": 2,
+        "rank": "A"
+      },
+      {
+        "file": "reading_time_calculator.py",
+        "name": "count_words",
+        "type": "method",
+        "complexity": 1,
+        "rank": "A"
+      },
+      {
+        "file": "reading_time_calculator.py",
+        "name": "estimate_reading_time",
+        "type": "method",
+        "complexity": 1,
+        "rank": "A"
+      }
+    ],
+    "radon_mi_details": [
+      {
+        "file": "reading_time_calculator.py",
+        "mi": 69.88
+      },
+      {
+        "file": "main.py",
+        "mi": 87.43
+      }
+    ]
+  }
+}

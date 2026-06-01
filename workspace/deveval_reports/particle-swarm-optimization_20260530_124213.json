@@ -1,0 +1,73 @@
+{
+  "timestamp": "2026-05-30 12:42:13",
+  "project_name": "particle-swarm-optimization",
+  "total_tokens": 37252,
+  "ocl_retry_count": 0,
+  "self_test_pass_rate": 50.0,
+  "avg_cc": 1.25,
+  "avg_mi": 100.0,
+  "chromadb_hits": 0,
+  "extra": {
+    "status": "COMPLETED",
+    "workspace": "C:\\Users\\lucag\\SwarmDev_Parallel\\workspace\\project_20260530_124133",
+    "self_test_details": {
+      "passed": 1,
+      "failed": 1,
+      "errors": 0,
+      "total": 2
+    },
+    "radon_cc_details": [
+      {
+        "file": "routes.py",
+        "name": "execute_pso_endpoint",
+        "type": "function",
+        "complexity": 1,
+        "rank": "A"
+      },
+      {
+        "file": "particle.py",
+        "name": "Particle",
+        "type": "class",
+        "complexity": 2,
+        "rank": "A"
+      },
+      {
+        "file": "particle.py",
+        "name": "__init__",
+        "type": "method",
+        "complexity": 1,
+        "rank": "A"
+      },
+      {
+        "file": "pso_service.py",
+        "name": "execute_pso",
+        "type": "function",
+        "complexity": 1,
+        "rank": "A"
+      }
+    ],
+    "radon_mi_details": [
+      {
+        "file": "main.py",
+        "mi": 100.0
+      },
+      {
+        "file": "routes.py",
+        "mi": 100.0
+      },
+      {
+        "file": "__init__.py",
+        "mi": 100.0
+      },
+      {
+        "file": "particle.py",
+        "mi": 100.0
+      },
+      {
+        "file": "pso_service.py",
+        "mi": 100.0
+      }
+    ],
+    "chromadb_queries": 1
+  }
+}

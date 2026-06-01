@@ -1,0 +1,14 @@
+{
+  "timestamp": "2026-05-30 12:28:00",
+  "project_name": "TextCNN",
+  "total_tokens": 0,
+  "ocl_retry_count": 0,
+  "self_test_pass_rate": 0.0,
+  "avg_cc": 0.0,
+  "avg_mi": 0.0,
+  "chromadb_hits": 0,
+  "extra": {
+    "status": "DAG_FAILURE",
+    "error": "Command '['C:\\\\Users\\\\lucag\\\\SwarmDev_Parallel\\\\.venv\\\\Scripts\\\\python.exe', '-m', 'pip', 'install', '-r', 'C:\\\\Users\\\\lucag\\\\SwarmDev_Parallel\\\\workspace\\\\.sandbox_test_f9cb2f8f\\\\requirements.txt', 'pytest', 'pytest-cov', 'httpx', '--quiet']' timed out after 120 seconds"
+  }
+}

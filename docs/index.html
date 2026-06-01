@@ -494,6 +494,81 @@ flowchart TD
             </div>
         </section>
 
+        <!-- BENCHMARK RESULTS -->
+        <section id="benchmark" class="content-section">
+            <h2 class="reveal">Benchmark: SwarmDev vs Baseline</h2>
+            <p class="reveal" style="text-align: center; color: var(--text-muted); margin-bottom: 3rem;">Risultati sul dataset DevEval (10 progetti Python). Modello: GPT-4o-mini (via OpenRouter)</p>
+            
+            <div class="benchmark-grid">
+                <!-- Metrica 1: Self-Test Pass Rate -->
+                <div class="card glass-panel reveal">
+                    <h3>Self-Test Pass Rate</h3>
+                    <p class="metric-desc">Percentuale di unit test auto-generati passati con successo. (Più alto è meglio)</p>
+                    <div class="chart-container">
+                        <div class="bar-group">
+                            <span class="bar-label">SwarmDev Parallel</span>
+                            <div class="bar-wrapper">
+                                <div class="bar fill-swarm" style="--target-width: 57.7%;"></div>
+                                <span class="bar-value">57.7%</span>
+                            </div>
+                        </div>
+                        <div class="bar-group">
+                            <span class="bar-label">ChatDev (Baseline)</span>
+                            <div class="bar-wrapper">
+                                <div class="bar fill-chatdev" style="--target-width: 0%;"></div>
+                                <span class="bar-value">0.0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Metrica 2: Maintainability Index -->
+                <div class="card glass-panel reveal delay-1">
+                    <h3>Maintainability Index (MI)</h3>
+                    <p class="metric-desc">Indice Radon (0-100). (Più alto è meglio, codice più manutenibile)</p>
+                    <div class="chart-container">
+                        <div class="bar-group">
+                            <span class="bar-label">SwarmDev Parallel</span>
+                            <div class="bar-wrapper">
+                                <div class="bar fill-swarm" style="--target-width: 97%;"></div>
+                                <span class="bar-value">97.0</span>
+                            </div>
+                        </div>
+                        <div class="bar-group">
+                            <span class="bar-label">ChatDev (Baseline)</span>
+                            <div class="bar-wrapper">
+                                <div class="bar fill-chatdev" style="--target-width: 90%;"></div>
+                                <span class="bar-value">90.0*</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 15px; border-top: 1px solid var(--glass-border); padding-top: 10px;">*Media per ChatDev calcolata escludendo i file non valutabili per SyntaxError generati dall'agente.</p>
+                </div>
+
+                <!-- Metrica 3: Cyclomatic Complexity -->
+                <div class="card glass-panel reveal delay-2">
+                    <h3>Cyclomatic Complexity (CC)</h3>
+                    <p class="metric-desc">Complessità Radon. (Più BASSO è meglio, codice più modulare)</p>
+                    <div class="chart-container">
+                        <div class="bar-group">
+                            <span class="bar-label">SwarmDev Parallel</span>
+                            <div class="bar-wrapper">
+                                <div class="bar fill-swarm" style="--target-width: 24%;"></div>
+                                <span class="bar-value">1.2</span>
+                            </div>
+                        </div>
+                        <div class="bar-group">
+                            <span class="bar-label">ChatDev (Baseline)</span>
+                            <div class="bar-wrapper">
+                                <div class="bar fill-chatdev warning" style="--target-width: 58%;"></div>
+                                <span class="bar-value">2.9</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- GETTING STARTED -->
         <section id="getting-started" class="content-section">
             <h2 class="reveal">Getting Started</h2>

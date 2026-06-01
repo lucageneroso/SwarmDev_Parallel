@@ -1,0 +1,62 @@
+{
+  "timestamp": "2026-05-31 15:57:33",
+  "framework": "ChatDev",
+  "project_name": "lice",
+  "total_tokens": 228175,
+  "self_test_pass_rate": 0.0,
+  "avg_cc": 1.6,
+  "avg_mi": 91.81,
+  "extra": {
+    "status": "COMPLETED",
+    "output_dir": "C:\\Users\\lucag\\SwarmDev_Parallel\\ChatDev\\WareHouse\\lice_20260531155141",
+    "self_test_details": {
+      "passed": 0,
+      "failed": 0,
+      "errors": 0,
+      "total": 0
+    },
+    "radon_cc_details": [
+      {
+        "file": "license_generator.py",
+        "name": "LicenseGenerator",
+        "type": "class",
+        "complexity": 2,
+        "rank": "A"
+      },
+      {
+        "file": "license_generator.py",
+        "name": "generate_license",
+        "type": "method",
+        "complexity": 2,
+        "rank": "A"
+      },
+      {
+        "file": "license_generator.py",
+        "name": "generate_license",
+        "type": "method",
+        "complexity": 2,
+        "rank": "A"
+      },
+      {
+        "file": "license_generator.py",
+        "name": "__init__",
+        "type": "method",
+        "complexity": 1,
+        "rank": "A"
+      },
+      {
+        "file": "license_generator.py",
+        "name": "__init__",
+        "type": "method",
+        "complexity": 1,
+        "rank": "A"
+      }
+    ],
+    "radon_mi_details": [
+      {
+        "file": "license_generator.py",
+        "mi": 91.81
+      }
+    ]
+  }
+}

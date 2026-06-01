@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-05-31 15:36:47",
+  "framework": "ChatDev",
+  "project_name": "TextCNN",
+  "total_tokens": 271162,
+  "self_test_pass_rate": 0.0,
+  "avg_cc": 0.0,
+  "avg_mi": 0.0,
+  "extra": {
+    "status": "COMPLETED",
+    "output_dir": "C:\\Users\\lucag\\SwarmDev_Parallel\\ChatDev\\WareHouse\\TextCNN_20260531152959",
+    "self_test_details": {
+      "passed": 0,
+      "failed": 0,
+      "errors": 0,
+      "total": 0
+    },
+    "radon_cc_details": [],
+    "radon_mi_details": []
+  }
+}

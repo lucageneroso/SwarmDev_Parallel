@@ -1,0 +1,73 @@
+{
+  "timestamp": "2026-05-31 16:06:02",
+  "framework": "ChatDev",
+  "project_name": "particle-swarm-optimization",
+  "total_tokens": 545372,
+  "self_test_pass_rate": 0.0,
+  "avg_cc": 1.33,
+  "avg_mi": 72.82,
+  "extra": {
+    "status": "COMPLETED",
+    "output_dir": "C:\\Users\\lucag\\SwarmDev_Parallel\\ChatDev\\WareHouse\\particle-swarm-optimization_20260531155739",
+    "self_test_details": {
+      "passed": 0,
+      "failed": 0,
+      "errors": 0,
+      "total": 0
+    },
+    "radon_cc_details": [
+      {
+        "file": "pso.py",
+        "name": "Particle",
+        "type": "class",
+        "complexity": 2,
+        "rank": "A"
+      },
+      {
+        "file": "pso.py",
+        "name": "evaluate",
+        "type": "method",
+        "complexity": 2,
+        "rank": "A"
+      },
+      {
+        "file": "pso.py",
+        "name": "__init__",
+        "type": "method",
+        "complexity": 1,
+        "rank": "A"
+      },
+      {
+        "file": "pso.py",
+        "name": "update_velocity",
+        "type": "method",
+        "complexity": 1,
+        "rank": "A"
+      },
+      {
+        "file": "pso.py",
+        "name": "update_position",
+        "type": "method",
+        "complexity": 1,
+        "rank": "A"
+      },
+      {
+        "file": "utils.py",
+        "name": "objective_function",
+        "type": "function",
+        "complexity": 1,
+        "rank": "A"
+      }
+    ],
+    "radon_mi_details": [
+      {
+        "file": "pso.py",
+        "mi": 54.8
+      },
+      {
+        "file": "utils.py",
+        "mi": 90.85
+      }
+    ]
+  }
+}

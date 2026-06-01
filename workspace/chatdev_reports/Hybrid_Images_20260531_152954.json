@@ -1,0 +1,63 @@
+{
+  "timestamp": "2026-05-31 15:29:54",
+  "framework": "ChatDev",
+  "project_name": "Hybrid_Images",
+  "total_tokens": 234262,
+  "self_test_pass_rate": 0.0,
+  "avg_cc": 3.25,
+  "avg_mi": 92.32,
+  "extra": {
+    "status": "COMPLETED",
+    "output_dir": "C:\\Users\\lucag\\SwarmDev_Parallel\\ChatDev\\WareHouse\\Hybrid_Images_20260531152335",
+    "self_test_details": {
+      "passed": 0,
+      "failed": 0,
+      "errors": 0,
+      "total": 0
+    },
+    "radon_cc_details": [
+      {
+        "file": "config.py",
+        "name": "Config",
+        "type": "class",
+        "complexity": 3,
+        "rank": "A"
+      },
+      {
+        "file": "config.py",
+        "name": "load_configurations",
+        "type": "method",
+        "complexity": 3,
+        "rank": "A"
+      },
+      {
+        "file": "config.py",
+        "name": "__init__",
+        "type": "method",
+        "complexity": 1,
+        "rank": "A"
+      },
+      {
+        "file": "request_handler.py",
+        "name": "handle_request",
+        "type": "function",
+        "complexity": 6,
+        "rank": "B"
+      }
+    ],
+    "radon_mi_details": [
+      {
+        "file": "config.py",
+        "mi": 100.0
+      },
+      {
+        "file": "main.py",
+        "mi": 100.0
+      },
+      {
+        "file": "request_handler.py",
+        "mi": 76.96
+      }
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "timestamp": "2026-05-30 12:24:27",
+  "project_name": "Hybrid_Images",
+  "total_tokens": 21172,
+  "ocl_retry_count": 3,
+  "self_test_pass_rate": 50.0,
+  "avg_cc": 1.25,
+  "avg_mi": 88.41,
+  "chromadb_hits": 0,
+  "extra": {
+    "status": "COMPLETED",
+    "workspace": "C:\\Users\\lucag\\SwarmDev_Parallel\\workspace\\project_20260530_122345",
+    "self_test_details": {
+      "passed": 3,
+      "failed": 3,
+      "errors": 0,
+      "total": 6
+    },
+    "radon_cc_details": [
+      {
+        "file": "routes.py",
+        "name": "filter_image",
+        "type": "function",
+        "complexity": 1,
+        "rank": "A"
+      },
+      {
+        "file": "routes.py",
+        "name": "merge_images_endpoint",
+        "type": "function",
+        "complexity": 1,
+        "rank": "A"
+      },
+      {
+        "file": "services.py",
+        "name": "apply_filter",
+        "type": "function",
+        "complexity": 2,
+        "rank": "A"
+      },
+      {
+        "file": "services.py",
+        "name": "merge_images",
+        "type": "function",
+        "complexity": 1,
+        "rank": "A"
+      }
+    ],
+    "radon_mi_details": [
+      {
+        "file": "main.py",
+        "mi": 100.0
+      },
+      {
+        "file": "routes.py",
+        "mi": 100.0
+      },
+      {
+        "file": "services.py",
+        "mi": 53.65
+      },
+      {
+        "file": "__init__.py",
+        "mi": 100.0
+      }
+    ],
+    "chromadb_queries": 1
+  }
+}

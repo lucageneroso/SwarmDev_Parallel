@@ -1,0 +1,24 @@
+timestamp,framework,project_name,total_tokens,self_test_pass_rate,avg_cc,avg_mi
+2026-05-31 13:11:25,ChatDev,ArXiv_digest,0,0.0,0.0,0.0
+2026-05-31 13:11:32,ChatDev,Hybrid_Images,0,0.0,0.0,0.0
+2026-05-31 13:11:39,ChatDev,TextCNN,0,0.0,0.0,0.0
+2026-05-31 13:11:46,ChatDev,chakin,0,0.0,0.0,0.0
+2026-05-31 13:11:53,ChatDev,geotext,0,0.0,0.0,0.0
+2026-05-31 13:23:43,ChatDev,ArXiv_digest,0,0.0,0.0,0.0
+2026-05-31 13:39:58,ChatDev,ArXiv_digest,254350,0.0,0.0,33.33
+2026-05-31 13:50:27,ChatDev,Hybrid_Images,283185,0.0,0.0,25.0
+2026-05-31 14:20:29,ChatDev,TextCNN,0,0.0,0.0,0.0
+2026-05-31 14:54:20,ChatDev,ArXiv_digest,260365,0.0,0.0,0.0
+2026-05-31 15:02:34,ChatDev,Hybrid_Images,942803,0.0,0.0,0.0
+2026-05-31 15:09:51,ChatDev,TextCNN,270433,0.0,0.0,55.56
+2026-05-31 15:16:18,ChatDev,chakin,244773,0.0,0.0,0.0
+2026-05-31 15:23:29,ChatDev,ArXiv_digest,184244,0.0,3.5,94.65
+2026-05-31 15:29:54,ChatDev,Hybrid_Images,234262,0.0,3.25,92.32
+2026-05-31 15:36:47,ChatDev,TextCNN,271162,0.0,0.0,0.0
+2026-05-31 15:42:52,ChatDev,chakin,222921,0.0,2.6,100.0
+2026-05-31 15:44:50,ChatDev,geotext,244916,0.0,0.0,0.0
+2026-05-31 15:51:35,ChatDev,hone,285126,0.0,0.0,0.0
+2026-05-31 15:57:33,ChatDev,lice,228175,0.0,1.6,91.81
+2026-05-31 16:06:02,ChatDev,particle-swarm-optimization,545372,0.0,1.33,72.82
+2026-05-31 16:13:41,ChatDev,readtime,343864,0.0,3.43,78.66
+2026-05-31 16:21:04,ChatDev,stocktrends,248304,0.0,4.5,100.0

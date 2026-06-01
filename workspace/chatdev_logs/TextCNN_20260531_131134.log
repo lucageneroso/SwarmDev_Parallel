@@ -1,0 +1,39 @@
+Traceback (most recent call last):
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\run.py", line 123, in <module>
+    main()
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\run.py", line 94, in main
+    design = load_config(
+             ^^^^^^^^^^^^
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\check\check.py", line 74, in load_config
+    data = prepare_design_mapping(raw_data, source=str(config_path))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\entity\config_loader.py", line 17, in prepare_design_mapping
+    resolve_design_placeholders(prepared, env_lookup=env_lookup, path=source or "root")
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\utils\vars_resolver.py", line 79, in resolve_design_placeholders
+    resolver.resolve(data, path=path)
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\utils\vars_resolver.py", line 32, in resolve
+    self._resolve_value(data, path, stack=())
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\utils\vars_resolver.py", line 45, in _resolve_value
+    value[key] = self._resolve_value(value[key], child_path, stack=stack)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\utils\vars_resolver.py", line 45, in _resolve_value
+    value[key] = self._resolve_value(value[key], child_path, stack=stack)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\utils\vars_resolver.py", line 40, in _resolve_value
+    value[idx] = self._resolve_value(item, extend_path(path, f"[{idx}]"), stack=stack)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\utils\vars_resolver.py", line 45, in _resolve_value
+    value[key] = self._resolve_value(value[key], child_path, stack=stack)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\utils\vars_resolver.py", line 45, in _resolve_value
+    value[key] = self._resolve_value(value[key], child_path, stack=stack)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\utils\vars_resolver.py", line 37, in _resolve_value
+    return self._resolve_string(value, path, stack)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\utils\vars_resolver.py", line 53, in _resolve_string
+    return self._lookup(var_name, path, stack)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucag\SwarmDev_Parallel\ChatDev\utils\vars_resolver.py", line 73, in _lookup
+    raise ConfigError(f"Unresolved placeholder '${{{name}}}'", path)
+entity.configs.base.ConfigError: C:\Users\lucag\SwarmDev_Parallel\ChatDev\yaml_instance\ChatDev_v1.yaml.graph.nodes[5].config.base_url: Unresolved placeholder '${BASE_URL}'

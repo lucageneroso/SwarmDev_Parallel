@@ -1,0 +1,102 @@
+{
+  "timestamp": "2026-05-30 12:22:11",
+  "project_name": "ArXiv_digest",
+  "total_tokens": 30249,
+  "ocl_retry_count": 0,
+  "self_test_pass_rate": 80.0,
+  "avg_cc": 1.43,
+  "avg_mi": 100.0,
+  "chromadb_hits": 0,
+  "extra": {
+    "status": "COMPLETED",
+    "workspace": "C:\\Users\\lucag\\SwarmDev_Parallel\\workspace\\project_20260530_122118",
+    "self_test_details": {
+      "passed": 4,
+      "failed": 1,
+      "errors": 0,
+      "total": 5
+    },
+    "radon_cc_details": [
+      {
+        "file": "routes.py",
+        "name": "search",
+        "type": "function",
+        "complexity": 1,
+        "rank": "A"
+      },
+      {
+        "file": "date_handler.py",
+        "name": "DateHandler",
+        "type": "class",
+        "complexity": 2,
+        "rank": "A"
+      },
+      {
+        "file": "date_handler.py",
+        "name": "get_current_date",
+        "type": "method",
+        "complexity": 1,
+        "rank": "A"
+      },
+      {
+        "file": "output_handler.py",
+        "name": "OutputHandler",
+        "type": "class",
+        "complexity": 2,
+        "rank": "A"
+      },
+      {
+        "file": "output_handler.py",
+        "name": "format_results",
+        "type": "method",
+        "complexity": 1,
+        "rank": "A"
+      },
+      {
+        "file": "query_handler.py",
+        "name": "QueryHandler",
+        "type": "class",
+        "complexity": 2,
+        "rank": "A"
+      },
+      {
+        "file": "query_handler.py",
+        "name": "fetch_results",
+        "type": "method",
+        "complexity": 1,
+        "rank": "A"
+      }
+    ],
+    "radon_mi_details": [
+      {
+        "file": "main.py",
+        "mi": 100.0
+      },
+      {
+        "file": "routes.py",
+        "mi": 100.0
+      },
+      {
+        "file": "__init__.py",
+        "mi": 100.0
+      },
+      {
+        "file": "date_handler.py",
+        "mi": 100.0
+      },
+      {
+        "file": "output_handler.py",
+        "mi": 100.0
+      },
+      {
+        "file": "query_handler.py",
+        "mi": 100.0
+      },
+      {
+        "file": "__init__.py",
+        "mi": 100.0
+      }
+    ],
+    "chromadb_queries": 1
+  }
+}

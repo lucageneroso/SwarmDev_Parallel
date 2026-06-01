@@ -1,0 +1,22 @@
+{
+  "timestamp": "2026-05-29 17:38:17",
+  "project": "ArXiv_digest",
+  "language": "python",
+  "status": "FAILURE",
+  "pass_at_1": 0,
+  "retry_count": 0,
+  "ocl_retry_count": 2,
+  "total_tokens": 33512,
+  "chromadb_queries": 1,
+  "chromadb_hits": 0,
+  "unit_tests": {
+    "passed": 0,
+    "failed": 1,
+    "total": 1
+  },
+  "acceptance_tests": {
+    "passed": 0,
+    "failed": 1,
+    "total": 1
+  }
+}

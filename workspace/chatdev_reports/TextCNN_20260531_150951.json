@@ -1,0 +1,113 @@
+{
+  "timestamp": "2026-05-31 15:09:51",
+  "framework": "ChatDev",
+  "project_name": "TextCNN",
+  "total_tokens": 270433,
+  "self_test_pass_rate": 0.0,
+  "avg_cc": 0.0,
+  "avg_mi": 55.56,
+  "extra": {
+    "status": "COMPLETED",
+    "output_dir": "C:\\Users\\lucag\\SwarmDev_Parallel\\ChatDev\\WareHouse\\TextCNN_20260531150239",
+    "self_test_details": {
+      "passed": 0,
+      "failed": 0,
+      "errors": 0,
+      "total": 0
+    },
+    "radon_cc_details": [
+      {
+        "file": "dataloader.py",
+        "name": "DataLoader",
+        "type": "class",
+        "complexity": 2,
+        "rank": "A"
+      },
+      {
+        "file": "dataloader.py",
+        "name": "TextDataset",
+        "type": "class",
+        "complexity": 2,
+        "rank": "A"
+      },
+      {
+        "file": "dataloader.py",
+        "name": "__init__",
+        "type": "method",
+        "complexity": 1,
+        "rank": "A"
+      },
+      {
+        "file": "dataloader.py",
+        "name": "load_data",
+        "type": "method",
+        "complexity": 1,
+        "rank": "A"
+      },
+      {
+        "file": "dataloader.py",
+        "name": "__init__",
+        "type": "method",
+        "complexity": 1,
+        "rank": "A"
+      },
+      {
+        "file": "dataloader.py",
+        "name": "load_data",
+        "type": "method",
+        "complexity": 1,
+        "rank": "A"
+      },
+      {
+        "file": "dataloader.py",
+        "name": "__len__",
+        "type": "method",
+        "complexity": 1,
+        "rank": "A"
+      },
+      {
+        "file": "dataloader.py",
+        "name": "__getitem__",
+        "type": "method",
+        "complexity": 1,
+        "rank": "A"
+      },
+      {
+        "file": "evaluator.py",
+        "name": "Evaluator",
+        "type": "class",
+        "complexity": 3,
+        "rank": "A"
+      },
+      {
+        "file": "evaluator.py",
+        "name": "compute_accuracy",
+        "type": "method",
+        "complexity": 2,
+        "rank": "A"
+      }
+    ],
+    "radon_mi_details": [
+      {
+        "file": "dataloader.py",
+        "mi": 100.0
+      },
+      {
+        "file": "evaluator.py",
+        "mi": 90.05
+      },
+      {
+        "file": "main.py",
+        "mi": 0.0
+      },
+      {
+        "file": "textcnn.py",
+        "mi": 87.74
+      },
+      {
+        "file": "trainer.py",
+        "mi": 0.0
+      }
+    ]
+  }
+}

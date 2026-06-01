@@ -1,0 +1,84 @@
+{
+  "timestamp": "2026-05-30 12:36:38",
+  "project_name": "hone",
+  "total_tokens": 47323,
+  "ocl_retry_count": 3,
+  "self_test_pass_rate": 55.56,
+  "avg_cc": 1.4,
+  "avg_mi": 100.0,
+  "chromadb_hits": 0,
+  "extra": {
+    "status": "COMPLETED",
+    "workspace": "C:\\Users\\lucag\\SwarmDev_Parallel\\workspace\\project_20260530_123556",
+    "self_test_details": {
+      "passed": 5,
+      "failed": 4,
+      "errors": 0,
+      "total": 9
+    },
+    "radon_cc_details": [
+      {
+        "file": "routes.py",
+        "name": "convert_csv_to_json",
+        "type": "function",
+        "complexity": 1,
+        "rank": "A"
+      },
+      {
+        "file": "file_service.py",
+        "name": "parse_csv_to_json",
+        "type": "function",
+        "complexity": 2,
+        "rank": "A"
+      },
+      {
+        "file": "error_handling.py",
+        "name": "handle_error",
+        "type": "function",
+        "complexity": 1,
+        "rank": "A"
+      },
+      {
+        "file": "file_management.py",
+        "name": "delete_file",
+        "type": "function",
+        "complexity": 2,
+        "rank": "A"
+      },
+      {
+        "file": "file_management.py",
+        "name": "save_file",
+        "type": "function",
+        "complexity": 1,
+        "rank": "A"
+      }
+    ],
+    "radon_mi_details": [
+      {
+        "file": "main.py",
+        "mi": 100.0
+      },
+      {
+        "file": "routes.py",
+        "mi": 100.0
+      },
+      {
+        "file": "__init__.py",
+        "mi": 100.0
+      },
+      {
+        "file": "file_service.py",
+        "mi": 100.0
+      },
+      {
+        "file": "error_handling.py",
+        "mi": 100.0
+      },
+      {
+        "file": "file_management.py",
+        "mi": 100.0
+      }
+    ],
+    "chromadb_queries": 1
+  }
+}

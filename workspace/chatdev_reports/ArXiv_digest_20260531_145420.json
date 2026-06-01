@@ -1,0 +1,34 @@
+{
+  "timestamp": "2026-05-31 14:54:20",
+  "framework": "ChatDev",
+  "project_name": "ArXiv_digest",
+  "total_tokens": 260365,
+  "self_test_pass_rate": 0.0,
+  "avg_cc": 0.0,
+  "avg_mi": 0.0,
+  "extra": {
+    "status": "COMPLETED",
+    "output_dir": "C:\\Users\\lucag\\SwarmDev_Parallel\\ChatDev\\WareHouse\\ArXiv_digest_20260531144726",
+    "self_test_details": {
+      "passed": 0,
+      "failed": 0,
+      "errors": 0,
+      "total": 0
+    },
+    "radon_cc_details": [],
+    "radon_mi_details": [
+      {
+        "file": "arxiv_query_tool.py",
+        "mi": 0.0
+      },
+      {
+        "file": "csv_handler.py",
+        "mi": 0.0
+      },
+      {
+        "file": "main.py",
+        "mi": 0.0
+      }
+    ]
+  }
+}

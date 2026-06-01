@@ -1091,3 +1091,80 @@ footer {
     .e2e-stage { width: 100%; align-items: center; }
     .e2e-svg { display: none; }
 }
+
+/* --- BENCHMARK CHARTS --- */
+.benchmark-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.metric-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.chart-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.bar-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.bar-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.bar-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    height: 30px;
+    position: relative;
+    border: 1px solid var(--glass-border);
+}
+
+.bar {
+    height: 100%;
+    border-radius: 8px;
+    width: 0;
+    transition: width 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.fill-swarm {
+    background: linear-gradient(90deg, var(--secondary), var(--primary));
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+}
+
+.fill-chatdev {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.fill-chatdev.warning {
+    background: rgba(255, 70, 70, 0.5);
+    box-shadow: 0 0 10px rgba(255, 70, 70, 0.3);
+}
+
+.bar-value {
+    position: absolute;
+    right: 10px;
+    font-weight: 800;
+    font-size: 0.85rem;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+/* Attivazione animazione al trigger del class "active" */
+.reveal.active .bar {
+    width: var(--target-width);
+}

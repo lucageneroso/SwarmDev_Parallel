@@ -1,0 +1,123 @@
+{
+  "timestamp": "2026-05-30 12:39:59",
+  "project_name": "lice",
+  "total_tokens": 39096,
+  "ocl_retry_count": 0,
+  "self_test_pass_rate": 33.33,
+  "avg_cc": 1.4,
+  "avg_mi": 100.0,
+  "chromadb_hits": 2,
+  "extra": {
+    "status": "COMPLETED",
+    "workspace": "C:\\Users\\lucag\\SwarmDev_Parallel\\workspace\\project_20260530_123917",
+    "self_test_details": {
+      "passed": 1,
+      "failed": 2,
+      "errors": 0,
+      "total": 3
+    },
+    "radon_cc_details": [
+      {
+        "file": "routes.py",
+        "name": "create_license",
+        "type": "function",
+        "complexity": 1,
+        "rank": "A"
+      },
+      {
+        "file": "file_handler.py",
+        "name": "FileHandler",
+        "type": "class",
+        "complexity": 2,
+        "rank": "A"
+      },
+      {
+        "file": "file_handler.py",
+        "name": "write_license_file",
+        "type": "method",
+        "complexity": 1,
+        "rank": "A"
+      },
+      {
+        "file": "language_detector.py",
+        "name": "LanguageDetector",
+        "type": "class",
+        "complexity": 2,
+        "rank": "A"
+      },
+      {
+        "file": "language_detector.py",
+        "name": "detect",
+        "type": "method",
+        "complexity": 1,
+        "rank": "A"
+      },
+      {
+        "file": "license_manager.py",
+        "name": "LicenseManager",
+        "type": "class",
+        "complexity": 2,
+        "rank": "A"
+      },
+      {
+        "file": "license_manager.py",
+        "name": "__init__",
+        "type": "method",
+        "complexity": 1,
+        "rank": "A"
+      },
+      {
+        "file": "license_manager.py",
+        "name": "create_license",
+        "type": "method",
+        "complexity": 1,
+        "rank": "A"
+      },
+      {
+        "file": "template_engine.py",
+        "name": "TemplateEngine",
+        "type": "class",
+        "complexity": 2,
+        "rank": "A"
+      },
+      {
+        "file": "template_engine.py",
+        "name": "get_template",
+        "type": "method",
+        "complexity": 1,
+        "rank": "A"
+      }
+    ],
+    "radon_mi_details": [
+      {
+        "file": "main.py",
+        "mi": 100.0
+      },
+      {
+        "file": "routes.py",
+        "mi": 100.0
+      },
+      {
+        "file": "__init__.py",
+        "mi": 100.0
+      },
+      {
+        "file": "file_handler.py",
+        "mi": 100.0
+      },
+      {
+        "file": "language_detector.py",
+        "mi": 100.0
+      },
+      {
+        "file": "license_manager.py",
+        "mi": 100.0
+      },
+      {
+        "file": "template_engine.py",
+        "mi": 100.0
+      }
+    ],
+    "chromadb_queries": 1
+  }
+}

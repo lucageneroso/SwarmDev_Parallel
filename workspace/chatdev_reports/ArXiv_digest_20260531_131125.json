@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-05-31 13:11:25",
+  "framework": "ChatDev",
+  "project_name": "ArXiv_digest",
+  "total_tokens": 0,
+  "self_test_pass_rate": 0.0,
+  "avg_cc": 0.0,
+  "avg_mi": 0.0,
+  "extra": {
+    "status": "CHATDEV_FAILURE"
+  }
+}
